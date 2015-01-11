@@ -8,6 +8,7 @@ import android.text.Spannable;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.text.style.TypefaceSpan;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -37,7 +38,7 @@ public class SignupActivity extends ActionBarActivity {
                                 ViewGroup parent) {
                 View v = super.getView(position, convertView, parent);
                 ((TextView)v).setTypeface(roboto);
-                ((TextView)v).setTextSize(14);
+                ((TextView)v).setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
                 v.setPadding(0,0,0,0);
                 return v;
             }
@@ -47,7 +48,7 @@ public class SignupActivity extends ActionBarActivity {
                 View v = super.getDropDownView(position, convertView,
                         parent);
                 ((TextView)v).setTypeface(roboto);
-                ((TextView)v).setTextSize(14);
+                ((TextView)v).setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
                 v.setPadding(0,0,0,0);
                 return v;
             }

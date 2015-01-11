@@ -31,7 +31,9 @@
         android:textSize="14sp"
         android:textIsSelectable="true"
         android:layout_below="@+id/mainheadline"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_mail"
+        android:drawablePadding="4dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -44,7 +46,9 @@
         android:layout_alignLeft="@+id/email"
         android:layout_alignStart="@+id/email"
         android:textColor="@color/abc_secondary_text_material_dark"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:drawableLeft="@drawable/ic_user"
+        android:drawablePadding="4dp"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -57,7 +61,9 @@
         android:layout_alignStart="@+id/username"
         android:textColor="@color/abc_secondary_text_material_dark"
         android:text="Password"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:drawableLeft="@drawable/ic_lock"
+        android:drawablePadding="4dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -101,6 +107,7 @@
         android:layout_alignLeft="@+id/password"
         android:layout_alignStart="@+id/password"
         android:layout_marginTop="-5dp"
+        android:background="@drawable/ic_dropdown"
         />
 
     <ImageView
