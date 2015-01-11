@@ -6,7 +6,12 @@
     <string name="action_settings">Settings</string>
 
     <!-- Sign up page -->
+    <string name="kanshucaption">It doesn\'t matter how advanced the text is.
+        With Kanshu everything will feel aligned to your level of proficiency.</string>
     <string name="signup_text">Sign Up</string>
+    <string name="signin_text">Already have an account? Sign In</string>
+    <string name="username">Username</string>
+    <string name="email">E-mail</string>
     <string name="readinglevel_picker_prompt">My Current Reading Ability</string>
     <string-array name="readinglevels">
         <item>My Current Reading Ability</item>

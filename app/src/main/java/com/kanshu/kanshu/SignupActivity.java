@@ -1,10 +1,16 @@
 package com.kanshu.kanshu;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
+import android.text.style.TypefaceSpan;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
@@ -23,6 +29,7 @@ public class SignupActivity extends ActionBarActivity {
         signUpSpinner = (Spinner)findViewById(R.id.spinner);
         String[] levelsArray = getResources().getStringArray(R.array.readinglevels);
         final Typeface roboto = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Thin.ttf");
+        final Typeface robotoMedium = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Medium.ttf");
         ArrayAdapter adapter = new ArrayAdapter<String>(
                 this, R.layout.support_simple_spinner_dropdown_item, levelsArray) {
             @Override
@@ -31,6 +38,7 @@ public class SignupActivity extends ActionBarActivity {
                 View v = super.getView(position, convertView, parent);
                 ((TextView)v).setTypeface(roboto);
                 ((TextView)v).setTextSize(14);
+                v.setPadding(0,0,0,0);
                 return v;
             }
             @Override
@@ -40,17 +48,26 @@ public class SignupActivity extends ActionBarActivity {
                         parent);
                 ((TextView)v).setTypeface(roboto);
                 ((TextView)v).setTextSize(14);
+                v.setPadding(0,0,0,0);
                 return v;
             }
         };
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         signUpSpinner.setAdapter(adapter);
         TextView kanshuText = (TextView) findViewById(R.id.mainheadline);
+        kanshuText.setText(R.string.kanshucaption, TextView.BufferType.SPANNABLE);
         kanshuText.setTypeface(roboto);
+        int startPos = getString(R.string.kanshucaption).indexOf("Kanshu");
+        ((Spannable) kanshuText.getText()).setSpan(new StyleSpan(Typeface.BOLD), startPos, startPos + 6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ((Spannable) kanshuText.getText()).setSpan(new ForegroundColorSpan(Color.parseColor("#ff9800")),startPos, startPos+6, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         ((TextView) findViewById(R.id.signin)).setTypeface(roboto);
         ((EditText) findViewById(R.id.username)).setTypeface(roboto);
         ((EditText) findViewById(R.id.password)).setTypeface(roboto);
         ((EditText) findViewById(R.id.email)).setTypeface(roboto);
+        ((TextView) findViewById(R.id.registerText)).setTypeface(roboto);
+        ((TextView) findViewById(R.id.skipText)).setTypeface(roboto);
+        ((Button) findViewById(R.id.button)).setTypeface(robotoMedium);
+        ((TextView) findViewById(R.id.next)).setTypeface(robotoMedium);
     }
 
 
