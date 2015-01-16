@@ -1,6 +1,7 @@
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Base application theme. -->
+<resources>
+
    <style name="AppTheme" parent="Base.V21.Theme.AppCompat">
+       <item name="android:windowContentOverlay">@null</item>
        <item name="colorPrimary">@color/primary_light_red</item>
        <item name="colorPrimaryDark">@color/primary_dark_red</item>
    </style>
