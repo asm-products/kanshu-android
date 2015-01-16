@@ -70,7 +70,7 @@
                     android:layout_marginLeft="15dp"
                     android:textSize="10sp"
                     android:text="22"
-                    android:textColor=""/>
+                    android:textColor="@color/article_dart_grey"/>
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
                         android:layout_marginLeft="15dp"
                         android:textSize="10sp"
                         android:text="23"
-                        android:textColor=""/>
+                        android:textColor="@color/article_dart_grey"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
                     android:layout_marginLeft="3dp"
                     android:textSize="12sp"
                     android:text="comments"
-                    android:textColor=""/>
+                    android:textColor="@color/article_dart_grey"/>
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
                     android:layout_marginRight="15dp"
                     android:textSize="10sp"
                     android:text="半月谈, today, 4:55PM"
-                    android:textColor=""/>
+                    android:textColor="@color/article_dart_grey"/>
                 </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
