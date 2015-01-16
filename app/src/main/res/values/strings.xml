@@ -16,6 +16,10 @@
     <string name="username">Username</string>
     <string name="email">E-mail</string>
     <string name="readinglevel_picker_prompt">My Current Reading Ability</string>
+    <!-- Sign in page -->
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login_button">Sign In</string>
+
     <string-array name="readinglevels">
         <item>My Current Reading Ability</item>
         <item>Absolute Beginner</item>
@@ -26,5 +30,7 @@
         <item>HSK 5</item>
         <item>HSK 6</item>
     </string-array>
+
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>

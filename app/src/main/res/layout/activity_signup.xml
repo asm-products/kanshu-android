@@ -182,7 +182,10 @@
         android:textSize="10sp"
         android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
-        android:textColor="#ff3cc4ff" />
+        android:textColor="#ff3cc4ff"
+        android:onClick="onSelectLogInPage"
+        android:clickable="true"
+        />
 
 
 </RelativeLayout>

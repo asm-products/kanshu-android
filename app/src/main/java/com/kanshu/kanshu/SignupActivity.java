@@ -1,5 +1,6 @@
 package com.kanshu.kanshu;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
@@ -92,5 +93,10 @@ public class SignupActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onSelectLogInPage(View clicked)
+    {
+        startActivity(new Intent(this, LoginActivity.class));
     }
 }
