@@ -16,6 +16,7 @@
     <string name="username">Username</string>
     <string name="email">E-mail</string>
     <string name="readinglevel_picker_prompt">My Current Reading Ability</string>
+
     <string-array name="readinglevels">
         <item>My Current Reading Ability</item>
         <item>Absolute Beginner</item>
@@ -26,5 +27,13 @@
         <item>HSK 5</item>
         <item>HSK 6</item>
     </string-array>
+
+    <string name="title_activity_article">ArticleActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
 
 </resources>

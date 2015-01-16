@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_light_red">#EB393B</color>
+    <color name="primary_dark_red">#E5282D</color>
+    <color name="article_title_orange">#FFC868</color>
+</resources>
