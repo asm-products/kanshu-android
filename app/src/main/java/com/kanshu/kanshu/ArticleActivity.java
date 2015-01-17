@@ -1,25 +1,15 @@
 package com.kanshu.kanshu;
 
 import android.support.v7.app.ActionBar;
-import android.app.Activity;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 
 public class ArticleActivity extends ActionBarActivity
@@ -129,7 +119,7 @@ public class ArticleActivity extends ActionBarActivity
 
         @Override
         public Fragment getItem(int i) {
-            Fragment fragment = new ArticleFragment();
+            Fragment fragment = new ArticleListFragment();
             return fragment;
         }
 

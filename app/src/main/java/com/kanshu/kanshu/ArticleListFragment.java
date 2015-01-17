@@ -4,7 +4,6 @@ package com.kanshu.kanshu;
  * Created by zhou on 1/15/15.
  */
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,7 +18,7 @@ import java.util.List;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class ArticleFragment extends Fragment {
+public class ArticleListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private LinearLayoutManager mLayoutManager;
@@ -33,15 +32,15 @@ public class ArticleFragment extends Fragment {
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static ArticleFragment newInstance(int sectionNumber) {
-        ArticleFragment fragment = new ArticleFragment();
+    public static ArticleListFragment newInstance(int sectionNumber) {
+        ArticleListFragment fragment = new ArticleListFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public ArticleFragment() {
+    public ArticleListFragment() {
     }
 
     @Override
