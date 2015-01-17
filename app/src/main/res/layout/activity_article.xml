@@ -7,13 +7,22 @@
     android:layout_height="match_parent"
     tools:context="com.kanshu.kanshu.ArticleActivity">
 
-    <RelativeLayout
+    <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:elevation="0dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"/>
 
         <com.kanshu.kanshu.SlidingTabLayout
             android:id="@+id/sliding_tabs"
@@ -25,10 +34,9 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sliding_tabs"/>
+            android:layout_height="wrap_content"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <!-- android:layout_gravity="start" tells DrawerLayout to treat
          this as a sliding drawer on the left side for left-to-right
