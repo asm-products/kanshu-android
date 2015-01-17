@@ -87,6 +87,7 @@
         android:layout_marginTop="10sp"
         android:nestedScrollingEnabled="false"
         android:layout_below="@+id/signin"
+        android:layout_marginBottom="15sp"
         android:layout_centerHorizontal="true"
         android:minHeight="30dp"
         android:minWidth="68dp"/>
@@ -181,7 +182,7 @@
         android:layout_below="@id/imageView"
         android:layout_toLeftOf="@+id/email"
         android:layout_toStartOf="@+id/email"
-        android:layout_alignBottom="@+id/spinner"
+        android:layout_alignBottom="@+id/signin"
         android:layout_marginRight="3sp"
  />
 
