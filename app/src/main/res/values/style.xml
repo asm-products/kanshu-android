@@ -1,9 +1,9 @@
 <resources>
 
    <style name="AppTheme" parent="Base.V21.Theme.AppCompat">
-       <item name="android:windowContentOverlay">@null</item>
        <item name="colorPrimary">@color/primary_light_red</item>
        <item name="colorPrimaryDark">@color/primary_dark_red</item>
+       <item name="windowActionBar">false</item>
    </style>
 
 </resources>
