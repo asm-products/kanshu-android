@@ -1,9 +1,13 @@
 package com.kanshu.kanshu;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -22,11 +26,36 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         // add image source later
         public TextView titleTextView;
         public TextView summaryTextView;
+        public ListView commentListView;
+        public ImageView commentBottom;
+        public CardView cardView;
+        public LinearLayout commentLayout;
 
         public ArticleViewHolder(View v) {
             super(v);
             titleTextView = (TextView)v.findViewById(R.id.article_title);
             summaryTextView = (TextView)v.findViewById(R.id.article_summary);
+            cardView = (CardView)v.findViewById(R.id.card_view);
+            commentLayout = (LinearLayout)v.findViewById((R.id.article_card_comment_layout));
+            commentBottom = (ImageView)v.findViewById(R.id.article_card_comment_bottom);
+            commentBottom.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final float scale = v.getContext().getResources().getDisplayMetrics().density;
+                    if (commentLayout.getVisibility() == View.VISIBLE){
+                        commentLayout.setVisibility(View.GONE);
+                        cardView.getLayoutParams().height = (int) (140 * scale + 0.5f);
+                    }
+                    else{
+                        commentLayout.setVisibility(View.VISIBLE);
+                        cardView.getLayoutParams().height = (int) (340 * scale + 0.5f);
+                    }
+                }
+            });
+            String[] dummy_data = {"1", "2", "3", "4", "5"};
+            ArticleListCommentAdapter adapter = new ArticleListCommentAdapter(v.getContext(), dummy_data);
+            commentListView = (ListView)v.findViewById(R.id.article_card_comment_list);
+            commentListView.setAdapter(adapter);
         }
     }
 
