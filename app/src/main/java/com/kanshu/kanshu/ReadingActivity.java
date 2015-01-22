@@ -23,7 +23,7 @@ public class ReadingActivity extends ActionBarActivity
 
         //Needed to set up the drawer.
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        getSupportActionBar().setTitle(getTitle());
+        getSupportActionBar().setTitle(R.string.app_name);
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
