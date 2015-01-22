@@ -1,5 +1,6 @@
 package com.kanshu.kanshu;
 
+import android.net.Uri;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,10 +9,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class ReadingActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, ReadingViewFragment.OnFragmentClickListener {
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
     @Override
@@ -21,6 +23,7 @@ public class ReadingActivity extends ActionBarActivity
 
         //Needed to set up the drawer.
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        getSupportActionBar().setTitle(getTitle());
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
@@ -55,5 +58,10 @@ public class ReadingActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+    }
+
+    @Override
+    public void onFragmentClick(View v) {
+
     }
 }
