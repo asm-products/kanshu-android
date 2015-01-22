@@ -23,6 +23,10 @@ import android.widget.TextView;
 
 public class SignupActivity extends ActionBarActivity {
 
+
+    //skip button
+    TextView skipTv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Spinner signUpSpinner;
@@ -32,6 +36,8 @@ public class SignupActivity extends ActionBarActivity {
         String[] levelsArray = getResources().getStringArray(R.array.readinglevels);
         final Typeface roboto = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Thin.ttf");
         final Typeface robotoMedium = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Medium.ttf");
+        skipTv = (TextView) findViewById(R.id.skipText);
+
         ArrayAdapter adapter = new ArrayAdapter<String>(
                 this, R.layout.support_simple_spinner_dropdown_item, levelsArray) {
             @Override
@@ -93,6 +99,15 @@ public class SignupActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void onClick(View v){
+        int id = v.getId();
+        //intent var, we will need after
+        Intent in = new Intent();
+        if (id == skipTv.getId()){
+            in = new Intent(this,TopicsActivity.class);
+        }
+        startActivity(in);
     }
 
     public void onSelectLogInPage(View clicked)

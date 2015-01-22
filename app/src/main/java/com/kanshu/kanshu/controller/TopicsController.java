@@ -1,0 +1,44 @@
+package com.kanshu.kanshu.controller;
+
+import com.kanshu.kanshu.Model.Topic;
+
+import java.util.ArrayList;
+
+/**
+ * Created by alouanemed on 22-01-2015.
+ * this class is responsable for all the operations related to topics
+ */
+public class TopicsController {
+
+    private ArrayList<Topic> mTopicsList;
+
+    public TopicsController(){
+        mTopicsList = new ArrayList<Topic>();
+    }
+
+    //Let's fill the list with dummy data
+    public void getTopics(){
+        mTopicsList.add( new Topic("Science","x "));
+        mTopicsList.add( new Topic("Technology","x "));
+        mTopicsList.add( new Topic("Gaming"," x"));
+        mTopicsList.add( new Topic("Culture","x"));
+        mTopicsList.add( new Topic("Art","x"));
+        mTopicsList.add( new Topic("Design","x"));
+        mTopicsList.add( new Topic("Locales","x"));
+        mTopicsList.add( new Topic("Travel","x"));
+        mTopicsList.add( new Topic("Stores","x"));
+        mTopicsList.add( new Topic("Photography","x"));
+        mTopicsList.add( new Topic("Dance","x"));
+        mTopicsList.add( new Topic("Music","x"));
+
+    }
+
+
+    public ArrayList<Topic> getmTopicsList() {
+        return mTopicsList;
+    }
+
+    public void setmTopicsList(ArrayList<Topic> mTopicsList) {
+        this.mTopicsList = mTopicsList;
+    }
+}

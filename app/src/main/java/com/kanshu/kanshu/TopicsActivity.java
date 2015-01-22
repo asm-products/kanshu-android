@@ -1,0 +1,136 @@
+package com.kanshu.kanshu;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.AsyncTask;
+import android.app.ProgressDialog;
+import android.util.Log;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.graphics.Typeface;
+import android.widget.TextView;
+
+import com.kanshu.kanshu.Model.Topic;
+import com.kanshu.kanshu.controller.TopicsController;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import android.view.View;
+
+/**
+ * Created by alouanemed on 22-01-2015.
+ */
+public class TopicsActivity extends Activity {
+
+    //dialog
+    ProgressDialog dialog = null;
+    //controller var
+    TopicsController mTopicsController;
+    //we will store the selected IDs instead of titles
+    private ArrayList<Integer>  mChosenTopicsListIDs;
+    int inc = 0;
+
+    //TextView tvTopicsTitle;
+    GridView mGridview;
+    Button btnTopics_Next;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_topics);
+        btnTopics_Next = (Button) findViewById(R.id.Topics_Next);
+        mGridview = (GridView) findViewById(R.id.list);
+
+        mTopicsController = new TopicsController();
+        mChosenTopicsListIDs = new ArrayList<Integer>();
+        new getTopicsAsync().execute();
+
+        mGridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
+                String mTopicTitle = ((TextView) v.findViewById(R.id.topicTitle))
+                        .getText().toString();
+                ImageView mTopicPic = ((ImageView) v.findViewById(R.id.topic_image));
+
+				if (!mChosenTopicsListIDs.isEmpty()){
+					if (mChosenTopicsListIDs.contains(position)) {
+						//duplicate !
+						mChosenTopicsListIDs.remove(mChosenTopicsListIDs.indexOf(position));
+						mTopicPic.setBackgroundResource(android.R.color.transparent);
+					} else {
+						//we are good let's add new one
+						mChosenTopicsListIDs.add(position);
+						mTopicPic.setBackgroundResource(R.drawable.circle_border);
+					}
+				}else{
+                    mChosenTopicsListIDs.add(position);
+                    mTopicPic.setBackgroundResource(R.drawable.circle_border);
+                }
+                Log.e("Msg","size===>"+ mChosenTopicsListIDs.size());
+                if (!mChosenTopicsListIDs.isEmpty()){
+                    btnTopics_Next.setEnabled(true);
+                    btnTopics_Next.setBackgroundColor(Color.parseColor("#d32f2f"));
+                }else{
+                    btnTopics_Next.setEnabled(false);
+                    btnTopics_Next.setBackgroundColor(Color.parseColor("#ffffffff"));
+                }
+            }
+        });
+
+        btnTopics_Next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!mChosenTopicsListIDs.isEmpty()){
+                    getIDS();
+                }
+            }
+        });
+    }
+
+
+    public void getIDS(){
+        Iterator it = mChosenTopicsListIDs.iterator();
+        Log.e("Msg","size===>"+ mChosenTopicsListIDs.size());
+        while (it.hasNext()){
+            Log.e("Msg",it.next() + "");
+        }
+    }
+    //AsyncTask class to get the topics
+    private class getTopicsAsync extends AsyncTask<Void, Void, Void> {
+
+        //before executing let's show a dialog to the user
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            dialog = ProgressDialog.show(TopicsActivity.this, "", "please wait...", true);
+
+        }
+
+        //do the job in InBackground while the dialog is shown
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            mTopicsController.getTopics();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            // Dismiss the progress dialog
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+            Typeface tfBold = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
+            ArrayList<Topic> mTopicsList = mTopicsController.getmTopicsList();
+            ListAdapter adapter = new TopicsAdapter(TopicsActivity.this,mTopicsList, tfBold, mTopicsController);
+            mGridview.setAdapter(adapter);
+            this.cancel(true);
+        }
+
+    }
+}
