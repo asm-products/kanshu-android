@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/titletab"
-    android:background="@color/primary_light_red">
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/titletab"
+              android:background="@color/primary_light_red">
+
     <ImageView
         android:id="@+id/tabimage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
-        android:layout_marginLeft="2dp"
-        />
+        android:layout_marginLeft="2dp"/>
+
     <TextView
         android:id="@+id/tabtext"
         android:layout_width="match_parent"
