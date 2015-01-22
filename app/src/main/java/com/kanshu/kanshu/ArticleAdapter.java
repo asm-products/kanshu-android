@@ -1,18 +1,24 @@
 package com.kanshu.kanshu;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
 import java.util.List;
+
 
 /**
  * Created by zhou on 1/15/15.
  */
 public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Article> articleList;
+    private Activity thisContext;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -46,6 +52,11 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         articleList = lst;
     }
 
+    public ArticleAdapter(Activity context, List<Article> lst)
+    {
+        articleList = lst;
+        thisContext = context;
+    }
     // Create new views (invoked by the layout manager)
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent,
@@ -62,6 +73,12 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 View v1 = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.article_card, parent, false);
                 RecyclerView.ViewHolder vh1 = new ArticleViewHolder(v1);
+                v1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        thisContext.startActivity(new Intent(thisContext, ReadingActivity.class));
+                    }
+                });
                 return vh1;
         }
     }

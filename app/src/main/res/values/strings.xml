@@ -4,6 +4,9 @@
     <string name="app_name">Kanshu</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_like">Favorite</string>
+    <string name="action_comment">Comment</string>
+    <string name="action_share">Share</string>
 
     <!-- Sign up page -->
     <string name="kanshucaption">It doesn\'t matter how advanced the text is.
@@ -32,7 +35,6 @@
     </string-array>
 
     <string name="title_activity_login">LoginActivity</string>
-
     <string name="title_activity_article">ArticleActivity</string>
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
@@ -40,5 +42,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
+    <string name="title_activity_reading">ReadingActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

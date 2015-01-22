@@ -99,4 +99,9 @@ public class SignupActivity extends ActionBarActivity {
     {
         startActivity(new Intent(this, LoginActivity.class));
     }
+
+    public void onSignUp(View clicked)
+    {
+        startActivity(new Intent(this, ArticleActivity.class));
+    }
 }

@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="com.kanshu.kanshu.ReadingViewFragment"
+    android:orientation="vertical"
+    android:background="@color/background_material_light"
+    >
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginStart="30dp"
+    android:layout_marginLeft="30dp"
+    android:id="@+id/levelSliderFrame">
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/slider_height"
+        android:maxHeight="@dimen/slider_height"
+        android:progressDrawable="@drawable/hsk_slider_progress"
+        android:thumb="@drawable/hsk_level_slider_control"
+        android:id="@+id/levelSlider"/>
+</FrameLayout>
+
+</RelativeLayout>

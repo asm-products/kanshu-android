@@ -111,7 +111,9 @@
                 android:layout_marginBottom="15sp"
                 android:layout_centerHorizontal="true"
                 android:minHeight="30dp"
-                android:minWidth="68dp"/>
+                android:minWidth="68dp"
+                android:clickable="true"
+                android:onClick="onSignUp"/>
 
             <Spinner
                 android:layout_width="wrap_content"
