@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primary_dark_red">
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignTop="@+id/user_card_layout"
+        android:layout_alignBottom="@id/user_card_layout"
+        android:layout_alignLeft="@id/user_card_layout"
+        android:layout_alignRight="@id/user_card_layout"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:id="@+id/background"/>
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/primary_dark_red">
-       <ImageView
+    android:id="@+id/user_card_layout">
+       <de.hdodenhof.circleimageview.CircleImageView
            android:layout_width="80sp"
            android:layout_height="80sp"
            android:paddingBottom="20sp"
@@ -26,3 +41,4 @@
         android:id="@+id/user_level"
         android:paddingBottom="15dp"/>
 </LinearLayout>
+</RelativeLayout>
