@@ -22,6 +22,7 @@
     <!-- Sign in page -->
     <string name="forgot_password">Forgot password?</string>
     <string name="login_button">Sign In</string>
+    <string name="Next_button">Done</string>
 
     <string-array name="readinglevels">
         <item>My Current Reading Ability</item>
@@ -45,5 +46,6 @@
     <string name="action_example">Example action</string>
     <string name="title_activity_reading">ReadingActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="topics_activity_title">choose a topic</string>
 
 </resources>

@@ -152,6 +152,8 @@
                     android:textSize="10sp"
                     android:textAllCaps="true"
                     android:id="@+id/skipText"
+                    android:onClick="onClick"
+                    android:clickable="true"
                     android:layout_alignParentBottom="true"
                     android:layout_gravity="bottom"
                     android:layout_alignParentLeft="true"
