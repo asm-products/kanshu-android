@@ -6,13 +6,14 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="-20dp"
         android:layout_alignTop="@+id/user_card_layout"
         android:layout_alignBottom="@id/user_card_layout"
         android:layout_alignLeft="@id/user_card_layout"
         android:layout_alignRight="@id/user_card_layout"
         android:layout_centerInParent="true"
         android:adjustViewBounds="true"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:id="@+id/background"/>
 <LinearLayout
     android:layout_width="match_parent"

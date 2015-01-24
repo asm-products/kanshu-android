@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -28,7 +30,7 @@ public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-
+        final Typeface robotoMedium = Typeface.createFromAsset(parentContext.getAssets(),"fonts/Roboto-Medium.ttf");
         // First let's verify the convertView is not null
         if (convertView == null) {
             // This a new view we inflate the new layout
@@ -70,6 +72,23 @@ public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
                 c.drawBitmap(profile, 0, 0, paint);
                 ImageView backgroundFrame = (ImageView) convertView.findViewById(R.id.background);
                 backgroundFrame.setImageBitmap(filteredBitmap);
+
+                //other user info
+                User userData = ((NavigationDrawerFragment.NavigationDrawerData)parentContext).getCurrentUser();
+                TextView username = (TextView) convertView.findViewById(R.id.user_name);
+                username.setText(userData.getUserName());
+                TextView userlevel = (TextView) convertView.findViewById(R.id.user_level);
+                userlevel.setText(userData.getUserLevel());
+                userlevel.setTypeface(robotoMedium);
+                username.setTypeface(robotoMedium);
+            }
+            else{
+                LinearLayout linearLayout = (LinearLayout) convertView;
+                for(int i = 0; i < linearLayout.getChildCount();i++)
+                {
+                    if(linearLayout.getChildAt(i) instanceof TextView)
+                        ((TextView) linearLayout.getChildAt(i)).setTypeface(robotoMedium);
+                }
             }
         }
 
