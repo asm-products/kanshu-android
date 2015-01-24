@@ -18,18 +18,18 @@ public class TopicsController {
 
     //Let's fill the list with dummy data
     public void getTopics(){
-        mTopicsList.add( new Topic("Science","x "));
-        mTopicsList.add( new Topic("Technology","x "));
-        mTopicsList.add( new Topic("Gaming"," x"));
-        mTopicsList.add( new Topic("Culture","x"));
-        mTopicsList.add( new Topic("Art","x"));
-        mTopicsList.add( new Topic("Design","x"));
-        mTopicsList.add( new Topic("Locales","x"));
-        mTopicsList.add( new Topic("Travel","x"));
-        mTopicsList.add( new Topic("Stores","x"));
-        mTopicsList.add( new Topic("Photography","x"));
-        mTopicsList.add( new Topic("Dance","x"));
-        mTopicsList.add( new Topic("Music","x"));
+        mTopicsList.add( new Topic("Science","tpic"));
+        mTopicsList.add( new Topic("Technology",""));
+        mTopicsList.add( new Topic("Gaming",""));
+        mTopicsList.add( new Topic("Culture",""));
+        mTopicsList.add( new Topic("Art","tpic"));
+        mTopicsList.add( new Topic("Design",""));
+        mTopicsList.add( new Topic("Locales",""));
+        mTopicsList.add( new Topic("Travel",""));
+        mTopicsList.add( new Topic("Stores","tpic"));
+        mTopicsList.add( new Topic("Photography",""));
+        mTopicsList.add( new Topic("Dance",""));
+        mTopicsList.add( new Topic("Music",""));
 
     }
 

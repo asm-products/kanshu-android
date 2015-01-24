@@ -22,6 +22,8 @@ import java.util.Iterator;
 
 import android.view.View;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 /**
  * Created by alouanemed on 22-01-2015.
  */
@@ -55,21 +57,22 @@ public class TopicsActivity extends Activity {
 
                 String mTopicTitle = ((TextView) v.findViewById(R.id.topicTitle))
                         .getText().toString();
-                ImageView mTopicPic = ((ImageView) v.findViewById(R.id.topic_image));
+                CircleImageView mTopicPic = ((CircleImageView) v.findViewById(R.id.topic_image));
 
 				if (!mChosenTopicsListIDs.isEmpty()){
 					if (mChosenTopicsListIDs.contains(position)) {
 						//duplicate !
 						mChosenTopicsListIDs.remove(mChosenTopicsListIDs.indexOf(position));
-						mTopicPic.setBackgroundResource(android.R.color.transparent);
+                        mTopicPic.setBorderWidth(0);
 					} else {
 						//we are good let's add new one
 						mChosenTopicsListIDs.add(position);
-						mTopicPic.setBackgroundResource(R.drawable.circle_border);
-					}
+                        mTopicPic.setBorderColor(Color.parseColor("#D5FF79"));
+                        mTopicPic.setBorderWidth(8);					}
 				}else{
                     mChosenTopicsListIDs.add(position);
-                    mTopicPic.setBackgroundResource(R.drawable.circle_border);
+                    mTopicPic.setBorderColor(Color.parseColor("#D5FF79"));
+                    mTopicPic.setBorderWidth(8);
                 }
                 Log.e("Msg","size===>"+ mChosenTopicsListIDs.size());
                 if (!mChosenTopicsListIDs.isEmpty()){

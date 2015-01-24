@@ -4,12 +4,14 @@ package com.kanshu.kanshu;
  * Created by med on 22-01-2015.
  */
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,10 +73,11 @@ public class TopicsAdapter extends BaseAdapter {
         }
 
         if (!TextUtils.isEmpty(mTopicsList.get(position).getImgURL())) {
-            Picasso.with(activity).load(R.drawable.kanshu).into(holder.IvTopicImg);
-
+            //we will use drawbale .. for now
+            int id = activity.getResources().getIdentifier((mTopicsList.get(position).getImgURL()), "drawable", activity.getPackageName());
+            Picasso.with(activity).load(id).into(holder.IvTopicImg);
          } else {
-            holder.IvTopicImg.setVisibility(View.GONE);
+            Picasso.with(activity).load(R.drawable.kanshu).into(holder.IvTopicImg);
         }
          return v;
     }

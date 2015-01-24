@@ -25,6 +25,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:21.0.+'
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile group:'com.squareup.picasso', name:'picasso', version:'2.3.2'
+    compile 'de.hdodenhof:circleimageview:1.2.1'
 
 
 }
