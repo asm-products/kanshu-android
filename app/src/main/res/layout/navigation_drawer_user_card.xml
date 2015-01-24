@@ -5,19 +5,24 @@
     android:orientation="vertical"
     android:background="@color/primary_dark_red">
        <ImageView
-           android:layout_width="100sp"
-           android:layout_height="200sp"
+           android:layout_width="80sp"
+           android:layout_height="80sp"
+           android:paddingBottom="20sp"
            android:src="@drawable/kanshu"
-           android:layout_gravity="center_horizontal" />
+           android:layout_gravity="center_horizontal"
+           android:id="@+id/user_avatar"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="User Name"
+        android:id="@+id/user_name"
         android:textSize="18sp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Intermediate Level"/>
+        android:text="Intermediate Level"
+        android:id="@+id/user_level"
+        android:paddingBottom="15dp"/>
 </LinearLayout>
