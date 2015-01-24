@@ -5,10 +5,11 @@
     android:background="@color/navbar_off_white">
 <RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp">
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:src="@drawable/ic_help_grey600_36dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -17,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Help"
+        android:text="@string/nav_bar_help"
         android:textSize="14sp"
         android:minHeight="36sp"
         android:gravity="center"
@@ -29,10 +30,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10dp">
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="36dp"
+            android:layout_height="24dp"
             android:src="@drawable/kanshu_gray"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
@@ -42,7 +44,7 @@
     android:layout_height="wrap_content"
         android:minHeight="36sp"
         android:textSize="14sp"
-    android:text="About"
+    android:text="@string/nav_bar_about"
     android:id="@+id/about"
         android:gravity="center"
         android:layout_centerHorizontal="true"

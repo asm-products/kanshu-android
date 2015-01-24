@@ -35,7 +35,7 @@ public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
         if (convertView == null) {
             // This a new view we inflate the new layout
             LayoutInflater inflater = (LayoutInflater) parentContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            switch(position % 4) {
+            switch(position % 5) {
                 case 0:
                 convertView = inflater.inflate(R.layout.navigation_drawer_user_card, parent, false);
                     break;
@@ -47,6 +47,9 @@ public class NavigationDrawerListAdapter extends ArrayAdapter<String> {
                     break;
                 case 3:
                     convertView = inflater.inflate(R.layout.navigation_drawer_section_3, parent, false);
+                    break;
+                case 4:
+                    convertView = inflater.inflate(R.layout.navigation_drawer_section_4, parent, false);
                     break;
             }
             if(position == 0){
