@@ -8,6 +8,7 @@ public class Article {
 
     public String title;
     public String summary;
+    public int like = 0;
 
     public Article(){}
 
@@ -27,4 +28,11 @@ public class Article {
         return summary;
     }
 
+    public int getLike(){
+        return like;
+    }
+
+    public void setLike(int l){
+        like = l;
+    }
 }

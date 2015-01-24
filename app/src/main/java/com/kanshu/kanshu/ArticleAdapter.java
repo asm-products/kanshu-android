@@ -1,10 +1,18 @@
 package com.kanshu.kanshu;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ValueAnimator;
+import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -21,45 +29,156 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class ArticleViewHolder extends RecyclerView.ViewHolder {
+    public class ArticleViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         // add image source later
         public TextView titleTextView;
         public TextView summaryTextView;
         public ListView commentListView;
-        public ImageView commentBottom;
+        public ImageView commentButton;
+        public ImageView likeButton;
+        public TextView likeTextView;
         public CardView cardView;
         public LinearLayout commentLayout;
 
+        //data
+        public Article article;
+
+        private final int ANIMATION_SPEED = 300;
+
         public ArticleViewHolder(View v) {
             super(v);
+            article = new Article();
+
             titleTextView = (TextView)v.findViewById(R.id.article_title);
             summaryTextView = (TextView)v.findViewById(R.id.article_summary);
             cardView = (CardView)v.findViewById(R.id.card_view);
+            likeButton = (ImageView)v.findViewById(R.id.article_card_like_button);
+            likeTextView = (TextView)v.findViewById(R.id.article_card_like_text);
             commentLayout = (LinearLayout)v.findViewById((R.id.article_card_comment_layout));
-            commentBottom = (ImageView)v.findViewById(R.id.article_card_comment_bottom);
-            commentBottom.setOnClickListener(new View.OnClickListener() {
+            commentButton = (ImageView)v.findViewById(R.id.article_card_comment_button);
+            //deal with like
+            //convert the number to string otherwise the setText would think the int is an resource id
+            likeTextView.setText("" + article.getLike());
+            likeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    article.setLike(article.getLike() + 1);
+                    likeTextView.setText("" + article.getLike());
+                }
+            });
+            //deal with comment
+            commentButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     final float scale = v.getContext().getResources().getDisplayMetrics().density;
-                    if (commentLayout.getVisibility() == View.VISIBLE){
-                        commentLayout.setVisibility(View.GONE);
-                        cardView.getLayoutParams().height = (int) (140 * scale + 0.5f);
-                    }
-                    else{
+                    float height = (int) (140 * scale + 0.5f);
+                    if (commentLayout.getVisibility() == View.VISIBLE) {
+                        //recale the cardview and comment layout at the same time
+                        ValueAnimator va = ValueAnimator.ofInt(cardView.getHeight(), (int) height);
+                        va.setDuration(ANIMATION_SPEED);
+                        va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                            public void onAnimationUpdate(ValueAnimator animation) {
+                                Integer value = (Integer) animation.getAnimatedValue();
+                                cardView.getLayoutParams().height = value.intValue();
+                                cardView.requestLayout();
+                            }
+                        });
+                        va.addListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationStart(Animator animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                commentLayout.setVisibility(View.GONE);
+                            }
+
+                            @Override
+                            public void onAnimationCancel(Animator animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animator animation) {
+
+                            }
+
+                        });
+                        ValueAnimator va2 = ValueAnimator.ofInt(commentLayout.getHeight(), 0);
+                        va2.setDuration(ANIMATION_SPEED);
+                        va2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                            public void onAnimationUpdate(ValueAnimator animation) {
+                                Integer value = (Integer) animation.getAnimatedValue();
+                                commentLayout.getLayoutParams().height = value.intValue();
+                                commentLayout.requestLayout();
+                            }
+                        });
+
+                        AnimatorSet animatorSet = new AnimatorSet();
+                        animatorSet.play(va).with(va2);
+                        animatorSet.start();
+
+                    } else {
                         commentLayout.setVisibility(View.VISIBLE);
-                        cardView.getLayoutParams().height = (int) (340 * scale + 0.5f);
+                        height = (int) (340 * scale + 0.5f);
+                        ValueAnimator va3 = ValueAnimator.ofInt(cardView.getHeight(), (int) height);
+                        va3.setDuration(ANIMATION_SPEED);
+                        va3.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                            public void onAnimationUpdate(ValueAnimator animation) {
+                                Integer value = (Integer) animation.getAnimatedValue();
+                                cardView.getLayoutParams().height = value.intValue();
+                                cardView.requestLayout();
+                            }
+                        });
+                        ValueAnimator va4 = ValueAnimator.ofInt(0, (int) (200 * scale + 0.5f));
+                        va4.setDuration(ANIMATION_SPEED);
+                        va4.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                            public void onAnimationUpdate(ValueAnimator animation) {
+                                Integer value = (Integer) animation.getAnimatedValue();
+                                commentLayout.getLayoutParams().height = value.intValue();
+                                commentLayout.requestLayout();
+                            }
+                        });
+
+                        AnimatorSet animatorSet = new AnimatorSet();
+                        animatorSet.play(va3).with(va4);
+                        animatorSet.start();
                     }
                 }
             });
+
             String[] dummy_data = {"1", "2", "3", "4", "5"};
             ArticleListCommentAdapter adapter = new ArticleListCommentAdapter(v.getContext(), dummy_data);
             commentListView = (ListView)v.findViewById(R.id.article_card_comment_list);
             commentListView.setAdapter(adapter);
+            //let listview intercept scrolling gesture
+            commentListView.setOnTouchListener(new ListView.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    int action = event.getAction();
+                    switch (action) {
+                        case MotionEvent.ACTION_DOWN:
+                            // Disallow ScrollView to intercept touch events.
+                            v.getParent().requestDisallowInterceptTouchEvent(true);
+                            break;
+
+                        case MotionEvent.ACTION_UP:
+                            // Allow ScrollView to intercept touch events.
+                            v.getParent().requestDisallowInterceptTouchEvent(false);
+                            break;
+                    }
+
+                    // Handle ListView touch events.
+                    v.onTouchEvent(event);
+                    return true;
+                }
+            });
         }
     }
 
-    public static class IndicatorViewHolder extends RecyclerView.ViewHolder {
+    public class IndicatorViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         // add image source later
         public TextView indicatorTextView;

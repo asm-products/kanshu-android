@@ -4,7 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="340dp"
+        android:layout_height="140dp"
         card_view:cardCornerRadius="1dp"
         android:layout_margin="1dp">
         <LinearLayout
@@ -64,14 +64,15 @@
                 android:layout_gravity="bottom"
                 android:layout_height="18dp">
                 <TextView
+                    android:id="@+id/article_card_like_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="15dp"
                     android:textSize="10sp"
-                    android:text="22"
                     android:textColor="@color/article_dart_grey"/>
                 <ImageView
+                    android:id="@+id/article_card_like_button"
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
@@ -94,7 +95,7 @@
                     android:text="comments"
                     android:textColor="@color/article_dart_grey"/>
                 <ImageView
-                    android:id="@+id/article_card_comment_bottom"
+                    android:id="@+id/article_card_comment_button"
                     android:layout_width="10dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
@@ -120,11 +121,12 @@
                 android:layout_height="200dp"
                 android:layout_weight="0"
                 android:background="@color/article_dart_grey"
-                android:visibility="visible">
+                android:visibility="gone">
                 <ListView
                     android:id="@+id/article_card_comment_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1">
                     </ListView>
                 </LinearLayout>
         </LinearLayout>
