@@ -12,20 +12,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:gravity="center"
-            android:alpha="0.8"
-            android:background="@color/primary_light_red" >
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|left"
                 android:layout_marginRight="30dp"
-                android:textSize="22sp"
                 android:text="Follow some topics"
-                android:textColor="@color/white"/>
-
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
             <Button
                 android:layout_width="wrap_content"
