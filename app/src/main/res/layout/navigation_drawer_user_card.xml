@@ -6,7 +6,6 @@
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="-20dp"
         android:layout_alignTop="@+id/user_card_layout"
         android:layout_alignBottom="@id/user_card_layout"
         android:layout_alignLeft="@id/user_card_layout"
@@ -24,6 +23,7 @@
            android:layout_width="80sp"
            android:layout_height="80sp"
            android:paddingBottom="20sp"
+           android:layout_marginTop="35dp"
            android:src="@drawable/kanshu"
            android:layout_gravity="center_horizontal"
            android:id="@+id/user_avatar"/>
@@ -33,13 +33,15 @@
         android:layout_gravity="center"
         android:text="User Name"
         android:id="@+id/user_name"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textColor="@android:color/white"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Intermediate Level"
         android:id="@+id/user_level"
-        android:paddingBottom="15dp"/>
+        android:paddingBottom="15dp"
+        android:textColor="@android:color/white"/>
 </LinearLayout>
 </RelativeLayout>
