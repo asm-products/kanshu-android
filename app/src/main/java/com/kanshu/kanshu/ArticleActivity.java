@@ -15,7 +15,7 @@ import android.view.View;
 
 
 public class ArticleActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, NavigationDrawerFragment.NavigationDrawerData {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -25,6 +25,7 @@ public class ArticleActivity extends ActionBarActivity
     private ArticlePagerAdapter mArticlePagerAdapter;
     private ViewPager mViewPager;
     private Toolbar mToolbar;
+    private User mCurrentUser;
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -35,7 +36,7 @@ public class ArticleActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article);
-
+        mCurrentUser = getIntent().getExtras().getParcelable("user");
         //set custom toolbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
@@ -113,6 +114,11 @@ public class ArticleActivity extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public User getCurrentUser() {
+        return mCurrentUser;
     }
 
 

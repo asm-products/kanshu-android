@@ -76,7 +76,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 v1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        thisContext.startActivity(new Intent(thisContext, ReadingActivity.class));
+                        Intent readingIntent = new Intent(thisContext, ReadingActivity.class);
+                        readingIntent.putExtra("user", thisContext.getIntent().getExtras().getParcelable("user"));
+                        thisContext.startActivity(readingIntent);
                     }
                 });
                 return vh1;

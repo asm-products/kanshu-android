@@ -13,14 +13,14 @@ import android.view.View;
 
 
 public class ReadingActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, ReadingViewFragment.OnFragmentClickListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, ReadingViewFragment.OnFragmentClickListener, NavigationDrawerFragment.NavigationDrawerData {
     private NavigationDrawerFragment mNavigationDrawerFragment;
-
+    private User mCurrentUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading);
-
+        mCurrentUser = getIntent().getExtras().getParcelable("user");
         //Needed to set up the drawer.
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setTitle(R.string.app_name);
@@ -63,5 +63,10 @@ public class ReadingActivity extends ActionBarActivity
     @Override
     public void onFragmentClick(View v) {
 
+    }
+
+    @Override
+    public User getCurrentUser() {
+        return mCurrentUser;
     }
 }
