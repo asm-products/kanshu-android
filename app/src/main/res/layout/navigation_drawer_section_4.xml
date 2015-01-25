@@ -25,7 +25,7 @@
             android:minHeight="78sp"
             android:gravity="center"
             android:id="@+id/signout"
-            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="70dp"
             android:layout_centerVertical="true"
             android:textColor="@color/article_dart_grey"/>
     </RelativeLayout>

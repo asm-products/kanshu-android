@@ -4,6 +4,7 @@
                 android:layout_height="match_parent"
                 tools:context="com.kanshu.kanshu.ReadingViewFragment"
                 android:orientation="vertical"
+                android:fitsSystemWindows="true"
                 android:background="@color/background_material_light">
 
     <FrameLayout
