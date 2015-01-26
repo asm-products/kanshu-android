@@ -1,3 +1,9 @@
 language: android
 script:
     - ./gradlew assembleDebug
+
+android:
+  components:
+    - extra-android-m2repository
+  licenses:
+  - android-sdk-license-.+
