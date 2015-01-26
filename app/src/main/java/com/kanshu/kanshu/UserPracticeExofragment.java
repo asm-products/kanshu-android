@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 /**
  * Created by alouanemed on 26-01-2015.
  */
-public class UserPracticeExofragment extends Fragment {
+public class UserPracticeExoFragment extends Fragment {
 
     private LinearLayoutManager mLayoutManager;
     /**
@@ -19,8 +19,8 @@ public class UserPracticeExofragment extends Fragment {
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    public static UserPracticeExofragment newInstance(int sectionNumber) {
-        UserPracticeExofragment fragment = new UserPracticeExofragment();
+    public static UserPracticeExoFragment newInstance(int sectionNumber) {
+        UserPracticeExoFragment fragment = new UserPracticeExoFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);

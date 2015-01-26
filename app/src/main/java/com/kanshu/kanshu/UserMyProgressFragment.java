@@ -4,22 +4,17 @@ package com.kanshu.kanshu;
  * Created by alouanemed on 26-01-2015.
  */
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * A placeholder fragment containing a simple view.
  */
-public class UserMyPrgoressFragment extends Fragment {
+public class UserMyProgressFragment extends Fragment {
 
     private LinearLayoutManager mLayoutManager;
     /**
@@ -28,8 +23,8 @@ public class UserMyPrgoressFragment extends Fragment {
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    public static UserMyPrgoressFragment newInstance(int sectionNumber) {
-        UserMyPrgoressFragment fragment = new UserMyPrgoressFragment();
+    public static UserMyProgressFragment newInstance(int sectionNumber) {
+        UserMyProgressFragment fragment = new UserMyProgressFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);

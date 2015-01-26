@@ -19,7 +19,7 @@ public class UserMetricsActivity extends ActionBarActivity implements Navigation
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private SlidingTabLayout mSlidingTabLayout;
-    private UserMetrcisPagerAdapter mArticlePagerAdapter;
+    private UserMetricsPagerAdapter mArticlePagerAdapter;
     private ViewPager mViewPager;
     private Toolbar mToolbar;
 
@@ -46,7 +46,7 @@ public class UserMetricsActivity extends ActionBarActivity implements Navigation
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         //the pager
-        mArticlePagerAdapter =new UserMetrcisPagerAdapter( getSupportFragmentManager());
+        mArticlePagerAdapter =new UserMetricsPagerAdapter( getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mArticlePagerAdapter);
         mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
@@ -103,11 +103,12 @@ public class UserMetricsActivity extends ActionBarActivity implements Navigation
     }
 
 
-    public class UserMetrcisPagerAdapter extends FragmentStatePagerAdapter {
+    public class UserMetricsPagerAdapter extends FragmentStatePagerAdapter {
 
-        private String[] pageTitles = {"My Prgoress", "My saved Characters", "Practice Exercices", "Add-ons"};
+         private String[] pageTitles = {getString(R.string.title_progress),getString(R.string.title_MySavedCharacters)
+                , getString(R.string.title_Practice_Exercicess), getString(R.string.title_Add_ons)};
 
-        public UserMetrcisPagerAdapter(FragmentManager fm) {
+        public UserMetricsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -118,13 +119,13 @@ public class UserMetricsActivity extends ActionBarActivity implements Navigation
                 //My progress
                 case 0 :
                 //My saved Characters
-                    fragment = new UserMyPrgoressFragment();
+                    fragment = new UserMyProgressFragment();
                     break;
                 case 1 :
                     fragment = new UserMySavedCharsFragment();
                     break;
                 case 2 :
-                    fragment = new UserPracticeExofragment();
+                    fragment = new UserPracticeExoFragment();
                     break;
                 case 3 :
                     fragment = new UserAddOnsFragment();
