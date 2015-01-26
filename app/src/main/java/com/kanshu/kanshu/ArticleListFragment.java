@@ -67,7 +67,7 @@ public class ArticleListFragment extends Fragment {
         articles.add(new Article());
         articles.add(new Article());
         // specify an adapter
-        mAdapter = new ArticleAdapter(this.getActivity(),articles);
+        mAdapter = new ArticleAdapter(articles);
         mRecyclerView.setAdapter(mAdapter);
         return rootView;
     }
