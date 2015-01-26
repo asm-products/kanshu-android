@@ -121,7 +121,7 @@ public class SignupActivity extends ActionBarActivity {
     public void onSignUp(View clicked)
     {
         User userData = new User("Username", "Intermediate Level");
-        Intent signupIntent = new Intent(this, ArticleActivity.class);
+        Intent signupIntent = new Intent(this, UserMetricsActivity.class);
         signupIntent.putExtra("user", userData);
         startActivity(signupIntent);
     }

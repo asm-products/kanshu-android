@@ -59,6 +59,11 @@
     <string name="nav_bar_about">About</string>
     <string name="nav_bar_help">Help</string>
 
+    <string name="title_progress">My rogress</string>
+    <string name="title_MySavedCharacters">My Saved Characters</string>
+    <string name="title_Practice_Exercices">Practice Exercices</string>
+    <string name="title_Add_ons">Add-ons</string>
     <string name="nav_bar_signout">Sign Out</string>
+
 
 </resources>
