@@ -49,13 +49,23 @@
         </activity>
 
         <activity
-        android:name=".TopicsActivity"
-        android:label="@string/app_name">
+            android:name=".TopicsActivity"
+            android:label="@string/app_name">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.kanshu.kanshu.SignupActivity" />
-    </activity>
-</application>
+        </activity>
+
+        <activity
+            android:name=".UserMetricsActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".ArticleActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kanshu.kanshu.SignupActivity" />
+        </activity>
+    </application>
 
 
 

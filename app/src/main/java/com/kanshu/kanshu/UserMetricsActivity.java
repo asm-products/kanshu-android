@@ -1,33 +1,30 @@
 package com.kanshu.kanshu;
 
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.widget.DrawerLayout;
 
-
-public class ArticleActivity extends ActionBarActivity
+/**
+ * Created by alouanemed on 26-01-2015.
+ */
+public class UserMetricsActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks, NavigationDrawerFragment.NavigationDrawerData {
 
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
+
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private SlidingTabLayout mSlidingTabLayout;
-    private ArticlePagerAdapter mArticlePagerAdapter;
+    private UserMetricsPagerAdapter mArticlePagerAdapter;
     private ViewPager mViewPager;
     private Toolbar mToolbar;
     private User mCurrentUser;
 
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence mTitle;
 
     @Override
@@ -35,6 +32,7 @@ public class ArticleActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mCurrentUser = getIntent().getExtras().getParcelable("user");
+
         //set custom toolbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
@@ -45,20 +43,19 @@ public class ArticleActivity extends ActionBarActivity
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
-        // Set up the drawer.
+        // the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        //Set up the pager
-        mArticlePagerAdapter =
-                new ArticlePagerAdapter(
-                        getSupportFragmentManager());
+        //the pager
+        mArticlePagerAdapter =new UserMetricsPagerAdapter( getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mArticlePagerAdapter);
         mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.white));
         mSlidingTabLayout.setViewPager(mViewPager);
+        mViewPager.setOffscreenPageLimit(3);
 
 
     }
@@ -105,12 +102,6 @@ public class ArticleActivity extends ActionBarActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -119,19 +110,32 @@ public class ArticleActivity extends ActionBarActivity
         return mCurrentUser;
     }
 
+    public class UserMetricsPagerAdapter extends FragmentStatePagerAdapter {
 
-    public class ArticlePagerAdapter extends FragmentStatePagerAdapter {
+        private String[] pageTitles = {getString(R.string.title_progress),getString(R.string.title_MySavedCharacters)
+                , getString(R.string.title_Practice_Exercices), getString(R.string.title_Add_ons)};
 
-        //the list of titles of pages
-        private String[] pageTitles = {"News", "Technology", "Politics", "Art", "Spirituality", "Photography"};
-
-        public ArticlePagerAdapter(FragmentManager fm) {
+        public UserMetricsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int i) {
-            Fragment fragment = new ArticleListFragment();
+            Fragment fragment = null;
+            switch (i){
+                case 0 :
+                    fragment = new UserMyProgressFragment();
+                    break;
+                case 1 :
+                    fragment = new UserMySavedCharsFragment();
+                    break;
+                case 2 :
+                    fragment = new UserPracticeExoFragment();
+                    break;
+                case 3 :
+                    fragment = new UserAddOnsFragment();
+                    break;
+            }
             return fragment;
         }
 
