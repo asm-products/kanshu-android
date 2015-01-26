@@ -36,6 +36,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         public TextView summaryTextView;
         public ListView commentListView;
         public ImageView commentButton;
+        public TextView commentText;
         public ImageView likeButton;
         public TextView likeTextView;
         public CardView cardView;
@@ -57,6 +58,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             likeTextView = (TextView)v.findViewById(R.id.article_card_like_text);
             commentLayout = (LinearLayout)v.findViewById((R.id.article_card_comment_layout));
             commentButton = (ImageView)v.findViewById(R.id.article_card_comment_button);
+            commentText = (TextView)v.findViewById(R.id.article_comment_text);
             //deal with like
             //convert the number to string otherwise the setText would think the int is an resource id
             likeTextView.setText("" + article.getLike());
@@ -68,7 +70,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 }
             });
             //deal with comment
-            commentButton.setOnClickListener(new View.OnClickListener() {
+            View.OnClickListener commentListener =  new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     final float scale = v.getContext().getResources().getDisplayMetrics().density;
@@ -92,6 +94,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
                             @Override
                             public void onAnimationEnd(Animator animation) {
+                                commentButton.setImageResource(R.drawable.ic_triangle_light_grey);
+                                commentButton.refreshDrawableState();
                                 commentLayout.setVisibility(View.GONE);
                             }
 
@@ -125,6 +129,28 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         height = (int) (340 * scale + 0.5f);
                         ValueAnimator va3 = ValueAnimator.ofInt(cardView.getHeight(), (int) height);
                         va3.setDuration(ANIMATION_SPEED);
+                        va3.addListener(new Animator.AnimatorListener() {
+                            @Override
+                            public void onAnimationStart(Animator animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                commentButton.setImageResource(R.drawable.ic_triangle_light_red);
+                                commentButton.refreshDrawableState();
+                            }
+
+                            @Override
+                            public void onAnimationCancel(Animator animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animator animation) {
+
+                            }
+                        });
                         va3.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                             public void onAnimationUpdate(ValueAnimator animation) {
                                 Integer value = (Integer) animation.getAnimatedValue();
@@ -147,7 +173,10 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         animatorSet.start();
                     }
                 }
-            });
+            };
+
+            commentButton.setOnClickListener(commentListener);
+            commentText.setOnClickListener(commentListener);
 
             String[] dummy_data = {"1", "2", "3", "4", "5"};
             ArticleListCommentAdapter adapter = new ArticleListCommentAdapter(v.getContext(), dummy_data);
@@ -197,7 +226,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     // Create new views (invoked by the layout manager)
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                   int viewType) {
+                                                      int viewType) {
         switch (viewType) {
             case 1:
                 // create a new view

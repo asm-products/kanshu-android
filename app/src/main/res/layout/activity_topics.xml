@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/LLtopics"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:layout_marginRight="30dp"
+                android:text="Follow some topics"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Next_button"
+                android:id="@+id/Topics_Next"
+                android:layout_below="@+id/inctopicslistv"
+                android:background="@color/white"
+                android:textColor="@color/abc_search_url_text"
+                android:typeface="normal"
+                android:layout_marginTop="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="10sp"
+                android:nestedScrollingEnabled="false"
+                android:layout_centerHorizontal="true"
+                android:minHeight="30dp"
+                android:minWidth="90dp"
+                android:enabled="false"
+                android:layout_marginBottom="6.0dip"
+                android:layout_gravity="center_vertical|right"
+                />
+        </LinearLayout>
+
+        <include
+            android:id="@+id/inctopicslistv"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            layout="@layout/topics_listv"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

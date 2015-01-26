@@ -6,4 +6,5 @@
     <color name="article_light_grey">#9F9F9F</color>
     <color name="article_dart_grey">#606060</color>
     <color name="white">#FFFFFF</color>
+    <color name="navbar_off_white">#FAFAFA</color>
 </resources>
