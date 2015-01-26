@@ -48,4 +48,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="topics_activity_title">choose a topic</string>
 
+    <string name="title_progress">My Progress</string>
+    <string name="title_MySavedCharacters">My Saved Characters</string>
+    <string name="title_Practice_Exercicess">Practice Exercices</string>
+    <string name="title_Add_ons">Add-onss</string>
+
+
 </resources>
