@@ -1,6 +1,6 @@
 package com.kanshu.kanshu.controller;
 
-import com.kanshu.kanshu.Model.Topic;
+import com.kanshu.kanshu.model.Topic;
 
 import java.util.ArrayList;
 
@@ -12,24 +12,24 @@ public class TopicsController {
 
     private ArrayList<Topic> mTopicsList;
 
-    public TopicsController(){
+    public TopicsController() {
         mTopicsList = new ArrayList<Topic>();
     }
 
     //Let's fill the list with dummy data
-    public void getTopics(){
-        mTopicsList.add( new Topic("Science","tpic"));
-        mTopicsList.add( new Topic("Technology",""));
-        mTopicsList.add( new Topic("Gaming",""));
-        mTopicsList.add( new Topic("Culture",""));
-        mTopicsList.add( new Topic("Art","tpic"));
-        mTopicsList.add( new Topic("Design",""));
-        mTopicsList.add( new Topic("Locales",""));
-        mTopicsList.add( new Topic("Travel",""));
-        mTopicsList.add( new Topic("Stores","tpic"));
-        mTopicsList.add( new Topic("Photography",""));
-        mTopicsList.add( new Topic("Dance",""));
-        mTopicsList.add( new Topic("Music",""));
+    public void getTopics() {
+        mTopicsList.add(new Topic("Science", "tpic"));
+        mTopicsList.add(new Topic("Technology", ""));
+        mTopicsList.add(new Topic("Gaming", ""));
+        mTopicsList.add(new Topic("Culture", ""));
+        mTopicsList.add(new Topic("Art", "tpic"));
+        mTopicsList.add(new Topic("Design", ""));
+        mTopicsList.add(new Topic("Locales", ""));
+        mTopicsList.add(new Topic("Travel", ""));
+        mTopicsList.add(new Topic("Stores", "tpic"));
+        mTopicsList.add(new Topic("Photography", ""));
+        mTopicsList.add(new Topic("Dance", ""));
+        mTopicsList.add(new Topic("Music", ""));
 
     }
 

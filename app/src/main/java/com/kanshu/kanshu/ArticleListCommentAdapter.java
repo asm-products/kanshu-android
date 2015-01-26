@@ -5,17 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 /**
  * Created by zhou on 1/21/15.
  */
-public class ArticleListCommentAdapter extends ArrayAdapter<String>{
+public class ArticleListCommentAdapter extends ArrayAdapter<String> {
 
     private Context context;
     private String[] values;
 
-    public ArticleListCommentAdapter(Context context, String[] values){
+    public ArticleListCommentAdapter(Context context, String[] values) {
         super(context, R.layout.article_card_comment, values);
         this.context = context;
         this.values = values;

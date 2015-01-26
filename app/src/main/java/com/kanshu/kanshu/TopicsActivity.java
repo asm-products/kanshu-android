@@ -1,26 +1,24 @@
 package com.kanshu.kanshu;
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.AsyncTask;
 import android.app.ProgressDialog;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
-import android.graphics.Typeface;
 import android.widget.TextView;
 
-import com.kanshu.kanshu.Model.Topic;
 import com.kanshu.kanshu.controller.TopicsController;
+import com.kanshu.kanshu.model.Topic;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import android.view.View;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -34,12 +32,13 @@ public class TopicsActivity extends Activity {
     //controller var
     TopicsController mTopicsController;
     //we will store the selected IDs instead of titles
-    private ArrayList<Integer>  mChosenTopicsListIDs;
+    private ArrayList<Integer> mChosenTopicsListIDs;
     int inc = 0;
 
     //TextView tvTopicsTitle;
     GridView mGridview;
     Button btnTopics_Next;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,26 +58,27 @@ public class TopicsActivity extends Activity {
                         .getText().toString();
                 CircleImageView mTopicPic = ((CircleImageView) v.findViewById(R.id.topic_image));
 
-				if (!mChosenTopicsListIDs.isEmpty()){
-					if (mChosenTopicsListIDs.contains(position)) {
-						//duplicate !
-						mChosenTopicsListIDs.remove(mChosenTopicsListIDs.indexOf(position));
+                if (!mChosenTopicsListIDs.isEmpty()) {
+                    if (mChosenTopicsListIDs.contains(position)) {
+                        //duplicate !
+                        mChosenTopicsListIDs.remove(mChosenTopicsListIDs.indexOf(position));
                         mTopicPic.setBorderWidth(0);
-					} else {
-						//we are good let's add new one
-						mChosenTopicsListIDs.add(position);
+                    } else {
+                        //we are good let's add new one
+                        mChosenTopicsListIDs.add(position);
                         mTopicPic.setBorderColor(Color.parseColor("#D5FF79"));
-                        mTopicPic.setBorderWidth(8);					}
-				}else{
+                        mTopicPic.setBorderWidth(8);
+                    }
+                } else {
                     mChosenTopicsListIDs.add(position);
                     mTopicPic.setBorderColor(Color.parseColor("#D5FF79"));
                     mTopicPic.setBorderWidth(8);
                 }
-                Log.e("Msg","size===>"+ mChosenTopicsListIDs.size());
-                if (!mChosenTopicsListIDs.isEmpty()){
+                Log.e("Msg", "size===>" + mChosenTopicsListIDs.size());
+                if (!mChosenTopicsListIDs.isEmpty()) {
                     btnTopics_Next.setEnabled(true);
                     btnTopics_Next.setBackgroundColor(Color.parseColor("#d32f2f"));
-                }else{
+                } else {
                     btnTopics_Next.setEnabled(false);
                     btnTopics_Next.setBackgroundColor(Color.parseColor("#ffffffff"));
                 }
@@ -88,7 +88,7 @@ public class TopicsActivity extends Activity {
         btnTopics_Next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!mChosenTopicsListIDs.isEmpty()){
+                if (!mChosenTopicsListIDs.isEmpty()) {
                     getIDS();
                 }
             }
@@ -96,13 +96,14 @@ public class TopicsActivity extends Activity {
     }
 
 
-    public void getIDS(){
+    public void getIDS() {
         Iterator it = mChosenTopicsListIDs.iterator();
-        Log.e("Msg","size===>"+ mChosenTopicsListIDs.size());
-        while (it.hasNext()){
-            Log.e("Msg",it.next() + "");
+        Log.e("Msg", "size===>" + mChosenTopicsListIDs.size());
+        while (it.hasNext()) {
+            Log.e("Msg", it.next() + "");
         }
     }
+
     //AsyncTask class to get the topics
     private class getTopicsAsync extends AsyncTask<Void, Void, Void> {
 
@@ -130,7 +131,7 @@ public class TopicsActivity extends Activity {
             }
             Typeface tfBold = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
             ArrayList<Topic> mTopicsList = mTopicsController.getmTopicsList();
-            ListAdapter adapter = new TopicsAdapter(TopicsActivity.this,mTopicsList, tfBold, mTopicsController);
+            ListAdapter adapter = new TopicsAdapter(TopicsActivity.this, mTopicsList, tfBold, mTopicsController);
             mGridview.setAdapter(adapter);
             this.cancel(true);
         }

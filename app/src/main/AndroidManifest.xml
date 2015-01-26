@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.kanshu.kanshu" >
+          package="com.kanshu.kanshu">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".SignupActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
@@ -23,17 +23,17 @@
             android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.kanshu.kanshu.SignupActivity" />
+                android:value="com.kanshu.kanshu.SignupActivity"/>
         </activity>
 
         <activity
             android:name=".ArticleActivity"
             android:label="@string/app_name"
             android:parentActivityName=".SignupActivity"
-            android:theme="@style/AppThemeNavigationDrawer" >
+            android:theme="@style/AppThemeNavigationDrawer">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.kanshu.kanshu.SignupActivity" />
+                android:value="com.kanshu.kanshu.SignupActivity"/>
         </activity>
 
         <activity
@@ -43,7 +43,7 @@
             android:theme="@style/AppThemeNavigationDrawer">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.kanshu.kanshu.ArticleActivity" />
+                android:value="com.kanshu.kanshu.ArticleActivity"/>
         </activity>
 
         <activity
@@ -51,20 +51,19 @@
             android:label="@string/app_name">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.kanshu.kanshu.SignupActivity" />
+                android:value="com.kanshu.kanshu.SignupActivity"/>
         </activity>
 
         <activity
             android:name=".UserMetricsActivity"
             android:label="@string/app_name"
             android:parentActivityName=".ArticleActivity"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.kanshu.kanshu.SignupActivity" />
+                android:value="com.kanshu.kanshu.SignupActivity"/>
         </activity>
     </application>
-
 
 
 </manifest>

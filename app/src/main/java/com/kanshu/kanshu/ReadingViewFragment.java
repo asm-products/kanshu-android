@@ -1,9 +1,8 @@
 package com.kanshu.kanshu;
 
 import android.app.Activity;
-import android.net.Uri;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +35,7 @@ public class ReadingViewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View v  = inflater.inflate(R.layout.fragment_reading_view, container, false);
+        View v = inflater.inflate(R.layout.fragment_reading_view, container, false);
         final FrameLayout seekBarLayout = ((FrameLayout) v.findViewById(R.id.levelSliderFrame));
         seekBarLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +44,8 @@ public class ReadingViewFragment extends Fragment {
             }
         });
         seekBarLayout.setAlpha(0.3f);
-        ((SeekBar) v.findViewById(R.id.levelSlider)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        ((SeekBar) v.findViewById(R.id.levelSlider)).setOnSeekBarChangeListener(new SeekBar
+                .OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 

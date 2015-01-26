@@ -7,20 +7,24 @@
     android:layout_height="140dp"
     card_view:cardCornerRadius="1dp"
     android:layout_margin="1dp">
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="180dp"
                 android:layout_height="150dp"
                 android:orientation="vertical"
                 android:layout_weight="20">
+
                 <TextView
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
@@ -46,8 +50,9 @@
                     android:ellipsize="none"
                     android:text="军队权威部门今天对外公布了2014年军队查处军级以上干部重大贪腐案件情况。"
                     android:id="@+id/article_summary"
-                    android:layout_gravity="left|center_vertical" />
+                    android:layout_gravity="left|center_vertical"/>
             </LinearLayout>
+
             <ImageView
                 android:layout_weight="1"
                 android:layout_width="150dp"
@@ -55,14 +60,16 @@
                 android:layout_margin="10dp"
                 android:src="@drawable/ic_launcher"
                 android:id="@+id/article_image"
-                android:layout_gravity="right|top" />
+                android:layout_gravity="right|top"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_weight="1"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_gravity="bottom"
             android:layout_height="18dp">
+
             <TextView
                 android:id="@+id/article_card_like_text"
                 android:layout_width="wrap_content"
@@ -71,6 +78,7 @@
                 android:layout_marginLeft="15dp"
                 android:textSize="10sp"
                 android:textColor="@color/article_dart_grey"/>
+
             <ImageView
                 android:id="@+id/article_card_like_button"
                 android:layout_width="10dp"
@@ -86,6 +94,7 @@
                 android:textSize="10sp"
                 android:text="23"
                 android:textColor="@color/article_dart_grey"/>
+
             <TextView
                 android:id="@+id/article_comment_text"
                 android:layout_width="wrap_content"
@@ -95,6 +104,7 @@
                 android:textSize="12sp"
                 android:text="comments"
                 android:textColor="@color/article_dart_grey"/>
+
             <ImageView
                 android:id="@+id/article_card_comment_button"
                 android:layout_width="10dp"
@@ -107,6 +117,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,6 +127,7 @@
                 android:text="半月谈, today, 4:55PM"
                 android:textColor="@color/article_dart_grey"/>
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/article_card_comment_layout"
             android:layout_width="match_parent"
@@ -123,6 +135,7 @@
             android:layout_weight="0"
             android:background="@color/article_dart_grey"
             android:visibility="gone">
+
             <ListView
                 android:id="@+id/article_card_comment_list"
                 android:layout_width="fill_parent"

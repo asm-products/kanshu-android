@@ -3,20 +3,18 @@ package com.kanshu.kanshu;
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
-import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.kanshu.kanshu.model.Article;
 
 import java.util.List;
 
@@ -51,16 +49,17 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             super(v);
             article = new Article();
 
-            titleTextView = (TextView)v.findViewById(R.id.article_title);
-            summaryTextView = (TextView)v.findViewById(R.id.article_summary);
-            cardView = (CardView)v.findViewById(R.id.card_view);
-            likeButton = (ImageView)v.findViewById(R.id.article_card_like_button);
-            likeTextView = (TextView)v.findViewById(R.id.article_card_like_text);
-            commentLayout = (LinearLayout)v.findViewById((R.id.article_card_comment_layout));
-            commentButton = (ImageView)v.findViewById(R.id.article_card_comment_button);
-            commentText = (TextView)v.findViewById(R.id.article_comment_text);
+            titleTextView = (TextView) v.findViewById(R.id.article_title);
+            summaryTextView = (TextView) v.findViewById(R.id.article_summary);
+            cardView = (CardView) v.findViewById(R.id.card_view);
+            likeButton = (ImageView) v.findViewById(R.id.article_card_like_button);
+            likeTextView = (TextView) v.findViewById(R.id.article_card_like_text);
+            commentLayout = (LinearLayout) v.findViewById((R.id.article_card_comment_layout));
+            commentButton = (ImageView) v.findViewById(R.id.article_card_comment_button);
+            commentText = (TextView) v.findViewById(R.id.article_comment_text);
             //deal with like
-            //convert the number to string otherwise the setText would think the int is an resource id
+            //convert the number to string otherwise the setText would think the int is an
+            // resource id
             likeTextView.setText("" + article.getLike());
             likeButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -70,7 +69,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 }
             });
             //deal with comment
-            View.OnClickListener commentListener =  new View.OnClickListener() {
+            View.OnClickListener commentListener = new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     final float scale = v.getContext().getResources().getDisplayMetrics().density;
@@ -179,8 +178,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             commentText.setOnClickListener(commentListener);
 
             String[] dummy_data = {"1", "2", "3", "4", "5"};
-            ArticleListCommentAdapter adapter = new ArticleListCommentAdapter(v.getContext(), dummy_data);
-            commentListView = (ListView)v.findViewById(R.id.article_card_comment_list);
+            ArticleListCommentAdapter adapter = new ArticleListCommentAdapter(v.getContext(),
+                    dummy_data);
+            commentListView = (ListView) v.findViewById(R.id.article_card_comment_list);
             commentListView.setAdapter(adapter);
             //let listview intercept scrolling gesture
             commentListView.setOnTouchListener(new ListView.OnTouchListener() {
@@ -214,7 +214,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         public IndicatorViewHolder(View v) {
             super(v);
-            indicatorTextView = (TextView)v.findViewById(R.id.article_indicator);
+            indicatorTextView = (TextView) v.findViewById(R.id.article_indicator);
         }
     }
 
@@ -247,10 +247,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public int getItemViewType(int position) {
         //@todo replace this with a real get item new type method based on the real data
         //right now I would just make every 5th card an indicator
-        if (position % 5 == 0){
+        if (position % 5 == 0) {
             return 1;
-        }
-        else{
+        } else {
             return 0;
         }
     }

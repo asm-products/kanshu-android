@@ -4,25 +4,22 @@ package com.kanshu.kanshu;
  * Created by med on 22-01-2015.
  */
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.text.TextUtils;
-import com.kanshu.kanshu.Model.Topic;
-import com.kanshu.kanshu.controller.TopicsController;
 
+import com.kanshu.kanshu.controller.TopicsController;
+import com.kanshu.kanshu.model.Topic;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class TopicsAdapter extends BaseAdapter {
     private ArrayList<Topic> mTopicsList;
@@ -31,7 +28,8 @@ public class TopicsAdapter extends BaseAdapter {
     TopicsController mTopicsController;
 
     public TopicsAdapter(Activity context,
-                         ArrayList<Topic> mTopicsList, Typeface tfBold, TopicsController mTopicsController) {
+                         ArrayList<Topic> mTopicsList, Typeface tfBold,
+                         TopicsController mTopicsController) {
         super();
         this.mTopicsList = mTopicsList;
         activity = context;
@@ -74,12 +72,13 @@ public class TopicsAdapter extends BaseAdapter {
 
         if (!TextUtils.isEmpty(mTopicsList.get(position).getImgURL())) {
             //we will use drawbale .. for now
-            int id = activity.getResources().getIdentifier((mTopicsList.get(position).getImgURL()), "drawable", activity.getPackageName());
+            int id = activity.getResources().getIdentifier((mTopicsList.get(position).getImgURL()
+            ), "drawable", activity.getPackageName());
             Picasso.with(activity).load(id).into(holder.IvTopicImg);
-         } else {
+        } else {
             Picasso.with(activity).load(R.drawable.kanshu).into(holder.IvTopicImg);
         }
-         return v;
+        return v;
     }
 
     @Override

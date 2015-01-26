@@ -1,4 +1,4 @@
-package com.kanshu.kanshu.Model;
+package com.kanshu.kanshu.model;
 
 /**
  * Created by alouanemed on 22-01-2015.

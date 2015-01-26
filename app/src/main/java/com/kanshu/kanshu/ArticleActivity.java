@@ -1,19 +1,21 @@
 package com.kanshu.kanshu;
 
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.widget.DrawerLayout;
 
+import com.kanshu.kanshu.model.User;
 
 public class ArticleActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, NavigationDrawerFragment.NavigationDrawerData {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
+        NavigationDrawerFragment.NavigationDrawerData {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -59,8 +61,6 @@ public class ArticleActivity extends ActionBarActivity
         mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.white));
         mSlidingTabLayout.setViewPager(mViewPager);
-
-
     }
 
     @Override
@@ -123,7 +123,8 @@ public class ArticleActivity extends ActionBarActivity
     public class ArticlePagerAdapter extends FragmentStatePagerAdapter {
 
         //the list of titles of pages
-        private String[] pageTitles = {"News", "Technology", "Politics", "Art", "Spirituality", "Photography"};
+        private String[] pageTitles = {"News", "Technology", "Politics", "Art", "Spirituality",
+                "Photography"};
 
         public ArticlePagerAdapter(FragmentManager fm) {
             super(fm);

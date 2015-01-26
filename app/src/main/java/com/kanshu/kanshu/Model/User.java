@@ -1,29 +1,31 @@
-package com.kanshu.kanshu;
+package com.kanshu.kanshu.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
+public class User implements Parcelable {
 
-public class User implements Parcelable{
     private String userName;
     private String userLevel;
 
-    public User(String name, String level)
-    {
+    public User(String name, String level) {
         userName = name;
         userLevel = level;
     }
-    public User(Parcel parcel){
+
+    public User(Parcel parcel) {
         userName = parcel.readString();
         userLevel = parcel.readString();
     }
 
-    public String getUserName(){
+    public String getUserName() {
         return userName;
     }
-    public String getUserLevel(){
+
+    public String getUserLevel() {
         return userLevel;
     }
+
     @Override
     public int describeContents() {
         return 0;
