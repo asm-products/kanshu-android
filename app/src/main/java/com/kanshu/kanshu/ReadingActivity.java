@@ -21,7 +21,13 @@ public class ReadingActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading);
-        mCurrentUser = getIntent().getExtras().getParcelable("user");
+        if (getIntent().hasExtra("user")) {
+            mCurrentUser = getIntent().getExtras().getParcelable("user");
+        }
+        if (mCurrentUser == null) {
+            mCurrentUser = new User("name", "level");
+        }
+
         //Needed to set up the drawer.
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         getSupportActionBar().setTitle(R.string.app_name);

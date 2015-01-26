@@ -34,7 +34,12 @@ public class UserMetricsActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mCurrentUser = getIntent().getExtras().getParcelable("user");
+        if (getIntent().hasExtra("user")) {
+            mCurrentUser = getIntent().getExtras().getParcelable("user");
+        }
+        if (mCurrentUser == null) {
+            mCurrentUser = new User("name", "level");
+        }
 
         //set custom toolbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -116,8 +121,8 @@ public class UserMetricsActivity extends ActionBarActivity
     public class UserMetricsPagerAdapter extends FragmentStatePagerAdapter {
 
         private String[] pageTitles = {getString(R.string.title_progress),
-                getString(R.string.title_MySavedCharacters)
-                , getString(R.string.title_Practice_Exercices), getString(R.string.title_Add_ons)};
+                getString(R.string.title_my_saved_characters)
+                , getString(R.string.title_practice_exercises), getString(R.string.title_add_ons)};
 
         public UserMetricsPagerAdapter(FragmentManager fm) {
             super(fm);

@@ -36,7 +36,13 @@ public class ArticleActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mCurrentUser = getIntent().getExtras().getParcelable("user");
+        if (getIntent().hasExtra("user")) {
+            mCurrentUser = getIntent().getExtras().getParcelable("user");
+        }
+        if (mCurrentUser == null) {
+            mCurrentUser = new User("name", "level");
+        }
+
         //set custom toolbar
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
