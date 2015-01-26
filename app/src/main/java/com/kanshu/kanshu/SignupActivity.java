@@ -123,6 +123,6 @@ public class SignupActivity extends ActionBarActivity {
         User userData = new User("Username", "Intermediate Level");
         Intent signupIntent = new Intent(this, ArticleActivity.class);
         signupIntent.putExtra("user", userData);
-        startActivity(signupIntent);
+        startActivity(new Intent(this, UserMetricsActivity.class));
     }
 }
