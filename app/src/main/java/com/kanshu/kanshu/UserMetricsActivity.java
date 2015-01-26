@@ -116,9 +116,7 @@ public class UserMetricsActivity extends ActionBarActivity implements Navigation
         public Fragment getItem(int i) {
             Fragment fragment = null;
             switch (i){
-                //My progress
                 case 0 :
-                //My saved Characters
                     fragment = new UserMyProgressFragment();
                     break;
                 case 1 :
