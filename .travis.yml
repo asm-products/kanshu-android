@@ -5,5 +5,6 @@ script:
 android:
   components:
     - extra-android-m2repository
+    - build-tools-21.1.2
   licenses:
   - android-sdk-license-.+
