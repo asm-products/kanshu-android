@@ -79,5 +79,7 @@
         android:nestedScrollingEnabled="false"
         android:layout_centerHorizontal="true"
         android:minHeight="30dp"
-        android:minWidth="68dp"/>
+        android:minWidth="68dp"
+        fontPath="fonts/Roboto-Medium.ttf"
+        tools:ignore="MissingPrefix"/>
 </RelativeLayout>

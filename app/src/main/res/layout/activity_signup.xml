@@ -53,7 +53,7 @@
                 android:id="@+id/email"
                 android:layout_below="@id/mainheadline"
                 android:layout_marginTop="15sp"
-                android:text="@string/email"
+                android:hint="@string/email"
                 android:textColor="@color/abc_secondary_text_material_dark"
                 android:textSize="14sp"
                 android:textIsSelectable="true"
@@ -65,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="@string/username"
+                android:hint="@string/username"
                 android:ems="10"
                 android:id="@+id/username"
                 android:layout_below="@+id/email"
@@ -86,7 +86,7 @@
                 android:layout_alignLeft="@+id/username"
                 android:layout_alignStart="@+id/username"
                 android:textColor="@color/abc_secondary_text_material_dark"
-                android:text="Password"
+                android:hint="Password"
                 android:textSize="14sp"
                 android:drawableLeft="@drawable/ic_lock"
                 android:drawablePadding="4dp"/>
@@ -94,7 +94,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:text="@string/signin_text"
                 android:id="@+id/signin"
                 android:layout_marginTop="0dp"
@@ -123,7 +123,9 @@
                 android:minHeight="30dp"
                 android:minWidth="68dp"
                 android:clickable="true"
-                android:onClick="onSignUp"/>
+                android:onClick="onSignUp"
+                fontPath="fonts/Roboto-Medium.ttf"
+                tools:ignore="MissingPrefix"/>
 
             <Spinner
                 android:layout_width="wrap_content"
@@ -193,7 +195,7 @@
                 android:layout_below="@+id/spinner"
                 android:layout_alignRight="@+id/password"
                 android:layout_alignEnd="@+id/password"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginStart="2dp"
                 android:textColor="#ff3cc4ff"

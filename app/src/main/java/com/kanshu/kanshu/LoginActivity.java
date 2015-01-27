@@ -1,28 +1,16 @@
 package com.kanshu.kanshu;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        final Typeface roboto = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Thin.ttf");
-        final Typeface robotoMedium = Typeface.createFromAsset(getAssets(),
-                "fonts/Roboto-Medium.ttf");
-        ((EditText) findViewById(R.id.password)).setTypeface(roboto);
-        ((EditText) findViewById(R.id.email)).setTypeface(roboto);
-        ((Button) findViewById(R.id.login_button)).setTypeface(robotoMedium);
-        ((TextView) findViewById(R.id.forgot)).setTypeface(roboto);
     }
 
 

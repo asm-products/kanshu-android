@@ -11,4 +11,12 @@
     <style name="AppThemeNavigationDrawer" parent="AppTheme">
     </style>
 
+    <style name="AppThemeIntro" parent="AppTheme">
+        <item name="android:textViewStyle">@style/AppTheme.Widget.TextView</item>
+    </style>
+
+    <style name="AppTheme.Widget.TextView" parent="android:Widget.Holo.Light.TextView">
+        <item name="fontPath">fonts/Roboto-Thin.ttf</item>
+    </style>
+
 </resources>

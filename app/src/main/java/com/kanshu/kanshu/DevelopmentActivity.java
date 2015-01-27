@@ -2,11 +2,10 @@ package com.kanshu.kanshu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 
 
-public class DevelopmentActivity extends ActionBarActivity {
+public class DevelopmentActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

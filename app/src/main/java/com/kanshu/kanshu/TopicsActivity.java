@@ -1,6 +1,5 @@
 package com.kanshu.kanshu;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -25,7 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by alouanemed on 22-01-2015.
  */
-public class TopicsActivity extends Activity {
+public class TopicsActivity extends BaseActivity {
 
     //dialog
     ProgressDialog dialog = null;

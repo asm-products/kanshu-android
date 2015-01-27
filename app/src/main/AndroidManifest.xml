@@ -18,10 +18,12 @@
         </activity>
         <activity
             android:name=".SignupActivity"
+            android:theme="@style/AppThemeIntro"
             android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
             android:name=".LoginActivity"
+            android:theme="@style/AppThemeIntro"
             android:parentActivityName=".SignupActivity"
             android:windowSoftInputMode="stateHidden">
             <meta-data

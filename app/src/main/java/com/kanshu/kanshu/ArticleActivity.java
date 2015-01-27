@@ -6,14 +6,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.kanshu.kanshu.model.User;
 
-public class ArticleActivity extends ActionBarActivity
+public class ArticleActivity extends BaseActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         NavigationDrawerFragment.NavigationDrawerData {
 
