@@ -1,7 +1,7 @@
 package com.kanshu.kanshu;
 
 /**
- * Created by med on 22-01-2015.
+ * Created by alouanemed on 22-01-2015.
  */
 
 import android.app.Activity;
