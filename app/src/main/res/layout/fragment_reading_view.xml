@@ -23,9 +23,11 @@
             android:layout_height="@dimen/slider_height"
             android:maxHeight="@dimen/slider_height"
             android:progressDrawable="@drawable/hsk_slider_progress"
-            custom:thumbImageNormal="@drawable/hsk_level_slider_control"
-            custom:thumbImagePressed="@drawable/hsk_level_slider_control"
+            custom:thumbColorNormal="@color/primary_dark_red"
             custom:connectingLineColor="@color/primary_dark_red"
+            custom:barColor = "@color/primary_light_red"
+            custom:tickHeight ="8dp"
+            custom:thumbRadius="14dp"
             android:id="@+id/levelSlider"/>
     </FrameLayout>
 

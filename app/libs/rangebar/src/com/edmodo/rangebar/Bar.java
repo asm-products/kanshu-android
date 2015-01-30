@@ -79,7 +79,7 @@ class Bar {
      */
     void draw(Canvas canvas) {
 
-        canvas.drawLine(mLeftX, mY, mRightX, mY, mPaint);
+        //canvas.drawLine(mLeftX, mY, mRightX, mY, mPaint);
 
         drawTicks(canvas);
     }
@@ -104,8 +104,7 @@ class Bar {
 
     /**
      * Gets the x-coordinate of the nearest tick to the given x-coordinate.
-     * 
-     * @param x the x-coordinate to find the nearest tick for
+     *
      * @return the x-coordinate of the nearest tick
      */
     float getNearestTickCoordinate(Thumb thumb) {
@@ -154,12 +153,15 @@ class Bar {
     private void drawTicks(Canvas canvas) {
 
         // Loop through and draw each tick (except final tick).
+        float tickRad = (mTickEndY-mTickStartY)/2;
         for (int i = 0; i < mNumSegments; i++) {
             final float x = i * mTickDistance + mLeftX;
-            canvas.drawLine(x, mTickStartY, x, mTickEndY, mPaint);
+            //canvas.drawLine(x, mTickStartY, x, mTickEndY, mPaint);
+            canvas.drawCircle(x, mTickStartY+tickRad,tickRad, mPaint);
         }
         // Draw final tick. We draw the final tick outside the loop to avoid any
         // rounding discrepancies.
-        canvas.drawLine(mRightX, mTickStartY, mRightX, mTickEndY, mPaint);
+       // canvas.drawLine(mRightX, mTickStartY, mRightX, mTickEndY, mPaint);
+        canvas.drawCircle(mRightX, mTickStartY+tickRad,tickRad, mPaint);
     }
 }
