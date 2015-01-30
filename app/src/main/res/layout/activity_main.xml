@@ -5,7 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.kanshu.kanshu.ArticleActivity">
+    tools:context="com.kanshu.android.activity.ArticleActivity">
 
     <LinearLayout
         android:id="@+id/container"
@@ -22,7 +22,7 @@
             android:minHeight="?attr/actionBarSize"
             android:background="?attr/colorPrimary"/>
 
-        <com.kanshu.kanshu.SlidingTabLayout
+        <com.kanshu.android.widget.SlidingTabLayout
             android:id="@+id/sliding_tabs"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:name="com.kanshu.kanshu.NavigationDrawerFragment"
+        android:name="com.kanshu.android.fragment.NavigationDrawerFragment"
         tools:layout="@layout/fragment_navigation_drawer"/>
 
 </android.support.v4.widget.DrawerLayout>
