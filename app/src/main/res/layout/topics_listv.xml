@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              tools:context="com.kanshu.kanshu.TopicsActivity"
+              tools:context="com.kanshu.android.activity.TopicsActivity"
     >
 
     <GridView

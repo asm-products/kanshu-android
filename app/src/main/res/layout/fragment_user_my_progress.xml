@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.kanshu.kanshu.ArticleActivity$PlaceholderFragment">
+                tools:context="com.kanshu.android.activity.ArticleActivity$PlaceholderFragment">
 
     <TextView
         android:layout_width="wrap_content"

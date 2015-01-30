@@ -6,6 +6,6 @@
           android:divider="@android:color/black"
           android:dividerHeight="1dp"
           android:background="@color/navbar_off_white"
-          tools:context="com.kanshu.kanshu.NavigationDrawerFragment"/>
+          tools:context="com.kanshu.android.fragment.NavigationDrawerFragment"/>
 
 

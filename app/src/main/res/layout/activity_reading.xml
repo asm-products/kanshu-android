@@ -3,7 +3,7 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:id="@id/drawer_layout"
-                                        tools:context="com.kanshu.kanshu.ReadingActivity">
+                                        tools:context="com.kanshu.android.activity.ReadingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:id="@+id/reading_view"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:name="com.kanshu.kanshu.ReadingViewFragment"
+            android:name="com.kanshu.android.fragment.ReadingViewFragment"
             tools:layout="@layout/fragment_reading_view"/>
     </LinearLayout>
 
@@ -32,6 +32,6 @@
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:name="com.kanshu.kanshu.NavigationDrawerFragment"
+        android:name="com.kanshu.android.fragment.NavigationDrawerFragment"
         tools:layout="@layout/fragment_navigation_drawer"/>
 </android.support.v4.widget.DrawerLayout>

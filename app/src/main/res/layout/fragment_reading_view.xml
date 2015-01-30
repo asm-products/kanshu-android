@@ -2,7 +2,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.kanshu.kanshu.ReadingViewFragment"
+                tools:context="com.kanshu.android.fragment.ReadingViewFragment"
                 android:orientation="vertical"
                 android:fitsSystemWindows="true"
                 android:background="@color/background_material_light">
@@ -23,7 +23,8 @@
             android:maxHeight="@dimen/slider_height"
             android:progressDrawable="@drawable/hsk_slider_progress"
             android:thumb="@drawable/hsk_level_slider_control"
-            android:id="@+id/levelSlider"/>
+            android:id="@+id/levelSlider"
+            android:max="5" />
     </FrameLayout>
 
 </RelativeLayout>
