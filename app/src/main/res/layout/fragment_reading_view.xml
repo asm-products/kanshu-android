@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:custom="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -17,12 +18,14 @@
         android:layout_marginRight="30dp"
         android:id="@+id/levelSliderFrame">
 
-        <SeekBar
+        <com.edmodo.rangebar.TickedSeekBar
             android:layout_width="match_parent"
             android:layout_height="@dimen/slider_height"
             android:maxHeight="@dimen/slider_height"
             android:progressDrawable="@drawable/hsk_slider_progress"
-            android:thumb="@drawable/hsk_level_slider_control"
+            custom:thumbImageNormal="@drawable/hsk_level_slider_control"
+            custom:thumbImagePressed="@drawable/hsk_level_slider_control"
+            custom:connectingLineColor="@color/primary_dark_red"
             android:id="@+id/levelSlider"/>
     </FrameLayout>
 
