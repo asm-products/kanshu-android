@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:id="@+id/levelSliderFrame"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:animateLayoutChanges="true"
+        android:alpha="0.2">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,7 +22,7 @@
             android:orientation="horizontal"
             android:background="@drawable/slider_border"
             android:id="@+id/alphaSlider"
-            android:scaleY="0">
+            android:visibility="gone">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,7 +78,7 @@
             android:orientation="horizontal"
             android:background="@drawable/slider_border"
             android:id="@+id/hanziSlider"
-            android:scaleY="0">
+            android:visibility="gone">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

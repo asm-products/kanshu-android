@@ -1,12 +1,17 @@
 package com.kanshu.kanshu;
 
+import android.animation.LayoutTransition;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
 
@@ -20,6 +25,7 @@ public class ReadingViewFragment extends Fragment {
 
 
     private OnFragmentClickListener mListener;
+    private boolean mIsSliderCollapsed;
 
 
     public ReadingViewFragment() {
@@ -29,6 +35,7 @@ public class ReadingViewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mIsSliderCollapsed = true;
     }
 
     @Override
@@ -36,29 +43,71 @@ public class ReadingViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_reading_view, container, false);
-        final FrameLayout seekBarLayout = ((FrameLayout) v.findViewById(R.id.levelSliderFrame));
-        seekBarLayout.setOnClickListener(new View.OnClickListener() {
+        final LinearLayout seekBarLayout = ((LinearLayout) v.findViewById(R.id.levelSliderFrame));
+        final RelativeLayout hanziLayout = ((RelativeLayout) v.findViewById(R.id.hanziSlider));
+        final RelativeLayout textSizeLayout = ((RelativeLayout) v.findViewById(R.id.alphaSlider));
+        seekBarLayout.setAlpha(0.3f);
+        LayoutTransition transition = new LayoutTransition();
+        transition.setStagger(LayoutTransition.DISAPPEARING,1);
+        transition.setStagger(LayoutTransition.APPEARING,1);
+        transition.setStartDelay(LayoutTransition.DISAPPEARING, 1);
+        transition.setStartDelay(LayoutTransition.APPEARING, 1);
+        transition.setStartDelay(LayoutTransition.CHANGE_DISAPPEARING,1);
+        transition.setStartDelay(LayoutTransition.CHANGE_APPEARING,1);
+        seekBarLayout.setLayoutTransition(transition);
+        seekBarLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View s) {
-                s.setAlpha(1.0f);
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                  if(mIsSliderCollapsed){
+                      hanziLayout.setVisibility(View.VISIBLE);
+                      textSizeLayout.setVisibility(View.VISIBLE);
+                      seekBarLayout.getLayoutTransition().addTransitionListener(new LayoutTransition.TransitionListener() {
+                          @Override
+                          public void startTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
+
+                          }
+
+                          @Override
+                          public void endTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
+                              if (view == hanziLayout) {
+                                  seekBarLayout.setAlpha(1.0f);
+                                  seekBarLayout.getLayoutTransition().removeTransitionListener(this);
+                              }
+                          }
+                      });
+                      mIsSliderCollapsed = false;
+                  }
+                }
+                return true;
             }
         });
-        seekBarLayout.setAlpha(0.3f);
-        ((SeekBar) v.findViewById(R.id.levelSlider)).setOnSeekBarChangeListener(new SeekBar
-                .OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-            }
-
+        v.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                seekBarLayout.setAlpha(1.0f);
-            }
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (!mIsSliderCollapsed) {
+                        textSizeLayout.setVisibility(View.GONE);
+                        hanziLayout.setVisibility(View.GONE);
+                        seekBarLayout.getLayoutTransition().addTransitionListener(new LayoutTransition.TransitionListener() {
+                            @Override
+                            public void startTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
 
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                seekBarLayout.setAlpha(0.3f);
+                            }
+
+                            @Override
+                            public void endTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
+                                if(view == hanziLayout){
+                                    seekBarLayout.setAlpha(0.3f);
+                                    seekBarLayout.getLayoutTransition().removeTransitionListener(this);
+                                }
+                            }
+                        });
+                        mIsSliderCollapsed = true;
+                    }
+                }
+                return true;
             }
         });
         return v;
