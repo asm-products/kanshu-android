@@ -7,6 +7,19 @@
                 android:orientation="vertical"
                 android:fitsSystemWindows="true"
                 android:background="@color/background_material_light">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:text="AAAAAAA AAAAAAAAAAAAA AAAAAAAAA AAAAAAA AAAAAAAAAA AAAAAAAAAAA AAAA AAAA AAA AAAAAAA AAAAAA AAAAA AA AAAA"
+        android:textSize="40sp"
+        android:textColor="#000000"
+        android:id="@+id/sample_text"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/blurredText"
+        android:layout_alignParentBottom="true"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,11 +62,12 @@
         android:maxHeight="@dimen/slider_height"
         android:progressDrawable="@drawable/hsk_slider_progress"
         custom:thumbColorNormal="@color/primary_dark_red"
+        custom:thumbColorPressed="@color/article_light_grey"
         custom:connectingLineColor="@color/primary_dark_red"
         custom:barColor = "@color/primary_light_red"
-        custom:tickHeight ="3dp"
+        custom:tickHeight ="2sp"
         custom:tickCount ="8"
-        custom:thumbRadius="8dp"
+        custom:thumbRadius="8sp"
         android:id="@+id/textsizeSlider"/>
             </FrameLayout>
 
@@ -104,11 +118,12 @@
                     android:maxHeight="@dimen/slider_height"
                     android:progressDrawable="@drawable/hsk_slider_progress"
                     custom:thumbColorNormal="@color/primary_dark_red"
+                    custom:thumbColorPressed="@color/article_light_grey"
                     custom:connectingLineColor="@color/primary_dark_red"
                     custom:barColor = "@color/primary_light_red"
-                    custom:tickHeight ="3dp"
+                    custom:tickHeight ="2sp"
                     custom:tickCount ="8"
-                    custom:thumbRadius="8dp"
+                    custom:thumbRadius="8sp"
                     android:id="@+id/sizehanziSlider"/>
             </FrameLayout>
 
@@ -159,9 +174,10 @@
                     custom:thumbColorNormal="@color/primary_dark_red"
                     custom:connectingLineColor="@color/primary_dark_red"
                     custom:barColor = "@color/primary_light_red"
-                    custom:tickHeight ="3dp"
+                    custom:tickHeight ="2sp"
                     custom:tickCount ="8"
-                    custom:thumbRadius="8dp"
+                    custom:thumbRadius="8sp"
+                    custom:thumbColorPressed="@color/article_light_grey"
                     android:id="@+id/levelSlider"/>
             </FrameLayout>
 
