@@ -21,7 +21,7 @@
 
         <fragment
             android:id="@+id/reading_view"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:name="com.kanshu.kanshu.ReadingViewFragment"
             tools:layout="@layout/fragment_reading_view"/>

@@ -8,4 +8,8 @@
     <dimen name="slider_height">60dp</dimen>
     <dimen name="chart_height">120dp</dimen>
     <dimen name="settings_more_vertical_padding">6dp</dimen>
+    <dimen name="item_reading_default_pinyin_text_size">16dp</dimen>
+    <dimen name="item_reading_default_hanzi_text_size">24dp</dimen>
+    <dimen name="item_reading_default_definition_text_size">16dp</dimen>
+    <dimen name="item_reading_padding">4dp</dimen>
 </resources>

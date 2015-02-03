@@ -5,14 +5,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.kanshu.kanshu.model.User;
 
 
 public class ReadingActivity extends BaseActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        ReadingViewFragment.OnFragmentClickListener, NavigationDrawerFragment.NavigationDrawerData {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, NavigationDrawerFragment.NavigationDrawerData {
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private User mCurrentUser;
 
@@ -64,11 +62,6 @@ public class ReadingActivity extends BaseActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-    }
-
-    @Override
-    public void onFragmentClick(View v) {
-
     }
 
     @Override

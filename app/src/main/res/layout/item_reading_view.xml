@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/item_layout"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp">
+
+    <TextView
+        android:id="@+id/pinyin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:gravity="center_horizontal"
+        tools:text="tā"
+        android:textSize="@dimen/item_reading_default_pinyin_text_size"
+        android:textColor="@android:color/black"/>
+
+    <com.kanshu.kanshu.widget.ChineseTextView
+        android:id="@+id/hanzi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/item_reading_default_hanzi_text_size"
+        tools:text="他"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/definition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:gravity="center_horizontal"
+        tools:text="he or him"
+        android:textSize="@dimen/item_reading_default_definition_text_size"
+        android:textColor="@android:color/black"/>
+
+</LinearLayout>
