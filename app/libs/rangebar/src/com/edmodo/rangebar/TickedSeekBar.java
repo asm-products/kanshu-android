@@ -63,6 +63,10 @@ public class TickedSeekBar extends RangeBar{
         }
     }
 
+    @Override
+    protected float getMarginLeft() {
+        return ((mThumb != null) ? mThumb.getHalfWidth() : 0);
+    }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {

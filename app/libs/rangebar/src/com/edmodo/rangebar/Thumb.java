@@ -135,13 +135,6 @@ class Thumb {
             mPaintPressed.setColor(mThumbColorPressed);
             mPaintPressed.setAntiAlias(true);
         }
-
-        mHalfWidthNormal = mImageNormal.getWidth() / 2f;
-        mHalfHeightNormal = mImageNormal.getHeight() / 2f;
-
-        mHalfWidthPressed = mImagePressed.getWidth() / 2f;
-        mHalfHeightPressed = mImagePressed.getHeight() / 2f;
-
         // Sets the minimum touchable area, but allows it to expand based on
         // image size
         int targetRadius = (int) Math.max(MINIMUM_TARGET_RADIUS_DP, thumbRadiusDP);
@@ -149,6 +142,17 @@ class Thumb {
         mTargetRadiusPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                                                     targetRadius,
                                                     res.getDisplayMetrics());
+        if(!mUseBitmap)
+        {
+            mHalfWidthNormal = mHalfWidthPressed =  mHalfHeightPressed = mHalfHeightNormal=  mTargetRadiusPx;
+        }
+        else{
+            mHalfWidthNormal = mImageNormal.getWidth() / 2f;
+            mHalfHeightNormal = mImageNormal.getHeight() / 2f;
+
+            mHalfWidthPressed = mImagePressed.getWidth() / 2f;
+            mHalfHeightPressed = mImagePressed.getHeight() / 2f;
+        }
 
         mX = mHalfWidthNormal;
         mY = y;
