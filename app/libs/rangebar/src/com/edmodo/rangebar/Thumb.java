@@ -112,9 +112,9 @@ class Thumb {
                                                            DEFAULT_THUMB_RADIUS_DP,
                                                            res.getDisplayMetrics());
             else
-                mThumbRadiusPx = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                mThumbRadiusPx = /*TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                                                            thumbRadiusDP,
-                                                           res.getDisplayMetrics());
+                                                           res.getDisplayMetrics());*/thumbRadiusDP;
 
             if (thumbColorNormal == -1)
                 mThumbColorNormal = DEFAULT_THUMB_COLOR_NORMAL;

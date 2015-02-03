@@ -56,9 +56,9 @@ class Bar {
 
         mNumSegments = tickCount - 1;
         mTickDistance = length / mNumSegments;
-        mTickHeight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+        mTickHeight = /*TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                                                 tickHeightDP,
-                                                ctx.getResources().getDisplayMetrics());
+                                                ctx.getResources().getDisplayMetrics());*/tickHeightDP;
         mTickStartY = mY - mTickHeight / 2f;
         mTickEndY = mY + mTickHeight / 2f;
 
