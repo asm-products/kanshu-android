@@ -6,7 +6,7 @@
                 tools:context="com.kanshu.kanshu.ReadingViewFragment"
                 android:orientation="vertical"
                 android:fitsSystemWindows="true"
-                android:background="@color/background_material_light">
+                android:background="#F5F5F5">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -27,7 +27,7 @@
         android:id="@+id/levelSliderFrame"
         android:orientation="vertical"
         android:animateLayoutChanges="true"
-        android:alpha="0.2">
+        android:alpha="0.3">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -65,9 +65,9 @@
         custom:thumbColorPressed="@color/article_light_grey"
         custom:connectingLineColor="@color/primary_dark_red"
         custom:barColor = "@color/primary_light_red"
-        custom:tickHeight ="2sp"
+        custom:tickHeight ="2dip"
         custom:tickCount ="8"
-        custom:thumbRadius="8sp"
+        custom:thumbRadius="8dip"
         android:id="@+id/textsizeSlider"/>
             </FrameLayout>
 
@@ -103,7 +103,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="5dp"
                 android:layout_marginRight="5dp"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:layout_alignParentLeft="true"
                 />
             <FrameLayout
@@ -121,9 +121,9 @@
                     custom:thumbColorPressed="@color/article_light_grey"
                     custom:connectingLineColor="@color/primary_dark_red"
                     custom:barColor = "@color/primary_light_red"
-                    custom:tickHeight ="2sp"
+                    custom:tickHeight ="2dip"
                     custom:tickCount ="8"
-                    custom:thumbRadius="8sp"
+                    custom:thumbRadius="8dip"
                     android:id="@+id/sizehanziSlider"/>
             </FrameLayout>
 
@@ -137,7 +137,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
-                android:textSize="16sp"
+                android:textSize="24sp"
                 android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
@@ -174,9 +174,9 @@
                     custom:thumbColorNormal="@color/primary_dark_red"
                     custom:connectingLineColor="@color/primary_dark_red"
                     custom:barColor = "@color/primary_light_red"
-                    custom:tickHeight ="2sp"
+                    custom:tickHeight ="1pt"
                     custom:tickCount ="8"
-                    custom:thumbRadius="8sp"
+                    custom:thumbRadius="3pt"
                     custom:thumbColorPressed="@color/article_light_grey"
                     android:id="@+id/levelSlider"/>
             </FrameLayout>
