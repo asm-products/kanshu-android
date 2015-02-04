@@ -1,0 +1,143 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.kanshu.kanshu.AboutActivity"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/gradient">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:id="@+id/logo"
+        android:src="@drawable/kanshu"
+        android:layout_alignLeft="@+id/email"
+        android:layout_alignStart="@+id/email"
+        android:layout_above="@+id/email"
+        android:layout_alignRight="@+id/email"
+        android:layout_alignEnd="@+id/email"
+        android:layout_marginTop="10sp"
+        android:layout_alignParentTop="true"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="7"
+        android:gravity="center"
+        android:text="@string/about_app_name"
+        android:layout_marginTop="10sp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:textIsSelectable="true"
+        android:drawablePadding="8sp"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/copyright"
+        android:textColor="@color/white"
+        android:text="@string/about_copyright_"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:drawablePadding="4sp"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        fontPath="fonts/Roboto-Thin.ttf"
+        tools:ignore="MissingPrefix"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="20"
+        android:id="@+id/release_info"
+        android:textColor="@color/article_light_grey"
+        android:text="@string/about__release_info"
+        android:gravity="center"
+        android:layout_marginTop="20sp"
+        android:textSize="10sp"
+        android:drawablePadding="4sp"
+        android:layout_below="@+id/copyright"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="20"
+        android:id="@+id/release_info2"
+        android:textColor="@color/article_light_grey"
+        android:text="@string/about_release_hash"
+        android:gravity="center"
+        android:textSize="10sp"
+        android:drawablePadding="4sp"
+        android:layout_below="@+id/release_info"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_tos"
+        android:id="@+id/TOS_btn"
+        android:layout_below="@+id/release_info2"
+        android:background="#d32f2f"
+        android:textColor="#ffffffff"
+        android:typeface="normal"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="10sp"
+        android:layout_marginTop="35sp"
+        android:nestedScrollingEnabled="false"
+        android:layout_centerHorizontal="true"
+        android:minHeight="20dp"
+        android:minWidth="250dp"
+        fontPath="fonts/Roboto-Medium.ttf"
+        tools:ignore="MissingPrefix"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_Pp"
+        android:id="@+id/pp_btn"
+        android:layout_below="@+id/TOS_btn"
+        android:background="#d32f2f"
+        android:textColor="#ffffffff"
+        android:typeface="normal"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="10sp"
+        android:layout_marginTop="8sp"
+        android:nestedScrollingEnabled="false"
+        android:layout_centerHorizontal="true"
+        android:minHeight="20dp"
+        android:minWidth="250dp"
+        fontPath="fonts/Roboto-Medium.ttf"
+        tools:ignore="MissingPrefix"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_Oss"
+        android:id="@+id/Osslib_btn"
+        android:layout_below="@+id/pp_btn"
+        android:background="#d32f2f"
+        android:textColor="#ffffffff"
+        android:typeface="normal"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="10sp"
+        android:layout_marginTop="8sp"
+        android:nestedScrollingEnabled="false"
+        android:layout_centerHorizontal="true"
+        android:minHeight="20dp"
+        android:minWidth="250dp"
+        android:onClick="OnOslibClick"
+    fontPath="fonts/Roboto-Medium.ttf"
+        tools:ignore="MissingPrefix"/>
+</RelativeLayout>

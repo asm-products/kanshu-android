@@ -37,4 +37,8 @@ public class DevelopmentActivity extends BaseActivity {
         startActivity(new Intent(this, UserMetricsActivity.class));
     }
 
+    public void onAboutActivity(View view) {
+        startActivity(new Intent(this, AboutActivity.class));
+    }
+
 }
