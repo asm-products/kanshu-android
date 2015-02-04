@@ -59,4 +59,16 @@
     <string name="title_add_ons">Add-ons</string>
     <string name="nav_bar_signout">Sign Out</string>
 
+    <string-array name="settings_tabs">
+        <item>My Account</item>
+        <item>More Settings</item>
+    </string-array>
+
+    <!-- Preferences -->
+    <string-array name="prefs_fonts">
+        <item>font 1</item>
+        <item>font 2</item>
+        <item>font 3</item>
+    </string-array>
+
 </resources>

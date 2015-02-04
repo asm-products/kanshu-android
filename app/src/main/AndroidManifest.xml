@@ -60,6 +60,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.kanshu.kanshu.SignupActivity"/>
         </activity>
+        <activity android:name=".activity.SettingsActivity"
+            android:theme="@style/AppPreferenceTheme"
+            android:windowSoftInputMode="stateHidden"/>
     </application>
 
 </manifest>

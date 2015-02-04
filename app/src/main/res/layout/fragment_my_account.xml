@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin">
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Save"
+        android:background="#d32f2f"
+        android:textColor="#ffffffff"
+        android:typeface="normal"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textSize="10sp"
+        android:nestedScrollingEnabled="false"
+        android:minHeight="30dp"
+        android:minWidth="68dp"
+        fontPath="fonts/Roboto-Medium.ttf"
+        tools:ignore="MissingPrefix"/>
+
+
+        <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/saveButton">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="32dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/kanshu"/>
+
+            <TextView
+                android:id="@+id/fullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/avatar"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Full Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/fullname"
+                android:layout_toRightOf="@+id/fullname"
+                android:layout_alignParentRight="true"
+                android:textAppearance="?android:textAppearanceSmallInverse"
+                android:singleLine="true"
+                android:imeOptions="actionNext"/>
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fullname"
+                android:layout_marginBottom="16dp"
+                android:text="Username"
+                android:textAppearance="?android:textAppearanceSmallInverse"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/username"
+                android:layout_toRightOf="@+id/fullname"
+                android:layout_alignParentRight="true"
+                android:textAppearance="?android:textAppearanceSmallInverse"
+                android:singleLine="true"
+                android:imeOptions="actionNext"
+                />
+
+            <TextView
+                android:id="@+id/country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/username"
+                android:layout_marginBottom="16dp"
+                android:text="Country"
+                android:textAppearance="?android:textAppearanceSmallInverse"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/country"
+                android:layout_toRightOf="@+id/fullname"
+                android:layout_alignParentRight="true"
+                android:textAppearance="?android:textAppearanceSmallInverse"
+                android:singleLine="true"
+                android:imeOptions="actionNext"/>
+
+
+            <TextView
+                android:id="@+id/bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/country"
+                android:text="Bio"
+                android:textAppearance="?android:textAppearanceSmallInverse"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_alignTop="@+id/bio"
+                android:layout_toRightOf="@+id/fullname"
+                android:layout_alignParentRight="true"
+                android:singleLine="false"
+                android:textAppearance="?android:textAppearanceSmallInverse"/>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

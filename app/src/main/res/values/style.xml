@@ -19,4 +19,16 @@
         <item name="fontPath">fonts/Roboto-Thin.ttf</item>
     </style>
 
+    <style
+        name="AppPreferenceTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/primary_light_red</item>
+        <item name="colorPrimaryDark">@color/primary_dark_red</item>
+        <item name="colorAccent">@color/primary_light_red</item>
+        <!--<item name="android:textColor">@color/article_light_grey</item>-->
+        <!--<item name="android:textColorSecondary">@color/article_dart_grey</item>-->
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+    <!--<style name="AppPreferenceTextAppearance" parent="@android:style/TextAppearance.Large">-->
+        <!--<item name="android:textColor">#333</item>-->
+    <!--</style>-->
 </resources>

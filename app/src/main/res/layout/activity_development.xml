@@ -49,6 +49,12 @@
             android:text="UserMetricsActivity"
             android:onClick="onUserMetricsActivity"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SettingsActivity"
+            android:onClick="onSettingsActivity"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
