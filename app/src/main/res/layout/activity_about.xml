@@ -35,7 +35,7 @@
         android:textSize="15sp"
         android:textIsSelectable="true"
         android:drawablePadding="8sp"
-        android:id="@+id/textView2"
+        android:id="@+id/app_name"
         android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true" />
 
@@ -49,7 +49,7 @@
         android:gravity="center"
         android:textSize="14sp"
         android:drawablePadding="4sp"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/app_name"
         android:layout_centerHorizontal="true"
         fontPath="fonts/Roboto-Thin.ttf"
         tools:ignore="MissingPrefix"
@@ -61,7 +61,7 @@
         android:ems="20"
         android:id="@+id/release_info"
         android:textColor="@color/article_light_grey"
-        android:text="@string/about__release_info"
+        android:text="@string/about_release_info"
         android:gravity="center"
         android:layout_marginTop="20sp"
         android:textSize="10sp"
@@ -97,7 +97,7 @@
         android:layout_marginTop="35sp"
         android:nestedScrollingEnabled="false"
         android:layout_centerHorizontal="true"
-        android:minHeight="20dp"
+        android:minHeight="30dp"
         android:minWidth="250dp"
         fontPath="fonts/Roboto-Medium.ttf"
         tools:ignore="MissingPrefix"/>
@@ -116,7 +116,7 @@
         android:layout_marginTop="8sp"
         android:nestedScrollingEnabled="false"
         android:layout_centerHorizontal="true"
-        android:minHeight="20dp"
+        android:minHeight="30dp"
         android:minWidth="250dp"
         fontPath="fonts/Roboto-Medium.ttf"
         tools:ignore="MissingPrefix"/>
@@ -135,7 +135,7 @@
         android:layout_marginTop="8sp"
         android:nestedScrollingEnabled="false"
         android:layout_centerHorizontal="true"
-        android:minHeight="20dp"
+        android:minHeight="30dp"
         android:minWidth="250dp"
         android:onClick="OnOslibClick"
     fontPath="fonts/Roboto-Medium.ttf"

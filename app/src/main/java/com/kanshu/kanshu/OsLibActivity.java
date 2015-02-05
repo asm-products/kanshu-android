@@ -19,7 +19,7 @@ public class OsLibActivity extends ActionBarActivity {
 
         LibsFragment fragment = new Libs.Builder()
                 .withFields(R.string.class.getFields())
-                .withLibraries("crouton", "activeandroid", "calligraphy", "circleimageview")
+                .withLibraries( "calligraphy", "circleimageview")
                 .withVersionShown(true)
                 .withLicenseShown(true)
                 .withLibraryModification("aboutlibraries", Libs.LibraryFields.LIBRARY_NAME, "_AboutLibraries")
