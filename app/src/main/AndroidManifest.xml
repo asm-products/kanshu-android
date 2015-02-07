@@ -74,6 +74,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.kanshu.kanshu.AboutActivity" />
         </activity>
+        <activity
+            android:name=".FeedbackActivity"
+            android:label="@string/title_activity_feedback" >
+        </activity>
     </application>
 
 </manifest>

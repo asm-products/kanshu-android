@@ -55,6 +55,12 @@
             android:text="About"
             android:onClick="onAboutActivity"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Feedback"
+            android:onClick="onFeedbackActivity"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

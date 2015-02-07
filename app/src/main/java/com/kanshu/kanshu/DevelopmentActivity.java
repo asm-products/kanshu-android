@@ -41,4 +41,7 @@ public class DevelopmentActivity extends BaseActivity {
         startActivity(new Intent(this, AboutActivity.class));
     }
 
+    public void onFeedbackActivity(View view) {
+        startActivity(new Intent(this, FeedbackActivity.class));
+    }
 }
