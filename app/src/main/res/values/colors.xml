@@ -7,4 +7,5 @@
     <color name="article_dart_grey">#606060</color>
     <color name="white">#FFFFFF</color>
     <color name="navbar_off_white">#FAFAFA</color>
+    <color name="line_divider_grey">#aaaaaa</color>
 </resources>

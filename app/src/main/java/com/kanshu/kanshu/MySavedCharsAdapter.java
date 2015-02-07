@@ -1,12 +1,10 @@
 package com.kanshu.kanshu;
 
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kanshu.kanshu.model.SavedChars;
@@ -26,19 +24,17 @@ public class MySavedCharsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public class SavedCharViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
 
-        public ChineseTextView CharTV;
+        public TextView CharTV;
         public TextView CharDescriptionTV;
         public ImageView DeleteBtn;
-        public CardView cardView;
 
         public SavedChars single_char;
 
         public SavedCharViewHolder(View v) {
             super(v);
             single_char = new SavedChars();
-            CharTV = (ChineseTextView) v.findViewById(R.id.saved_char);
+            CharTV = (TextView) v.findViewById(R.id.saved_char);
             CharDescriptionTV = (TextView) v.findViewById(R.id.saved_char_description);
-            cardView = (CardView) v.findViewById(R.id.card_view);
         }
     }
 
@@ -50,7 +46,7 @@ public class MySavedCharsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     // Create new views (invoked by the layout manager)
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.saved_chars_card, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_saved_chars, parent, false);
 
         RecyclerView.ViewHolder vh = new SavedCharViewHolder(v);
         return vh;

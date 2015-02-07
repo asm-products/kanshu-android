@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.kanshu.kanshu.model.Article;
 import com.kanshu.kanshu.model.SavedChars;
+import com.kanshu.kanshu.widget.SimpleDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +40,12 @@ public class UserMySavedCharsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_user_my_saved_chars, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.saved_chars__rec_view);
+        mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
 
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         //add data to the list
