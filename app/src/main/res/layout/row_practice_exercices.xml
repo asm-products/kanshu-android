@@ -7,16 +7,16 @@
     android:layout_margin="1dp"
     android:orientation="horizontal">
 
-    <com.kanshu.kanshu.widget.ChineseTextView
+
+    <ImageView
         android:layout_width="wrap_content"
         android:maxWidth="90dp"
-        android:textColor="@color/cardview_dark_background"
+        android:maxHeight="90dp"
         android:layout_height="match_parent"
         android:textSize="40sp"
+        android:src="@drawable/ic_launcher"
         android:layout_marginLeft="16dp"
-        android:ellipsize="none"
-        android:text="军"
-        android:id="@+id/saved_char"
+        android:id="@+id/ex_thumbnail"
         android:gravity="center"/>
 
     <LinearLayout
@@ -25,18 +25,40 @@
         android:orientation="vertical"
         android:layout_weight="0.65">
 
-    <TextView
+        <TextView
             android:layout_width="251dp"
             android:maxWidth="190dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/article_light_grey"
+            android:textColor="@color/article_dart_grey"
             android:textSize="13sp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:ellipsize="none"
-            android:text="WO
- or me 2 wwe or us 3 (used coordinately with in  parallel structures one : anyone"
-            android:id="@+id/saved_char_description"
+            android:text="FlashCards"
+            android:id="@+id/ex_title"
+            android:layout_gravity="left|center_vertical"/>
+        <TextView
+            android:layout_width="251dp"
+            android:maxWidth="190dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/article_light_grey"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:ellipsize="none"
+            android:text="Practice your saved characters with this game"
+            android:id="@+id/ex_description"
+            android:layout_gravity="left|center_vertical"/>
+
+        <TextView
+            android:layout_width="251dp"
+            android:maxWidth="190dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/article_dart_grey"
+            android:textSize="13sp"
+            android:layout_marginLeft="15dp"
+            android:ellipsize="none"
+            android:text="9.9 MB"
+            android:id="@+id/ex_file_size"
             android:layout_gravity="left|center_vertical"/>
     </LinearLayout>
 
@@ -45,7 +67,7 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:src="@drawable/ic_close_grey600_24dp"
-        android:id="@+id/delete_char"
+        android:id="@+id/ex_delete"
         android:layout_gravity="center"
         android:background="?attr/selectableItemBackground"/>
 </LinearLayout>
