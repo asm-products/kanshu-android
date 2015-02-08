@@ -7,48 +7,52 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.kanshu.kanshu.model.SavedChars;
-import com.kanshu.kanshu.widget.ChineseTextView;
+import com.kanshu.kanshu.model.Exercise;
 
 import java.util.List;
 
 /**
- * Created by alouanemed on 06-02-2015.
+ * Created by alouanemed on 07-02-2015.
  */
-public class MySavedCharsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<SavedChars> SavedCharsList;
+public class ExerciseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private List<Exercise> exercisesList;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public class SavedCharViewHolder extends RecyclerView.ViewHolder {
+    public class UserExercisesViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
 
-        public TextView CharTV;
-        public TextView CharDescriptionTV;
-        public ImageView DeleteBtn;
+        public TextView exerciseTitleTV;
+        public TextView exerciseDescriptionTV;
+        public TextView exerciseFileSizeTV;
+        public ImageView exerciseThumbIV;
+        public ImageView deleteBtn;
 
-        public SavedChars single_char;
+        public Exercise exercise;
 
-        public SavedCharViewHolder(View v) {
+        public UserExercisesViewHolder(View v) {
             super(v);
-            single_char = new SavedChars();
-            CharTV = (TextView) v.findViewById(R.id.saved_char);
-            CharDescriptionTV = (TextView) v.findViewById(R.id.saved_char_description);
+            exercise = new Exercise();
+            exerciseTitleTV = (TextView) v.findViewById(R.id.ex_title);
+            exerciseDescriptionTV = (TextView) v.findViewById(R.id.ex_description);
+            exerciseFileSizeTV = (TextView) v.findViewById(R.id.ex_file_size);
+            exerciseThumbIV = (ImageView) v.findViewById(R.id.ex_thumbnail);
+            deleteBtn = (ImageView) v.findViewById(R.id.ex_delete);
         }
     }
 
 
-    public MySavedCharsAdapter(List<SavedChars> lst) {
-        SavedCharsList = lst;
+    public ExerciseAdapter(List<Exercise> lst) {
+        exercisesList = lst;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_saved_chars, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_practice_exercices, parent, false);
 
-        RecyclerView.ViewHolder vh = new SavedCharViewHolder(v);
+        RecyclerView.ViewHolder vh = new UserExercisesViewHolder(v);
         return vh;
     }
 
@@ -66,14 +70,13 @@ public class MySavedCharsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        SavedChars single_char = SavedCharsList.get(position);
+        Exercise _exercise = exercisesList.get(position);
         //@todo set the real data here.
-        // holder.titleTextView.setText(single_char.Char())
 
     }
 
     @Override
     public int getItemCount() {
-        return SavedCharsList.size();
+        return exercisesList.size();
     }
 }
