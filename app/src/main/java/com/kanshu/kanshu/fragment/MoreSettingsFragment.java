@@ -1,29 +1,20 @@
 package com.kanshu.kanshu.fragment;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.preference.PreferenceFragment;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.kanshu.kanshu.R;
 
 /**
  * Created by victorsima on 2/4/15.
  */
-public class MoreSettingsFragment extends PreferenceFragment {
-
+public class MoreSettingsFragment extends Fragment {
     @Override
-    public void onCreate(final Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.preferences);
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-//        getListView().setDivider(null);
-        getListView().setDivider(getResources().getDrawable(R.drawable.preferences_divider));
-        getListView().setDividerHeight(getResources().getDimensionPixelOffset(R.dimen.preferences_divider));
-
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_more_settings, container, false);
     }
 }

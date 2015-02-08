@@ -7,6 +7,6 @@
     <dimen name="navigation_drawer_width">280dp</dimen>
     <dimen name="slider_height">60dp</dimen>
 
-    <dimen name="preferences_divider">1dp</dimen>
+    <dimen name="settings_more_vertical_padding">6dp</dimen>
 
 </resources>

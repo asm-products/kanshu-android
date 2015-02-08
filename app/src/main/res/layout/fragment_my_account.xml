@@ -2,9 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/saveButton"
@@ -28,9 +26,12 @@
 
 
         <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/saveButton">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/saveButton"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -40,7 +41,7 @@
                 android:id="@+id/avatar"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="32dp"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/kanshu"/>
@@ -53,16 +54,15 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginRight="16dp"
                 android:text="Full Name"
-                android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                style="@style/Kanshu.Light.TextView.Thin"
                 />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/fullname"
                 android:layout_toRightOf="@+id/fullname"
+                android:layout_alignBaseline="@+id/fullname"
                 android:layout_alignParentRight="true"
-                android:textAppearance="?android:textAppearanceSmallInverse"
                 android:singleLine="true"
                 android:imeOptions="actionNext"/>
 
@@ -73,16 +73,16 @@
                 android:layout_below="@+id/fullname"
                 android:layout_marginBottom="16dp"
                 android:text="Username"
-                android:textAppearance="?android:textAppearanceSmallInverse"
+                style="@style/Kanshu.Light.TextView.Thin"
                 />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/username"
+                android:layout_alignBaseline="@+id/username"
                 android:layout_toRightOf="@+id/fullname"
                 android:layout_alignParentRight="true"
-                android:textAppearance="?android:textAppearanceSmallInverse"
+                android:padding="8dp"
                 android:singleLine="true"
                 android:imeOptions="actionNext"
                 />
@@ -94,16 +94,15 @@
                 android:layout_below="@+id/username"
                 android:layout_marginBottom="16dp"
                 android:text="Country"
-                android:textAppearance="?android:textAppearanceSmallInverse"
+                style="@style/Kanshu.Light.TextView.Thin"
                 />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/country"
+                android:layout_alignBaseline="@+id/country"
                 android:layout_toRightOf="@+id/fullname"
                 android:layout_alignParentRight="true"
-                android:textAppearance="?android:textAppearanceSmallInverse"
                 android:singleLine="true"
                 android:imeOptions="actionNext"/>
 
@@ -114,16 +113,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/country"
                 android:text="Bio"
-                android:textAppearance="?android:textAppearanceSmallInverse"/>
+                style="@style/Kanshu.Light.TextView.Thin"/>
 
             <EditText
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/bio"
                 android:layout_toRightOf="@+id/fullname"
                 android:layout_alignParentRight="true"
                 android:singleLine="false"
-                android:textAppearance="?android:textAppearanceSmallInverse"/>
+                android:minLines="4"
+                android:gravity="top"/>
 
 
         </RelativeLayout>

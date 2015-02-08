@@ -42,5 +42,8 @@ public class DevelopmentActivity extends BaseActivity {
     public void onSettingsActivity(View view) {
         startActivity(new Intent(this, SettingsActivity.class));
     }
+    public void onAboutActivity(View view) {
+        startActivity(new Intent(this, AboutActivity.class));
+    }
 
 }

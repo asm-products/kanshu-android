@@ -19,16 +19,48 @@
         <item name="fontPath">fonts/Roboto-Thin.ttf</item>
     </style>
 
-    <style
-        name="AppPreferenceTheme" parent="Theme.AppCompat.NoActionBar">
+
+    <style name="Kanshu.Light.DarkToolBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primary_light_red</item>
         <item name="colorPrimaryDark">@color/primary_dark_red</item>
-        <item name="colorAccent">@color/primary_light_red</item>
-        <!--<item name="android:textColor">@color/article_light_grey</item>-->
-        <!--<item name="android:textColorSecondary">@color/article_dart_grey</item>-->
-        <item name="android:windowBackground">@color/white</item>
+        <item name="colorAccent">@color/line_divider_grey</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:actionBarStyle">@style/Kanshu.Light.DarkToolBar.ToolBarStyle</item>
+        <item name="android:actionBarTabTextStyle">@style/Kanshu.Light.DarkToolBar.ToolBarTabStyle</item>
+        <item name="android:editTextStyle">@style/Kanshu.Light.EditText</item>
+        <item name="android:textViewStyle">@style/Kanshu.Light.TextView</item>
+        <item name="android:selectableItemBackground">@drawable/abc_item_background_holo_dark</item>
     </style>
-    <!--<style name="AppPreferenceTextAppearance" parent="@android:style/TextAppearance.Large">-->
-        <!--<item name="android:textColor">#333</item>-->
-    <!--</style>-->
+
+    <style name="Kanshu.Light.DarkToolBar.ToolBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:titleTextStyle">@style/Kanshu.Light.DarkToolBar.TitleTextStyle</item>
+    </style>
+
+    <style name="Kanshu.Light.DarkToolBar.ToolBarTabStyle" parent="@android:style/Widget.Holo.Light.ActionBar.TabText">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Kanshu.Light.DarkToolBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="Kanshu.Light.TextView" parent="@android:style/Widget.TextView">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <!--<item name="android:textSize">12sp</item>-->
+        <item name="fontPath">fonts/Roboto-Regular.ttf</item>
+        <item name="android:textColor">@color/text_color1</item>
+    </style>
+
+    <style name="Kanshu.Light.TextView.Thin" parent="@style/Kanshu.Light.TextView">
+        <item name="fontPath">fonts/Roboto-Thin.ttf</item>
+    </style>
+
+    <style name="Kanshu.Light.EditText" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <!--<item name="android:textSize">12sp</item>-->
+        <item name="fontPath">fonts/Roboto-Regular.ttf</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textColor">@color/text_color1</item>
+    </style>
+
 </resources>

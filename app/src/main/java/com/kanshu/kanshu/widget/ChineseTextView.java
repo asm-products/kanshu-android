@@ -31,7 +31,9 @@ public class ChineseTextView extends TextView {
     }
 
     private void init() {
-//        setTypeface(TypefaceUtils.load(getContext().getAssets(), "fonts/BabelStoneHan.ttf"));
-        setTypeface(TypefaceUtils.load(getContext().getAssets(), "fonts/NotoSansCJKsc-Regular.otf"));
+        if (!isInEditMode()) {
+        setTypeface(TypefaceUtils.load(getContext().getAssets(), "fonts/BabelStoneHan.ttf"));
+//      setTypeface(TypefaceUtils.load(getContext().getAssets(), "fonts/NotoSansCJKsc-Regular.otf"));
+        }
     }
 }

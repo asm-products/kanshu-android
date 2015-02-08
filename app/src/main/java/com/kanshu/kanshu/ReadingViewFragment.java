@@ -1,13 +1,33 @@
 package com.kanshu.kanshu;
 
+import android.animation.LayoutTransition;
 import android.app.Activity;
 import android.app.Fragment;
+import android.graphics.Bitmap;
+import android.graphics.BlurMaskFilter;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.renderscript.Allocation;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
+import android.text.TextPaint;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
+
+import com.edmodo.rangebar.TickedSeekBar;
 
 
 /**
@@ -20,6 +40,7 @@ public class ReadingViewFragment extends Fragment {
 
 
     private OnFragmentClickListener mListener;
+    private boolean mIsSliderCollapsed;
 
 
     public ReadingViewFragment() {
@@ -29,6 +50,7 @@ public class ReadingViewFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mIsSliderCollapsed = true;
     }
 
     @Override
@@ -36,29 +58,98 @@ public class ReadingViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_reading_view, container, false);
-        final FrameLayout seekBarLayout = ((FrameLayout) v.findViewById(R.id.levelSliderFrame));
-        seekBarLayout.setOnClickListener(new View.OnClickListener() {
+        final LinearLayout seekBarLayout = ((LinearLayout) v.findViewById(R.id.levelSliderFrame));
+        final RelativeLayout hanziLayout = ((RelativeLayout) v.findViewById(R.id.hanziSlider));
+        final RelativeLayout textSizeLayout = ((RelativeLayout) v.findViewById(R.id.alphaSlider));
+        final TextView tv = ((TextView)v.findViewById(R.id.sample_text));
+        tv.setDrawingCacheEnabled(true);
+        seekBarLayout.setAlpha(0.3f);
+        LayoutTransition transition = new LayoutTransition();
+        transition.setStagger(LayoutTransition.CHANGE_DISAPPEARING,100);
+        transition.setStagger(LayoutTransition.CHANGE_APPEARING,100);
+        transition.setStartDelay(LayoutTransition.DISAPPEARING, 50);
+        transition.setDuration(LayoutTransition.APPEARING, 200);
+        transition.setDuration(LayoutTransition.DISAPPEARING, 300);
+        transition.setDuration(LayoutTransition.CHANGE_DISAPPEARING,100);
+        transition.setStartDelay(LayoutTransition.CHANGE_DISAPPEARING, 300);
+        transition.setDuration(LayoutTransition.CHANGE_APPEARING,200);
+        seekBarLayout.setLayoutTransition(transition);
+        final TickedSeekBar sb = ((TickedSeekBar)v.findViewById(R.id.levelSlider));
+        sb.setEnabled(false);
+        seekBarLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View s) {
-                s.setAlpha(1.0f);
+            public boolean onTouch(View v2, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                  if(mIsSliderCollapsed){
+                      hanziLayout.setVisibility(View.VISIBLE);
+                      textSizeLayout.setVisibility(View.VISIBLE);
+                      seekBarLayout.getLayoutTransition().addTransitionListener(new LayoutTransition.TransitionListener() {
+                          @Override
+                          public void startTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
+
+                          }
+
+                          @Override
+                          public void endTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
+                              if (view == hanziLayout) {
+                                  seekBarLayout.setAlpha(1.0f);
+                                  seekBarLayout.getLayoutTransition().removeTransitionListener(this);
+                                  sb.setEnabled(true);
+                                  Bitmap bmp = Bitmap.createBitmap(tv.getWidth(), tv.getHeight(), Bitmap.Config.ARGB_8888);
+                                  Canvas cnv = new Canvas(bmp);
+                                  int h = seekBarLayout.getHeight();
+                                  TextPaint tPaint = tv.getPaint();
+                                  tPaint.setMaskFilter(new BlurMaskFilter(3.5f*getResources().getDisplayMetrics().density, BlurMaskFilter.Blur.SOLID));
+                                  tPaint.setAlpha(180);
+                                  tv.draw(cnv);
+                                  Bitmap bmpOut = Bitmap.createBitmap(seekBarLayout.getWidth(), seekBarLayout.getHeight(), Bitmap.Config.ARGB_8888);
+                                  cnv = new Canvas(bmpOut);
+                                  Paint whitePaint = new Paint();
+                                  whitePaint.setColor(Color.parseColor("#F5F5F5"));
+                                  cnv.drawRect(0,0,seekBarLayout.getWidth(), seekBarLayout.getHeight(), whitePaint);
+                                  cnv.drawBitmap(bmp, new Rect(0, bmp.getHeight()-h, seekBarLayout.getWidth(), bmp.getHeight()), new Rect(0,0, seekBarLayout.getWidth(), seekBarLayout.getHeight()), null);
+                                  ImageView iv = (ImageView)getActivity().findViewById(R.id.blurredText);
+                                  iv.setImageBitmap(bmpOut);
+                                  tPaint.setMaskFilter(null);
+                                  tPaint.setAlpha(0);
+
+                              }
+                          }
+                      });
+                      mIsSliderCollapsed = false;
+                  }
+                }
+                return true;
             }
         });
-        seekBarLayout.setAlpha(0.3f);
-        ((SeekBar) v.findViewById(R.id.levelSlider)).setOnSeekBarChangeListener(new SeekBar
-                .OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-            }
-
+        v.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                seekBarLayout.setAlpha(1.0f);
-            }
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (!mIsSliderCollapsed) {
+                        textSizeLayout.setVisibility(View.GONE);
+                        hanziLayout.setVisibility(View.GONE);
+                        seekBarLayout.getLayoutTransition().addTransitionListener(new LayoutTransition.TransitionListener() {
+                            @Override
+                            public void startTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
+                                ImageView iv = (ImageView)getActivity().findViewById(R.id.blurredText);
+                                iv.setImageBitmap(null);
+                            }
 
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                seekBarLayout.setAlpha(0.3f);
+                            @Override
+                            public void endTransition(LayoutTransition transition, ViewGroup container, View view, int transitionType) {
+                                if(view == hanziLayout){
+                                    seekBarLayout.setAlpha(0.3f);
+                                    seekBarLayout.getLayoutTransition().removeTransitionListener(this);
+                                    sb.setEnabled(false);
+                                }
+                            }
+                        });
+                        mIsSliderCollapsed = true;
+                    }
+                }
+                return true;
             }
         });
         return v;

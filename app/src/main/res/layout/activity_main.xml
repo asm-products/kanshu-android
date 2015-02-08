@@ -20,7 +20,8 @@
             android:elevation="0dp"
             android:paddingTop="25dp"
             android:minHeight="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"/>
+            android:background="?attr/colorPrimary"
+            />
 
         <com.kanshu.kanshu.SlidingTabLayout
             android:id="@+id/sliding_tabs"
