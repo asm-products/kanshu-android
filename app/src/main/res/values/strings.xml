@@ -62,12 +62,10 @@
     <string name="about_Pp">Privacy Policy</string>
     <string name="about_Oss">Used Open Source Libraries</string>
     <string name="title_activity_os_lib">About</string>
-    <string name="title_activity_feedback">FeedbackActivity</string>
 
 
     <string-array name="feedback_topics">
         <item>Suggest new features</item>
-        <item>Report issues with the iOS app</item>
         <item>Report issues with the Android app</item>
         <item>Report issues with the dictionary</item>
         <item>Compliment to the team behind Kanshu</item>
