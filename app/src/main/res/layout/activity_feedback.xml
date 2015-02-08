@@ -55,13 +55,13 @@
 
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="24sp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/textemail"
             android:layout_toRightOf="@+id/textTopic"
             android:layout_toEndOf="@+id/textTopic"
             android:textColor="@color/article_dart_grey"
             android:entries="@array/feedback_topics"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="-10dp"
             android:layout_marginLeft="30dp"
             android:singleLine="true"
             android:popupBackground="@drawable/spinner_item_border"
