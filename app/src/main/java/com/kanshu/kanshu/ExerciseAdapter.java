@@ -23,23 +23,22 @@ public class ExerciseAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public class UserExercisesViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
 
-        //Exo refers to exericice
-        public TextView ExTitleTV;
-        public TextView ExDescriptionTV;
-        public TextView ExFileSizeTV;
-        public ImageView ExThumbIV;
-        public ImageView DeleteBtn;
+        public TextView exerciseTitleTV;
+        public TextView exerciseDescriptionTV;
+        public TextView exerciseFileSizeTV;
+        public ImageView exerciseThumbIV;
+        public ImageView deleteBtn;
 
         public Exercise exercise;
 
         public UserExercisesViewHolder(View v) {
             super(v);
             exercise = new Exercise();
-            ExTitleTV = (TextView) v.findViewById(R.id.ex_title);
-            ExDescriptionTV = (TextView) v.findViewById(R.id.ex_description);
-            ExFileSizeTV = (TextView) v.findViewById(R.id.ex_file_size);
-            ExThumbIV = (ImageView) v.findViewById(R.id.ex_thumbnail);
-            DeleteBtn = (ImageView) v.findViewById(R.id.ex_delete);
+            exerciseTitleTV = (TextView) v.findViewById(R.id.ex_title);
+            exerciseDescriptionTV = (TextView) v.findViewById(R.id.ex_description);
+            exerciseFileSizeTV = (TextView) v.findViewById(R.id.ex_file_size);
+            exerciseThumbIV = (ImageView) v.findViewById(R.id.ex_thumbnail);
+            deleteBtn = (ImageView) v.findViewById(R.id.ex_delete);
         }
     }
 
