@@ -138,7 +138,7 @@ public class UserMetricsActivity extends BaseActivity
                     fragment = new UserMySavedCharsFragment();
                     break;
                 case 2:
-                    fragment = new UserPracticeExoFragment();
+                    fragment = new UserPracticeExerciseFragment();
                     break;
                 case 3:
                     fragment = new UserAddOnsFragment();
