@@ -4,8 +4,6 @@
     android:layout_height="wrap_content"
     android:singleLine="true"
     android:textColor="@color/article_dart_grey"
-    android:background="@drawable/spinner_item_border"
-    android:popupBackground="@drawable/spinner_item_border"
     android:paddingBottom="3dp"
     android:paddingTop="3dp"
     android:textSize="16sp" />

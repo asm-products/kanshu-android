@@ -65,7 +65,6 @@
             android:layout_marginTop="-10dp"
             android:layout_alignLeft="@+id/textemail"
             android:singleLine="true"
-            android:popupBackground="@drawable/spinner_item_border"
             android:spinnerMode="dropdown"
             android:id="@+id/topicType" />
         <TextView
