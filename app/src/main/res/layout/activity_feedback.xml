@@ -43,7 +43,8 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/feedback_default_email"
+            android:hint="@string/feedback_default_email"
+            android:textColorHint="@color/article_dart_grey"
             android:id="@+id/textemail"
             android:layout_marginLeft="40dp"
             android:textSize="16sp"
