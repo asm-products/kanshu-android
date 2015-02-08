@@ -56,11 +56,9 @@
     <string name="nav_bar_signout">Sign Out</string>
     <string name="about_app_name">Kanshu 1.0.0</string>
     <string name="about_copyright_">Copyright (c) 2015</string>
-    <string name="about_release_info">2015-01-01 18:32 +0100.2491 release</string>
-    <string name="about_release_hash">21759ebaadfbe1a215d672d0e05bb7c2</string>
     <string name="about_tos">Terms of Use</string>
     <string name="about_Pp">Privacy Policy</string>
-    <string name="about_Oss">Used Open Source Libraries</string>
+    <string name="about_open_source_licenses">Open Source Licenses</string>
     <string name="title_activity_os_lib">About</string>
 
 </resources>

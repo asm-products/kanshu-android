@@ -1,21 +1,18 @@
 package com.kanshu.kanshu;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.kanshu.kanshu.model.User;
 import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.ui.LibsFragment;
 
-
-public class OsLibActivity  extends BaseActivity
+public class OpenSourceLicensesActivity extends BaseActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         NavigationDrawerFragment.NavigationDrawerData {
 
@@ -24,7 +21,7 @@ public class OsLibActivity  extends BaseActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
     private SlidingTabLayout mSlidingTabLayout;
-    private OslibPagerAdapter mOslibPagerAdapter;
+    private OpenSourceLibrariesPagerAdapter mOpenSourceLibrariesPagerAdapter;
     private ViewPager mViewPager;
     private Toolbar mToolbar;
     private User mCurrentUser;
@@ -60,10 +57,10 @@ public class OsLibActivity  extends BaseActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
         //Set up the pager
-        mOslibPagerAdapter = new OslibPagerAdapter(
+        mOpenSourceLibrariesPagerAdapter = new OpenSourceLibrariesPagerAdapter(
                         getSupportFragmentManager());
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mOslibPagerAdapter);
+        mViewPager.setAdapter(mOpenSourceLibrariesPagerAdapter);
         mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.white));
         mSlidingTabLayout.setViewPager(mViewPager);
@@ -91,45 +88,17 @@ public class OsLibActivity  extends BaseActivity
         mToolbar.setTitle(mTitle);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        if (!mNavigationDrawerFragment.isDrawerOpen()) {
-            // Only show items in the action bar relevant to this screen
-            // if the drawer is not showing. Otherwise, let the drawer
-            // decide what to show in the action bar.
-            getMenuInflater().inflate(R.menu.article, menu);
-            restoreActionBar();
-            return true;
-        }
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public User getCurrentUser() {
         return mCurrentUser;
     }
 
-
-    public class OslibPagerAdapter extends FragmentStatePagerAdapter {
+    public class OpenSourceLibrariesPagerAdapter extends FragmentStatePagerAdapter {
 
         //the list of titles of pages
-        private String[] pageTitles = {"Used Open Source"};
+        private String[] pageTitles = {getString(R.string.about_open_source_licenses)};
 
-        public OslibPagerAdapter(FragmentManager fm) {
+        public OpenSourceLibrariesPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -140,7 +109,7 @@ public class OsLibActivity  extends BaseActivity
                     .withLibraries( "calligraphy", "circleimageview")
                     .withVersionShown(true)
                     .withLicenseShown(true)
-                    .withLibraryModification("aboutlibraries", Libs.LibraryFields.LIBRARY_NAME, "_AboutLibraries")
+                    .withLibraryModification("aboutlibraries", Libs.LibraryFields.LIBRARY_NAME, "AboutLibraries")
                     .fragment();
 
             return fragment;

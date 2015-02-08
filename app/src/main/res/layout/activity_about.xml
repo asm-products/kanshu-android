@@ -58,29 +58,14 @@
             android:layout_below="@+id/app_name"
             android:layout_centerHorizontal="true"
             fontPath="fonts/Roboto-Thin.ttf"
-            tools:ignore="MissingPrefix"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="20"
-            android:id="@+id/release_info"
-            android:textColor="@color/article_light_grey"
-            android:text="@string/about_release_info"
-            android:gravity="center"
-            android:layout_marginTop="20sp"
-            android:textSize="10sp"
-            android:drawablePadding="4sp"
-            android:layout_below="@+id/copyright"
-            android:layout_centerHorizontal="true"/>
+            tools:ignore="MissingPrefix"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/about_tos"
             android:id="@+id/TOS_btn"
-            android:layout_below="@+id/release_info"
+            android:layout_below="@+id/copyright"
             android:background="#d32f2f"
             android:textColor="#ffffffff"
             android:typeface="normal"
@@ -116,7 +101,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/about_Oss"
+            android:text="@string/about_open_source_licenses"
             android:id="@+id/Osslib_btn"
             android:layout_below="@+id/pp_btn"
             android:background="#d32f2f"
@@ -129,7 +114,7 @@
             android:layout_centerHorizontal="true"
             android:minHeight="30dp"
             android:minWidth="250dp"
-            android:onClick="OnOslibClick"
+            android:onClick="onOpenSourceLicensesClick"
             fontPath="fonts/Roboto-Medium.ttf"
             tools:ignore="MissingPrefix"/>
     </RelativeLayout>
