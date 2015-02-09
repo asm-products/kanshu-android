@@ -20,7 +20,7 @@ import java.util.List;
 public class UserMySavedCharsFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    private LinearLayoutManager mLayoutManager;
+
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -39,27 +39,27 @@ public class UserMySavedCharsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_user_my_saved_chars, container, false);
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.saved_chars__rec_view);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
         mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
 
         // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(layoutManager);
 
         //add data to the list
-        List<SavedChars> list_SavedChars = new ArrayList<SavedChars>();
-        list_SavedChars.add(new SavedChars());
-        list_SavedChars.add(new SavedChars());
-        list_SavedChars.add(new SavedChars());
-        list_SavedChars.add(new SavedChars());
-        list_SavedChars.add(new SavedChars());
-        list_SavedChars.add(new SavedChars());
-        list_SavedChars.add(new SavedChars());
+        List<SavedChars> savedCharsList = new ArrayList<SavedChars>();
+        savedCharsList.add(new SavedChars());
+        savedCharsList.add(new SavedChars());
+        savedCharsList.add(new SavedChars());
+        savedCharsList.add(new SavedChars());
+        savedCharsList.add(new SavedChars());
+        savedCharsList.add(new SavedChars());
+        savedCharsList.add(new SavedChars());
 
 
-        mAdapter = new MySavedCharsAdapter(list_SavedChars);
+        mAdapter = new MySavedCharsAdapter(savedCharsList);
         mRecyclerView.setAdapter(mAdapter);
 
         return rootView;
