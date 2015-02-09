@@ -63,6 +63,7 @@
 
 
     <string-array name="feedback_topics">
+        <item>Select topic</item>
         <item>Suggest new features</item>
         <item>Report issues with the Android app</item>
         <item>Report issues with the dictionary</item>
@@ -70,7 +71,6 @@
     </string-array>
     <string name="action_send">Send</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="feedback_topic">Topic:</string>
     <string name="feedback_default_email">email@email</string>
     <string name="feedback_from">From:</string>
