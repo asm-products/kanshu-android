@@ -1,0 +1,133 @@
+
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kanshu.kanshu.FeedbackActivity"
+    android:id="@+id/main_layout"
+    android:fitsSystemWindows="true"
+    android:background="#F5F5F5">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:elevation="0dp"
+        android:paddingTop="25dp"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingLeft="40dp"
+            android:textColor="@color/navbar_off_white"
+            android:gravity="center_vertical"
+            android:text="@string/feedback_send"
+            android:background="@drawable/feedback_header_bg"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp">
+
+        <TextView android:text="@string/feedback_from" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/article_dart_grey"
+        android:id="@+id/textFrom" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/feedback_default_email"
+            android:textColorHint="@color/article_dart_grey"
+            android:id="@+id/textemail"
+            android:layout_marginLeft="40dp"
+            android:textSize="16sp"
+            android:textColor="@color/article_dart_grey"
+            android:layout_toRightOf="@+id/textFrom"
+            android:layout_toEndOf="@+id/textFrom"
+            android:layout_alignBaseline="@+id/textFrom"/>
+
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textemail"
+            android:layout_toRightOf="@+id/textTopic"
+            android:layout_toEndOf="@+id/textTopic"
+            android:textColor="@color/article_dart_grey"
+            android:entries="@array/feedback_topics"
+            android:layout_marginTop="-10dp"
+            android:layout_alignLeft="@+id/textemail"
+            android:singleLine="true"
+            android:spinnerMode="dropdown"
+            android:id="@+id/topicType" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/article_dart_grey"
+            android:text="@string/feedback_topic"
+            android:id="@+id/textTopic"
+            android:layout_alignBottom="@+id/topicType"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/article_dart_grey"
+            android:text="@string/feedback_subject"
+            android:id="@+id/textSubject"
+            android:layout_alignBaseline="@+id/textSubjectField"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/article_dart_grey"
+            android:hint="@string/feedback_subject_hint"
+            android:textColorHint="@color/article_light_grey"
+            android:id="@+id/textSubjectField"
+            android:inputType="textEmailSubject"
+            android:layout_toRightOf="@+id/textSubject"
+            android:layout_toEndOf="@+id/textSubject"
+            android:layout_alignLeft="@+id/textemail"
+            android:textSize="16sp"
+            android:layout_below="@+id/topicType"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/article_dart_grey"
+            android:text="@string/feedback_field"
+            android:id="@+id/textFeedback"
+            android:layout_alignTop="@+id/feedbackField"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            android:id="@+id/feedbackField"
+            android:layout_toRightOf="@+id/textFeedback"
+            android:layout_toEndOf="@+id/textFeedback"
+            android:layout_alignLeft="@+id/textemail"
+            android:textSize="14sp"
+            android:textColor="@color/article_dart_grey"
+            android:layout_below="@+id/textSubjectField"
+            android:layout_marginTop="5dp"
+            android:maxLines="6"
+            android:minLines="6"
+            android:background="@drawable/bg_feedback"
+            android:ems="15"/>
+</RelativeLayout>
+    </LinearLayout>
+    </ScrollView>
+    <fragment
+        android:id="@+id/navigation_drawer"
+        android:layout_width="@dimen/navigation_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:name="com.kanshu.kanshu.NavigationDrawerFragment"
+        tools:layout="@layout/fragment_navigation_drawer"/>
+</android.support.v4.widget.DrawerLayout>

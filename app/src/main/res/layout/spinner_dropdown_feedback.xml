@@ -1,0 +1,12 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    style="?android:attr/spinnerDropDownItemStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:singleLine="true"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:background="@drawable/spinner_item_border"
+    android:textColor="@color/article_dart_grey"
+    android:paddingBottom="3dp"
+    android:paddingTop="3dp"
+    android:textSize="16sp"/>

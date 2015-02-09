@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.kanshu.kanshu.FeedbackActivity">
+    <item
+        android:id="@+id/action_send"
+        android:title="@string/action_send"
+        android:icon="@drawable/ic_send_white_24dp"
+        android:orderInCategory="1"
+        app:showAsAction="always"/>
+</menu>

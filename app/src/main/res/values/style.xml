@@ -3,6 +3,8 @@
     <style name="BaseAppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/primary_light_red</item>
         <item name="colorPrimaryDark">@color/primary_dark_red</item>
+        <item name="colorControlNormal">@color/article_light_grey</item>
+        <item name="colorControlHighlight">@color/article_dart_grey</item>
     </style>
 
     <style name="AppTheme" parent="BaseAppTheme">
