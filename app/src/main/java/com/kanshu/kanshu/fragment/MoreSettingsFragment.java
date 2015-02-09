@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import com.kanshu.kanshu.R;
 
 /**
- * Created by victorsima on 2/4/15.
+ * Fragment for more settings tab in Settings
+ * @author vic.sima@gmail.com
  */
 public class MoreSettingsFragment extends Fragment {
     @Override

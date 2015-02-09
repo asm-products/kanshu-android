@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import com.kanshu.kanshu.R;
 
 /**
- * Created by victorsima on 2/4/15.
+ * Fragment for my account tab on settings screen
+ * @author vic.sima@gmail.com
  */
 public class MyAccountFragment extends Fragment {
 

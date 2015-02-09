@@ -15,7 +15,8 @@ import com.kanshu.kanshu.SlidingTabLayout;
 import com.kanshu.kanshu.model.User;
 
 /**
- * Base activity for drawer navigation with top tab bar
+ * Base activity for encapsulating drawer navigation with top tab bar
+ * @author vic.sima@gmail.com
  */
 public abstract class BaseNavigationDrawerActivity extends BaseActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
