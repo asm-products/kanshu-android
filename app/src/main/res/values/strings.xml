@@ -61,4 +61,16 @@
     <string name="about_open_source_licenses">Open Source Licenses</string>
     <string name="title_activity_os_lib">About</string>
 
+    <string-array name="settings_tabs">
+        <item>My Account</item>
+        <item>More Settings</item>
+    </string-array>
+
+    <!-- Preferences -->
+    <string-array name="prefs_fonts">
+        <item>font 1</item>
+        <item>font 2</item>
+        <item>font 3</item>
+    </string-array>
+
 </resources>

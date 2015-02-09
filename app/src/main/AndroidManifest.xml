@@ -74,6 +74,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.kanshu.kanshu.AboutActivity" />
         </activity>
+        <activity android:name=".activity.SettingsActivity"
+            android:theme="@style/Kanshu.Light.DarkToolBar"
+            android:windowSoftInputMode="stateHidden"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kanshu.kanshu.SignupActivity" />
     </application>
 
 </manifest>
