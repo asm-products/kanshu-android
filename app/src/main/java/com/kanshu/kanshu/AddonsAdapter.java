@@ -24,7 +24,7 @@ public class AddonsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         public TextView addonTitleTV;
         public TextView addonDescriptionTV;
-        public TextView addonInfosTV;//refers to addition information such as price ,size ...
+        public TextView addonInfosTV;//refers to  additional informations such as price ,size ...
         public ImageView addonThumbIV;
         public ImageButton addonBuyBtn;
         public ImageButton addonDeleteBtn;
