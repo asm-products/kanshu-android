@@ -17,7 +17,7 @@
         android:textSize="40sp"
         android:src="@drawable/ic_launcher"
         android:layout_marginLeft="16dp"
-        android:id="@+id/ex_thumbnail"
+        android:id="@+id/addon_thumbnail"
         android:gravity="center"/>
 
     <LinearLayout
@@ -35,8 +35,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:ellipsize="none"
-            android:text="FlashCards"
-            android:id="@+id/ex_title"
+            android:text="China Daily"
+            android:id="@+id/addon_title"
             android:layout_gravity="left|center_vertical"/>
         <TextView
             android:layout_width="251dp"
@@ -46,8 +46,8 @@
             android:textSize="12sp"
             android:layout_marginLeft="15dp"
             android:ellipsize="none"
-            android:text="Practice your saved characters with this game"
-            android:id="@+id/ex_description"
+            android:text="Get Daily China News to your email"
+            android:id="@+id/addon_description"
             android:layout_gravity="left|center_vertical"/>
 
         <TextView
@@ -58,8 +58,8 @@
             android:textSize="13sp"
             android:layout_marginLeft="15dp"
             android:ellipsize="none"
-            android:text="9.9 MB"
-            android:id="@+id/ex_file_size"
+            android:text="4,99$/month"
+            android:id="@+id/addon_info"
             android:layout_gravity="left|center_vertical"/>
     </LinearLayout>
 
@@ -68,7 +68,17 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:src="@drawable/ic_close_grey600_24dp"
-        android:id="@+id/ex_delete"
+        android:id="@+id/addon_delete"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:background="?attr/selectableItemBackground"/>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_add_shopping_cart_grey600_36dp"
+        android:id="@+id/addon_buy"
         android:layout_gravity="center"
         android:background="?attr/selectableItemBackground"/>
 </LinearLayout>
