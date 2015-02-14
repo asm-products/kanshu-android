@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kanshu.kanshu.model.Addon;
-import com.kanshu.kanshu.model.Exercise;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class AddonsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         public TextView addonTitleTV;
         public TextView addonDescriptionTV;
-        public TextView addonInfosTV;//refers to  additional informations such as price ,size ...
+        public TextView additionalInformationTV;
         public ImageView addonThumbIV;
         public ImageButton addonBuyBtn;
         public ImageButton addonDeleteBtn;
@@ -36,7 +35,7 @@ public class AddonsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             mAddon = new Addon();
             addonTitleTV = (TextView) v.findViewById(R.id.addon_title);
             addonDescriptionTV = (TextView) v.findViewById(R.id.addon_description);
-            addonInfosTV = (TextView) v.findViewById(R.id.addon_info);
+            additionalInformationTV = (TextView) v.findViewById(R.id.addon_info);
             addonThumbIV = (ImageView) v.findViewById(R.id.addon_thumbnail);
             addonBuyBtn = (ImageButton) v.findViewById(R.id.addon_delete);
             addonDeleteBtn = (ImageButton) v.findViewById(R.id.addon_buy);
