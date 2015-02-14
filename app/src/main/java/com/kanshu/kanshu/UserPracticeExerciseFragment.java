@@ -21,10 +21,7 @@ public class UserPracticeExerciseFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    /**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
+
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     public static UserPracticeExerciseFragment newInstance(int sectionNumber) {
