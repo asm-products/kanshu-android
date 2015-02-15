@@ -53,10 +53,6 @@ public class TopicsActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
-                String mTopicTitle = ((TextView) v.findViewById(R.id.topicTitle))
-                        .getText().toString();
-                CircleImageView mTopicPic = ((CircleImageView) v.findViewById(R.id.topic_image));
-
                 if (!mChosenTopicsListIDs.isEmpty()) {
                     if (mChosenTopicsListIDs.contains(position)) {
                         //duplicate !
