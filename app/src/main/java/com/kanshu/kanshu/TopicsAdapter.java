@@ -71,9 +71,10 @@ public class TopicsAdapter extends BaseAdapter {
         }
 
         if (!TextUtils.isEmpty(mTopicsList.get(position).getImgURL())) {
-            //we will use drawbale .. for now
+            //we will use drawable .. for now
             int id = activity.getResources().getIdentifier((mTopicsList.get(position).getImgURL()
             ), "drawable", activity.getPackageName());
+
             Picasso.with(activity).load(id).into(holder.IvTopicImg);
         } else {
             Picasso.with(activity).load(R.drawable.kanshu).into(holder.IvTopicImg);

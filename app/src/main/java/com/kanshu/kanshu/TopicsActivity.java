@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.kanshu.kanshu.controller.TopicsController;
 import com.kanshu.kanshu.model.Topic;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -26,17 +27,16 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class TopicsActivity extends BaseActivity {
 
-    //dialog
     ProgressDialog dialog = null;
-    //controller var
     TopicsController mTopicsController;
     //we will store the selected IDs instead of titles
     private ArrayList<Integer> mChosenTopicsListIDs;
     int inc = 0;
 
-    //TextView tvTopicsTitle;
     GridView mGridview;
     Button btnTopics_Next;
+    ArrayList<Topic> mTopicsList;
+    TopicsAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,19 +61,36 @@ public class TopicsActivity extends BaseActivity {
                     if (mChosenTopicsListIDs.contains(position)) {
                         //duplicate !
                         mChosenTopicsListIDs.remove(mChosenTopicsListIDs.indexOf(position));
-                        mTopicPic.setBorderWidth(0);
+
+                        String current_path = mTopicsList.get(position).getImgURL();
+                        String helper_str  =current_path.substring(0,current_path.length()-4);
+                        System.out.println("helper_str>" + helper_str);
+
+                        mTopicsList.get(position).setImgURL(helper_str+"gray_48dp");
+                        mAdapter.notifyDataSetChanged();
                     } else {
                         //we are good let's add new one
                         mChosenTopicsListIDs.add(position);
-                        mTopicPic.setBorderColor(Color.parseColor("#D5FF79"));
-                        mTopicPic.setBorderWidth(8);
+
+                        String current_path = mTopicsList.get(position).getImgURL();
+                        String helper_str  =current_path.substring(0,current_path.length()-9);
+                        System.out.println("helper_str>" + helper_str);
+                        mTopicsList.get(position).setImgURL(helper_str+"48dp");
+                        mAdapter.notifyDataSetChanged();
+
+                        //mTopicPic.setBorderColor(Color.parseColor("#D5FF79"));
+                        //mTopicPic.setBorderWidth(8);
                     }
                 } else {
                     mChosenTopicsListIDs.add(position);
-                    mTopicPic.setBorderColor(Color.parseColor("#D5FF79"));
-                    mTopicPic.setBorderWidth(8);
+
+                    String current_path = mTopicsList.get(position).getImgURL();
+                    String helper_str  =current_path.substring(0,current_path.length()-9);
+                    System.out.println("helper_str>" + helper_str);
+                    mTopicsList.get(position).setImgURL(helper_str+"48dp");
+                    mAdapter.notifyDataSetChanged();
                 }
-                Log.e("Msg", "size===>" + mChosenTopicsListIDs.size());
+
                 if (!mChosenTopicsListIDs.isEmpty()) {
                     btnTopics_Next.setEnabled(true);
                     btnTopics_Next.setBackgroundColor(Color.parseColor("#d32f2f"));
@@ -97,7 +114,6 @@ public class TopicsActivity extends BaseActivity {
 
     public void getIDS() {
         Iterator it = mChosenTopicsListIDs.iterator();
-        Log.e("Msg", "size===>" + mChosenTopicsListIDs.size());
         while (it.hasNext()) {
             Log.e("Msg", it.next() + "");
         }
@@ -129,9 +145,9 @@ public class TopicsActivity extends BaseActivity {
                 dialog.dismiss();
             }
             Typeface tfBold = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Medium.ttf");
-            ArrayList<Topic> mTopicsList = mTopicsController.getmTopicsList();
-            ListAdapter adapter = new TopicsAdapter(TopicsActivity.this, mTopicsList, tfBold, mTopicsController);
-            mGridview.setAdapter(adapter);
+            mTopicsList = mTopicsController.getmTopicsList();
+            mAdapter = new TopicsAdapter(TopicsActivity.this, mTopicsList, tfBold, mTopicsController);
+            mGridview.setAdapter(mAdapter);
             this.cancel(true);
         }
 
