@@ -6,6 +6,7 @@ package com.kanshu.kanshu;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -72,10 +73,17 @@ public class TopicsAdapter extends BaseAdapter {
 
         if (!TextUtils.isEmpty(mTopicsList.get(position).getImgURL())) {
             //we will use drawable .. for now
-            int id = activity.getResources().getIdentifier((mTopicsList.get(position).getImgURL()
-            ), "drawable", activity.getPackageName());
+            String mImg_url = mTopicsList.get(position).getImgURL();
+            if (mImg_url.endsWith("_updated")){
+                String helper_str  =mImg_url.substring(0,mImg_url.length()-8);
 
-            Picasso.with(activity).load(id).into(holder.IvTopicImg);
+                int id = activity.getResources().getIdentifier((helper_str
+                ), "drawable", activity.getPackageName());
+                Picasso.with(activity).load(id).into(holder.IvTopicImg);
+            }else{
+                Bitmap mTopic_bmp = mTopicsController.toGrayscale(mTopicsList.get(position).getImgURL());
+                holder.IvTopicImg.setImageBitmap(mTopic_bmp);
+            }
         } else {
             Picasso.with(activity).load(R.drawable.kanshu).into(holder.IvTopicImg);
         }

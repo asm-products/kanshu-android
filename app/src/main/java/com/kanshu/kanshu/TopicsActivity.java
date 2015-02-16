@@ -1,7 +1,13 @@
 package com.kanshu.kanshu;
 
 import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -31,7 +37,6 @@ public class TopicsActivity extends BaseActivity {
     TopicsController mTopicsController;
     //we will store the selected IDs instead of titles
     private ArrayList<Integer> mChosenTopicsListIDs;
-    int inc = 0;
 
     GridView mGridview;
     Button btnTopics_Next;
@@ -45,7 +50,7 @@ public class TopicsActivity extends BaseActivity {
         btnTopics_Next = (Button) findViewById(R.id.Topics_Next);
         mGridview = (GridView) findViewById(R.id.list);
 
-        mTopicsController = new TopicsController();
+        mTopicsController = new TopicsController(this);
         mChosenTopicsListIDs = new ArrayList<Integer>();
         new getTopicsAsync().execute();
 
@@ -57,33 +62,24 @@ public class TopicsActivity extends BaseActivity {
                     if (mChosenTopicsListIDs.contains(position)) {
                         //duplicate !
                         mChosenTopicsListIDs.remove(mChosenTopicsListIDs.indexOf(position));
-
                         String current_path = mTopicsList.get(position).getImgURL();
-                        String helper_str  =current_path.substring(0,current_path.length()-4);
-                        System.out.println("helper_str>" + helper_str);
-
-                        mTopicsList.get(position).setImgURL(helper_str+"gray_48dp");
+                        String helper_str  =current_path.substring(0,current_path.length()-8);
+                        mTopicsList.get(position).setImgURL(helper_str);
                         mAdapter.notifyDataSetChanged();
                     } else {
                         //we are good let's add new one
                         mChosenTopicsListIDs.add(position);
-
-                        String current_path = mTopicsList.get(position).getImgURL();
+                        mTopicsList.get(position).setImgURL( mTopicsList.get(position).getImgURL()+"_updated");
+                        /*String current_path = mTopicsList.get(position).getImgURL();
                         String helper_str  =current_path.substring(0,current_path.length()-9);
                         System.out.println("helper_str>" + helper_str);
-                        mTopicsList.get(position).setImgURL(helper_str+"48dp");
+                        mTopicsList.get(position).setImgURL(helper_str+"48dp");*/
                         mAdapter.notifyDataSetChanged();
 
-                        //mTopicPic.setBorderColor(Color.parseColor("#D5FF79"));
-                        //mTopicPic.setBorderWidth(8);
                     }
                 } else {
                     mChosenTopicsListIDs.add(position);
-
-                    String current_path = mTopicsList.get(position).getImgURL();
-                    String helper_str  =current_path.substring(0,current_path.length()-9);
-                    System.out.println("helper_str>" + helper_str);
-                    mTopicsList.get(position).setImgURL(helper_str+"48dp");
+                    mTopicsList.get(position).setImgURL( mTopicsList.get(position).getImgURL()+"_updated");
                     mAdapter.notifyDataSetChanged();
                 }
 
@@ -148,4 +144,6 @@ public class TopicsActivity extends BaseActivity {
         }
 
     }
+
+
 }
