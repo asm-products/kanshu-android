@@ -85,7 +85,7 @@ public class TopicsAdapter extends BaseAdapter {
                 holder.IvTopicImg.setImageBitmap(mTopic_bmp);
             }
         } else {
-            Picasso.with(activity).load(R.drawable.kanshu).into(holder.IvTopicImg);
+            Picasso.with(activity).load(R.drawable.kanshu_gray).into(holder.IvTopicImg);
         }
         return v;
     }
