@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,7 +80,9 @@ public class TopicsAdapter extends BaseAdapter {
 
                 int id = activity.getResources().getIdentifier((helper_str
                 ), "drawable", activity.getPackageName());
-                Picasso.with(activity).load(id).into(holder.IvTopicImg);
+                Drawable Dra = activity.getResources().getDrawable(id);
+                holder.IvTopicImg.setImageDrawable(Dra);
+                //Picasso.with(activity).load(id).into(holder.IvTopicImg);
             }else{
                 Bitmap mTopic_bmp = mTopicsController.toGrayscale(mTopicsList.get(position).getImgURL());
                 holder.IvTopicImg.setImageBitmap(mTopic_bmp);
