@@ -79,4 +79,8 @@
     <string name="feedback_subject_hint">What your feedback is about</string>
     <string name="feedback_field">Feedback:</string>
 
+    <string-array name="settings_tabs">
+        <item>My Account</item>
+        <item>More Settings</item>
+    </string-array>
 </resources>

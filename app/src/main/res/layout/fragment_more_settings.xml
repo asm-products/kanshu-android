@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvRemoveAds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove Ads"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textAllCaps="true"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider"
+            />
+        <TextView
+            android:id="@+id/tvChangeEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Email"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textAllCaps="true"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider"
+            />
+        <TextView
+            android:id="@+id/tvChangePassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Change Password"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textAllCaps="true"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider"
+            />
+        <TextView
+            android:id="@+id/tvLinkedAccounts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Linked Accounts"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textAllCaps="true"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider"
+            android:layout_marginBottom="16dp"
+            />
+        <TextView
+            android:id="@+id/tvActiveFonts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Active Fonts"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textAllCaps="true"
+            android:textColor="@color/text_color2"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider_light"
+            />
+
+        <TextView
+            android:id="@+id/tvFont1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Font1"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textColor="@color/text_color2"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider_light"
+            />
+
+        <TextView
+            android:id="@+id/tvFont2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Font2"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textColor="@color/text_color2"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider_light"
+            android:layout_marginBottom="16dp"
+            />
+
+        <TextView
+            android:id="@+id/tvSupport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Support"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textAllCaps="true"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider"
+            />
+
+        <TextView
+            android:id="@+id/tvSendFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send Feedback"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textAllCaps="true"
+            android:textColor="@color/text_color2"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider_light"
+            />
+
+        <TextView
+            android:id="@+id/tvDeleteAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Account"
+            android:paddingTop="@dimen/settings_more_vertical_padding"
+            android:paddingBottom="@dimen/settings_more_vertical_padding"
+            android:textAllCaps="true"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/settings_line_divider"
+            />
+    </LinearLayout>
+</ScrollView>
