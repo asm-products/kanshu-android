@@ -88,6 +88,16 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.kanshu.kanshu.SignupActivity" />
         </activity>
+
+        <activity
+            android:name=".FlashCardExerciseActivity"
+            android:parentActivityName=".DevelopmentActivity"
+            android:theme="@style/Kanshu.Light.DarkToolBar"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kanshu.kanshu.ArticleActivity" />
+        </activity>
     </application>
 
 </manifest>

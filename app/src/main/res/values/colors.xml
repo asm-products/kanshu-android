@@ -15,4 +15,5 @@
 
     <color name="settings_line_divider">#757575</color>
     <color name="settings_line_divider_light">#c6c6c6</color>
+    <color name="correct_answer_green">#39B54A</color>
 </resources>
