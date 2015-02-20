@@ -9,10 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.kanshu.kanshu.model.FlashcardExerciseOption;
-import com.kanshu.kanshu.widget.FlashCardExerciseAdapter;
+import com.kanshu.kanshu.widget.SimpleDividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.kanshu.kanshu.FlashCardExerciseAdapter.OnItemClickListener;
 
 /**
  * Created by alouanemed on 17-02-2015.
@@ -48,13 +50,15 @@ public class ExerciseOptionsListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_flashcard_exercise, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
-        // use a linear layout manager
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(layoutManager);
 
         //@todo use the real data to replace dummy data
-        List<FlashcardExerciseOption> mFlashcardExerciseOptions = new ArrayList<FlashcardExerciseOption>();
+        final List<FlashcardExerciseOption> mFlashcardExerciseOptions = new ArrayList<FlashcardExerciseOption>();
         mFlashcardExerciseOptions.add(new FlashcardExerciseOption("Airplane",false));
         mFlashcardExerciseOptions.add(new FlashcardExerciseOption("You",false));
         mFlashcardExerciseOptions.add(new FlashcardExerciseOption("Car",true));
@@ -67,6 +71,25 @@ public class ExerciseOptionsListFragment extends Fragment {
         // specify an adapter
         mAdapter = new FlashCardExerciseAdapter(mFlashcardExerciseOptions);
         mRecyclerView.setAdapter(mAdapter);
+
+        ((FlashCardExerciseAdapter)mAdapter).SetOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(View v , int position) {
+                System.out.println("clicked pos :>" + position);
+                FlashCardExerciseAdapter.ViewHolder holder = (FlashCardExerciseAdapter.ViewHolder )(v.getTag());
+                if (mFlashcardExerciseOptions.get(position).isCorrect_answer()){
+                    //holder.correctOptionIV.setVisibility(View.VISIBLE);
+                    //holder.wrongOptionIV.setVisibility(View.GONE);
+                    v.setBackgroundColor(getResources().getColor(R.color.correct_answer_green));
+                }else{
+                    v.setBackgroundColor(getResources().getColor(R.color.primary_light_red));
+                    //holder.wrongOptionIV.setVisibility(View.VISIBLE);
+                    //holder.correctOptionIV.setVisibility(View.GONE);
+                }
+
+            }
+        });
         return rootView;
     }
 

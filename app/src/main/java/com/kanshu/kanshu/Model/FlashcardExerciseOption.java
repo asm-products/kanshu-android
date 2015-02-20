@@ -4,7 +4,8 @@ package com.kanshu.kanshu.model;
  * Created by alouanemed on 17-02-2015.
  */
 public class FlashcardExerciseOption {
-    private static int nb = 0;
+    private static int count_ = 0;
+    private int number ;
     private String Title;
     private Boolean correct_answer;
 
@@ -12,15 +13,16 @@ public class FlashcardExerciseOption {
     public FlashcardExerciseOption(String title, Boolean correct_answer) {
         Title = title;
         this.correct_answer = correct_answer;
-        nb++;
+        count_++;
+        this.number = count_;
     }
 
-    public int getNb() {
-        return nb;
+    public int getNumber() {
+        return number;
     }
 
-    public void setNb(int nb) {
-        this.nb = nb;
+    public void setNumber(int nb) {
+        this.number = nb;
     }
 
     public String getTitle() {
@@ -31,7 +33,7 @@ public class FlashcardExerciseOption {
         Title = title;
     }
 
-    public Boolean getCorrect_answer() {
+    public Boolean isCorrect_answer() {
         return correct_answer;
     }
 
