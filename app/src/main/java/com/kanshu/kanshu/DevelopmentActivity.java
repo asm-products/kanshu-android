@@ -50,4 +50,7 @@ public class DevelopmentActivity extends BaseActivity {
     public void onSettingsActivity(View view) {
         startActivity(new Intent(this, SettingsActivity.class));
     }
+    public void onFlashCardActivity(View view) {
+        startActivity(new Intent(this, FlashCardExerciseActivity.class));
+    }
 }

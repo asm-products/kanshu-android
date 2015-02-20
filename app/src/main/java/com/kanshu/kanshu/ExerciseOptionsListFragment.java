@@ -73,16 +73,19 @@ public class ExerciseOptionsListFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
 
         ((FlashCardExerciseAdapter)mAdapter).SetOnItemClickListener(new OnItemClickListener() {
-
+        View vHelper;
             @Override
             public void onItemClick(View v , int position) {
+                vHelper = v;
                 System.out.println("clicked pos :>" + position);
                 FlashCardExerciseAdapter.ViewHolder holder = (FlashCardExerciseAdapter.ViewHolder )(v.getTag());
                 if (mFlashcardExerciseOptions.get(position).isCorrect_answer()){
                     //holder.correctOptionIV.setVisibility(View.VISIBLE);
                     //holder.wrongOptionIV.setVisibility(View.GONE);
+                    vHelper.setBackgroundColor(getResources().getColor(R.color.white));
                     v.setBackgroundColor(getResources().getColor(R.color.correct_answer_green));
                 }else{
+                    vHelper.setBackgroundColor(getResources().getColor(R.color.white));
                     v.setBackgroundColor(getResources().getColor(R.color.primary_light_red));
                     //holder.wrongOptionIV.setVisibility(View.VISIBLE);
                     //holder.correctOptionIV.setVisibility(View.GONE);

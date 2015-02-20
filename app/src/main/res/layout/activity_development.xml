@@ -66,6 +66,11 @@
             android:layout_height="wrap_content"
             android:text="Settings"
             android:onClick="onSettingsActivity"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Flash card Exercise"
+            android:onClick="onFlashCardActivity"/>
 
         <TextView
             android:layout_width="match_parent"
