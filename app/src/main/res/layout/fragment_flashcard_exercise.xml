@@ -10,7 +10,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:minHeight="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="@drawable/border_set"
         android:id="@+id/linearLayout">
 
         <com.kanshu.kanshu.widget.ChineseTextView
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="军"
-            android:textSize="100dp"
+            android:textSize="70dp"
             android:textColor="@android:color/black"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:id="@+id/spelling" />
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="[ ni ]"
-            android:textSize="30dp"
+            android:textSize="15dp"
             android:textColor="@android:color/black"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
