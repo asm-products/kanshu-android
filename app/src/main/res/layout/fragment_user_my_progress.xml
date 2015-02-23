@@ -2,15 +2,15 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.kanshu.kanshu.ArticleActivity$PlaceholderFragment">
+                tools:context="com.kanshu.kanshu.ArticleActivity$PlaceholderFragment"
+    android:background="@color/navbar_off_white">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/navbar_off_white">
+    android:orientation="vertical">
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/articles_read"
         android:layout_width="match_parent"
