@@ -88,4 +88,10 @@
         <item>HSK 6</item>
         <item> &gt; HSK</item>
     </string-array>
+
+    <string name="legend_chart_reading_progress">Achievements in reading ability</string>
+    <string name="legend_chart_total_chars">Total characters for level</string>
+    <string name="legend_chart_saved_chars">Characters saved</string>
+    <string name="legend_chart_mastered_chars">Characters mastered</string>
+    <string name="legend_chart_read_articles">Articles read</string>
 </resources>

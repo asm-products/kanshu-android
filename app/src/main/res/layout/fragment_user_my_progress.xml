@@ -3,22 +3,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:context="com.kanshu.kanshu.ArticleActivity$PlaceholderFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/navbar_off_white">
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/articles_read"
         android:layout_width="match_parent"
-        android:layout_height="120dp" />
+        android:layout_height="@dimen/chart_height" />
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/characters_saved"
         android:layout_width="match_parent"
-        android:layout_height="120dp" />
+        android:layout_height="@dimen/chart_height" />
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/character_progress"
         android:layout_width="match_parent"
-        android:layout_height="120dp" />
+        android:layout_height="@dimen/chart_height" />
 </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

@@ -91,15 +91,15 @@ public class UserMyProgressFragment extends Fragment {
             masteredEntries.add(new BarEntry(nOfCharsMastered[i],i));
             savedEntries.add(new BarEntry(nOfCharsSaved[i],i));
         }
-        BarDataSet dataset = new BarDataSet(readEntries, "Articles read");
+        BarDataSet dataset = new BarDataSet(readEntries, getResources().getString(R.string.legend_chart_read_articles));
         dataset.setColor(getResources().getColor(R.color.chart_green));
         dataset.setBarSpacePercent(50f);
         chartArticles.setData(new BarData(vals, dataset));
         YAxis axis = chartArticles.getAxisRight();
         axis.setEnabled(false);
-        BarDataSet savedDataset = new BarDataSet(savedEntries, "Characters saved");
+        BarDataSet savedDataset = new BarDataSet(savedEntries, getResources().getString(R.string.legend_chart_saved_chars));
         savedDataset.setColor(getResources().getColor(R.color.chart_green));
-        BarDataSet masteredDataset = new BarDataSet(masteredEntries, "Characters mastered");
+        BarDataSet masteredDataset = new BarDataSet(masteredEntries, getResources().getString(R.string.legend_chart_mastered_chars));
         masteredDataset.setColor(getResources().getColor(R.color.chart_orange));
         ArrayList<BarDataSet> datasets = new ArrayList<BarDataSet>();
         datasets.add(savedDataset);
@@ -119,11 +119,11 @@ public class UserMyProgressFragment extends Fragment {
         }
         currentProgressEntries.add(new BarEntry(learnedCharsByLevel[6],6));
         ArrayList<BarDataSet> sets = new ArrayList<BarDataSet>();
-        BarDataSet totalProgressSet = new BarDataSet(progressEntries, "Total characters for level");
+        BarDataSet totalProgressSet = new BarDataSet(progressEntries, getResources().getString(R.string.legend_chart_total_chars));
         totalProgressSet.setColor(getResources().getColor(R.color.chart_green));
         totalProgressSet.setDrawValues(false);
         sets.add(totalProgressSet);
-        BarDataSet currentProgressSet = new BarDataSet(currentProgressEntries, "Achievements in reading ability");
+        BarDataSet currentProgressSet = new BarDataSet(currentProgressEntries, getResources().getString(R.string.legend_chart_reading_progress));
         currentProgressSet.setColor(getResources().getColor(R.color.chart_orange));
         currentProgressSet.setDrawValues(false);
         sets.add(currentProgressSet);
