@@ -108,26 +108,20 @@ public class UserMyProgressFragment extends Fragment {
         axis = chartCharSaved.getAxisRight();
         axis.setEnabled(false);
 
-        ArrayList<BarEntry> progressEntries = new ArrayList<BarEntry>();
         ArrayList<BarEntry> currentProgressEntries = new ArrayList<BarEntry>();
         String[] hskLevels = getResources().getStringArray(R.array.hsk_levels);
         final float[] nOfCharactersByLevel = {150,152,302,600,1300,2500};
+        final float maxNOfCharacters = 2500;
         for(int i = 0; i < 6; i++)
         {
-            progressEntries.add(new BarEntry(nOfCharactersByLevel[i],i));
-            currentProgressEntries.add(new BarEntry(learnedCharsByLevel[i],i));
+            currentProgressEntries.add(new BarEntry(maxNOfCharacters*learnedCharsByLevel[i]/nOfCharactersByLevel[i],i));
         }
-        currentProgressEntries.add(new BarEntry(learnedCharsByLevel[6],6));
-        ArrayList<BarDataSet> sets = new ArrayList<BarDataSet>();
-        BarDataSet totalProgressSet = new BarDataSet(progressEntries, getResources().getString(R.string.legend_chart_total_chars));
-        totalProgressSet.setColor(getResources().getColor(R.color.chart_green));
-        totalProgressSet.setDrawValues(false);
-        sets.add(totalProgressSet);
+        currentProgressEntries.add(new BarEntry(maxNOfCharacters*learnedCharsByLevel[6]/maxNOfCharacters,6));
         BarDataSet currentProgressSet = new BarDataSet(currentProgressEntries, getResources().getString(R.string.legend_chart_reading_progress));
-        currentProgressSet.setColor(getResources().getColor(R.color.chart_orange));
+        currentProgressSet.setColor(getResources().getColor(R.color.chart_green));
+        currentProgressSet.setBarSpacePercent(50f);
         currentProgressSet.setDrawValues(false);
-        sets.add(currentProgressSet);
-        chartTotalProgress.setData(new BarData(hskLevels, sets));
+        chartTotalProgress.setData(new BarData(hskLevels, currentProgressSet));
         axis = chartTotalProgress.getAxisLeft();
         axis.setEnabled(false);
         axis = chartTotalProgress.getAxisRight();
