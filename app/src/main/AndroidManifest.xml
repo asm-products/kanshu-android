@@ -79,6 +79,15 @@
             android:theme="@style/AppThemeNavigationDrawer"
             android:label="@string/feedback_send">
         </activity>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:parentActivityName=".SignupActivity"
+            android:theme="@style/Kanshu.Light.DarkToolBar"
+            android:windowSoftInputMode="stateHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.kanshu.kanshu.SignupActivity" />
+        </activity>
     </application>
 
 </manifest>

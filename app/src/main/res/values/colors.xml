@@ -5,9 +5,15 @@
     <color name="article_title_orange">#FFC868</color>
     <color name="article_light_grey">#9F9F9F</color>
     <color name="article_dart_grey">#606060</color>
+    <color name="section_light_grey">#EEEEEE</color>
     <color name="white">#FFFFFF</color>
     <color name="navbar_off_white">#FAFAFA</color>
     <color name="line_divider_grey">#aaaaaa</color>
+
     <color name="chart_green">#66cc72</color>
     <color name="chart_orange">#ddaa33</color>
+    <color name="text_color1">#757575</color>
+    <color name="text_color2">#c6c6c6</color>
+    <color name="settings_line_divider">#757575</color>
+    <color name="settings_line_divider_light">#c6c6c6</color>
 </resources>

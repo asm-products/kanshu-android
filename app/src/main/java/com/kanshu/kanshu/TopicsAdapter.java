@@ -6,7 +6,9 @@ package com.kanshu.kanshu;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,12 +73,22 @@ public class TopicsAdapter extends BaseAdapter {
         }
 
         if (!TextUtils.isEmpty(mTopicsList.get(position).getImgURL())) {
-            //we will use drawbale .. for now
-            int id = activity.getResources().getIdentifier((mTopicsList.get(position).getImgURL()
-            ), "drawable", activity.getPackageName());
-            Picasso.with(activity).load(id).into(holder.IvTopicImg);
+            //we will use drawable .. for now
+            String mImg_url = mTopicsList.get(position).getImgURL();
+            if (mImg_url.endsWith("_updated")){
+                String helper_str  =mImg_url.substring(0,mImg_url.length()-8);
+
+                int id = activity.getResources().getIdentifier((helper_str
+                ), "drawable", activity.getPackageName());
+                Drawable Dra = activity.getResources().getDrawable(id);
+                holder.IvTopicImg.setImageDrawable(Dra);
+                //Picasso.with(activity).load(id).into(holder.IvTopicImg);
+            }else{
+                Bitmap mTopic_bmp = mTopicsController.toGrayscale(mTopicsList.get(position).getImgURL());
+                holder.IvTopicImg.setImageBitmap(mTopic_bmp);
+            }
         } else {
-            Picasso.with(activity).load(R.drawable.kanshu).into(holder.IvTopicImg);
+            Picasso.with(activity).load(R.drawable.kanshu_gray).into(holder.IvTopicImg);
         }
         return v;
     }

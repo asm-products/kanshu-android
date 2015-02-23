@@ -94,4 +94,9 @@
     <string name="legend_chart_saved_chars">Characters saved</string>
     <string name="legend_chart_mastered_chars">Characters mastered</string>
     <string name="legend_chart_read_articles">Articles read</string>
+
+ <string-array name="settings_tabs">
+        <item>My Account</item>
+        <item>More Settings</item>
+    </string-array>
 </resources>

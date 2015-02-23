@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.kanshu.kanshu.activity.SettingsActivity;
+
 
 public class DevelopmentActivity extends BaseActivity {
 
@@ -43,5 +45,9 @@ public class DevelopmentActivity extends BaseActivity {
 
     public void onFeedbackActivity(View view) {
         startActivity(new Intent(this, FeedbackActivity.class));
+    }
+
+    public void onSettingsActivity(View view) {
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 }

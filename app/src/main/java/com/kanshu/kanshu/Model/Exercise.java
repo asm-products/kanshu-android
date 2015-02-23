@@ -6,7 +6,8 @@ package com.kanshu.kanshu.model;
 public class Exercise {
     private String title;
     private String description;
-    private String size;
+    private String price;
+    private String description_2;
     private String thumbnail;
 
 
@@ -26,16 +27,24 @@ public class Exercise {
         this.description = description;
     }
 
-    public String getSize() {
-        return size;
+    public String getPrice() {
+        return price;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getThumbnail() {
         return thumbnail;
+    }
+
+    public String getDescription_2() {
+        return description_2;
+    }
+
+    public void setDescription_2(String description_2) {
+        this.description_2 = description_2;
     }
 
     public void setThumbnail(String thumbnail) {
