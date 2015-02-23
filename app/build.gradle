@@ -29,6 +29,5 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:1.2.1'
     compile 'uk.co.chrisjenx:calligraphy:2.0.0'
     compile 'com.mikepenz.aboutlibraries:library:4.5.2'
-    compile files('libs/mpandroidchartlibrary-1-7-4.jar')
     compile files('libs/MPAndroidChart-1.4.2-SNAPSHOT.jar')
 }
