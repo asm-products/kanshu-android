@@ -8,4 +8,6 @@
     <color name="white">#FFFFFF</color>
     <color name="navbar_off_white">#FAFAFA</color>
     <color name="line_divider_grey">#aaaaaa</color>
+    <color name="chart_green">#66cc72</color>
+    <color name="chart_orange">#ddaa33</color>
 </resources>
