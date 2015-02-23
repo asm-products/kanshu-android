@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -52,6 +53,7 @@ public class UserMyProgressFragment extends Fragment {
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         BarChart chartArticles = (BarChart) rootView.findViewById(R.id.articles_read);
         BarChart chartCharSaved = (BarChart) rootView.findViewById(R.id.characters_saved);
+        BarChart chartTotalProgress = (BarChart) rootView.findViewById(R.id.character_progress);
         chartArticles.setDescription("");
         chartCharSaved.setDescription("");
         XAxis xl = chartArticles.getXAxis();
@@ -64,6 +66,12 @@ public class UserMyProgressFragment extends Fragment {
         xl.setCenterXLabelText(true);
         xl.setTextSize(10.0f);
         xl.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xl = chartTotalProgress.getXAxis();
+        xl.setSpaceBetweenLabels(2);
+        xl.setCenterXLabelText(true);
+        xl.setTextSize(10.0f);
+        xl.setPosition(XAxis.XAxisPosition.BOTTOM);
+        chartTotalProgress.setDescription("");
         ArrayList<String> vals = new ArrayList<String>();
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd");
@@ -73,6 +81,7 @@ public class UserMyProgressFragment extends Fragment {
         float[] nOfArticlesRead = {4,3,0,0,1,3,2}; //sample data
         float [] nOfCharsSaved = {10,15,2,4,5,15,20};
         float [] nOfCharsMastered = {5,7,2,0,8,8,4};
+        float [] learnedCharsByLevel = {100,40,20,40,0,2,2};
         cal.add(Calendar.DATE, -7);
         for(int i = 0; i < 7; i++)
         {
@@ -86,7 +95,8 @@ public class UserMyProgressFragment extends Fragment {
         dataset.setColor(getResources().getColor(R.color.chart_green));
         dataset.setBarSpacePercent(50f);
         chartArticles.setData(new BarData(vals, dataset));
-        chartArticles.getBarData().setGroupSpace(15.0f);
+        YAxis axis = chartArticles.getAxisRight();
+        axis.setEnabled(false);
         BarDataSet savedDataset = new BarDataSet(savedEntries, "Characters saved");
         savedDataset.setColor(getResources().getColor(R.color.chart_green));
         BarDataSet masteredDataset = new BarDataSet(masteredEntries, "Characters mastered");
@@ -95,6 +105,34 @@ public class UserMyProgressFragment extends Fragment {
         datasets.add(savedDataset);
         datasets.add(masteredDataset);
         chartCharSaved.setData(new BarData(vals, datasets));
+        axis = chartCharSaved.getAxisRight();
+        axis.setEnabled(false);
+
+        ArrayList<BarEntry> progressEntries = new ArrayList<BarEntry>();
+        ArrayList<BarEntry> currentProgressEntries = new ArrayList<BarEntry>();
+        String[] hskLevels = getResources().getStringArray(R.array.hsk_levels);
+        final float[] nOfCharactersByLevel = {150,152,302,600,1300,2500};
+        for(int i = 0; i < 6; i++)
+        {
+            progressEntries.add(new BarEntry(nOfCharactersByLevel[i],i));
+            currentProgressEntries.add(new BarEntry(learnedCharsByLevel[i],i));
+        }
+        currentProgressEntries.add(new BarEntry(learnedCharsByLevel[6],6));
+        ArrayList<BarDataSet> sets = new ArrayList<BarDataSet>();
+        BarDataSet totalProgressSet = new BarDataSet(progressEntries, "Total characters for level");
+        totalProgressSet.setColor(getResources().getColor(R.color.chart_green));
+        totalProgressSet.setDrawValues(false);
+        sets.add(totalProgressSet);
+        BarDataSet currentProgressSet = new BarDataSet(currentProgressEntries, "Achievements in reading ability");
+        currentProgressSet.setColor(getResources().getColor(R.color.chart_orange));
+        currentProgressSet.setDrawValues(false);
+        sets.add(currentProgressSet);
+        chartTotalProgress.setData(new BarData(hskLevels, sets));
+        axis = chartTotalProgress.getAxisLeft();
+        axis.setEnabled(false);
+        axis = chartTotalProgress.getAxisRight();
+        axis.setEnabled(false);
+
         return rootView;
     }
 
