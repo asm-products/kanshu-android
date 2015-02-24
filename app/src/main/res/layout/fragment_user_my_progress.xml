@@ -2,15 +2,27 @@
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:context="com.kanshu.kanshu.ArticleActivity$PlaceholderFragment">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="My progress"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="178dp"/>
+                tools:context="com.kanshu.kanshu.ArticleActivity$PlaceholderFragment"
+    android:background="@color/navbar_off_white">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/articles_read"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/chart_height" />
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/characters_saved"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/chart_height" />
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/character_progress"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/chart_height" />
+</LinearLayout>
+    </ScrollView>
 </RelativeLayout>

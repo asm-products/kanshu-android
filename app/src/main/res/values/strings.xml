@@ -79,7 +79,23 @@
     <string name="feedback_subject_hint">What your feedback is about</string>
     <string name="feedback_field">Feedback:</string>
 
-    <string-array name="settings_tabs">
+    <string-array name="hsk_levels">
+        <item>HSK 1</item>
+        <item>HSK 2</item>
+        <item>HSK 3</item>
+        <item>HSK 4</item>
+        <item>HSK 5</item>
+        <item>HSK 6</item>
+        <item> &gt; HSK</item>
+    </string-array>
+
+    <string name="legend_chart_reading_progress">Achievements in reading ability</string>
+    <string name="legend_chart_total_chars">Total characters for level</string>
+    <string name="legend_chart_saved_chars">Characters saved</string>
+    <string name="legend_chart_mastered_chars">Characters mastered</string>
+    <string name="legend_chart_read_articles">Articles read</string>
+
+ <string-array name="settings_tabs">
         <item>My Account</item>
         <item>More Settings</item>
     </string-array>
