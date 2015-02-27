@@ -3,6 +3,7 @@ package com.kanshu.kanshu;
 import android.animation.LayoutTransition;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
@@ -74,8 +75,16 @@ public class PracticeExerciseFragment extends Fragment {
                 R.layout.practice_exercise_item, mAnswers.toArray(new String[mAnswers.size()])){
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
+                if (convertView == null) {
+                    // This a new view we inflate the new layout
+                    LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context
+                            .LAYOUT_INFLATER_SERVICE);
+                    convertView = inflater.inflate(R.layout.practice_exercise_item, parent,
+                            false);
+                }
                 TextView positionText = (TextView)convertView.findViewById(R.id.answer_id);
                 positionText.setText((position+1) + ".");
+                ((TextView)convertView.findViewById(R.id.answer_text)).setText(mAnswers.get(position));
                 return convertView;
             }
         });
