@@ -50,4 +50,8 @@ public class DevelopmentActivity extends BaseActivity {
     public void onSettingsActivity(View view) {
         startActivity(new Intent(this, SettingsActivity.class));
     }
+
+    public void onExerciseActivity(View view) {
+        startActivity(new Intent(this, ExercisePageActivity.class));
+    }
 }

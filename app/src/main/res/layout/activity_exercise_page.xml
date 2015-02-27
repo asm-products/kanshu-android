@@ -1,0 +1,37 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    tools:context="com.kanshu.kanshu.ExerciseActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:elevation="0dp"
+            android:paddingTop="25dp"
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"/>
+
+        <fragment
+            android:id="@+id/exercise_pane"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:name="com.kanshu.kanshu.PracticeExerciseFragment"
+            tools:layout="@layout/fragment_practice_exercise"/>
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/navigation_drawer"
+        android:layout_width="@dimen/navigation_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:name="com.kanshu.kanshu.NavigationDrawerFragment"
+        tools:layout="@layout/fragment_navigation_drawer"/>
+</android.support.v4.widget.DrawerLayout>

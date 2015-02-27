@@ -67,6 +67,12 @@
             android:text="Settings"
             android:onClick="onSettingsActivity"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Exercise"
+            android:onClick="onExerciseActivity"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

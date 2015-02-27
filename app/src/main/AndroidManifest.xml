@@ -76,17 +76,21 @@
         </activity>
         <activity
             android:name=".FeedbackActivity"
-            android:theme="@style/AppThemeNavigationDrawer"
-            android:label="@string/feedback_send">
+            android:label="@string/feedback_send"
+            android:theme="@style/AppThemeNavigationDrawer" >
         </activity>
         <activity
             android:name=".activity.SettingsActivity"
             android:parentActivityName=".SignupActivity"
             android:theme="@style/Kanshu.Light.DarkToolBar"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.kanshu.kanshu.SignupActivity" />
+        </activity>
+        <activity
+            android:name=".ExercisePageActivity"
+            android:label="@string/title_activity_exercise_page" >
         </activity>
     </application>
 

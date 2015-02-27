@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:background="#F5F5F5"
+    android:padding="5dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:id="@+id/answer_id"
+    android:textSize="24sp"
+    android:textColor="#000000"
+    android:text="teee"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/answer_text"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBaseline="@+id/answer_id"
+        android:text="ffff"
+        />
+</RelativeLayout>
