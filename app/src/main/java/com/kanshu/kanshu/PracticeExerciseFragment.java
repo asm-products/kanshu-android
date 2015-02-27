@@ -91,8 +91,23 @@ public class PracticeExerciseFragment extends Fragment {
         return v;
     }
 
-    private boolean selectAnswer(int position) {
-        return false;
+    private void selectAnswer(int position) {
+        ListView list = (ListView)getActivity().findViewById(R.id.options_list);
+        if(position != mCorrectAnswer){
+            View v = (View)list.getChildAt(position);
+            v.setBackgroundColor(getResources().getColor(R.color.exercise_answer_incorrect));
+            ((ImageView)v.findViewById(R.id.wrong_answer)).setVisibility(View.VISIBLE);
+        }
+        else ((ImageView)(View)list.getChildAt(position).findViewById(R.id.wrong_answer)).setVisibility(View.VISIBLE);
+        View v = (View)list.getChildAt(mCorrectAnswer);
+        v.setBackgroundColor(getResources().getColor(R.color.exercise_answer_correct));
+        ((TextView)v.findViewById(R.id.answer_id)).setTextColor(getResources().getColor(R.color.white));
+        ((TextView)v.findViewById(R.id.answer_text)).setTextColor(getResources().getColor(R.color.white));
+        showStatsPopup();
+    }
+
+    private void showStatsPopup() {
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event

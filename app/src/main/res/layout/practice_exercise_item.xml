@@ -21,4 +21,22 @@
         android:layout_alignBaseline="@+id/answer_id"
         android:text="ffff"
         />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_answer_correct"
+        android:id="@+id/right_answer"
+        android:layout_marginRight="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/answer_id"
+        android:visibility="invisible"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_answer_incorrect"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="25dp"
+        android:id="@+id/wrong_answer"
+        android:layout_alignBottom="@+id/answer_id"
+        android:visibility="invisible"/>
 </RelativeLayout>
