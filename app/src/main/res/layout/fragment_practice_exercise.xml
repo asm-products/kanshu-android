@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.kanshu.kanshu.PracticeExerciseFragment"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="#F5F5F5">
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:id="@+id/card">
+
+    <com.kanshu.kanshu.widget.ChineseTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="你"
+        android:textSize="84sp"
+        android:textColor="#000000"
+        android:paddingTop="25dp"
+        android:paddingBottom="25dp"
+        android:layout_centerInParent="true"
+        android:id="@+id/chineseChar"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/chineseChar"
+        android:text="[ nĭ ]"
+        android:textSize="16sp"
+        android:textColor="#000000"/>
+</RelativeLayout>
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/options_list"
+        android:divider="@color/article_dart_grey"
+        android:dividerHeight="1dp"
+        android:layout_below="@+id/card">
+         </ListView>
+
+</RelativeLayout>

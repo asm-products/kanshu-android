@@ -61,7 +61,6 @@
     <string name="about_open_source_licenses">Open Source Licenses</string>
     <string name="title_activity_os_lib">About</string>
 
-
     <string-array name="feedback_topics">
         <item>Select topic</item>
         <item>Suggest new features</item>
@@ -69,8 +68,9 @@
         <item>Report issues with the dictionary</item>
         <item>Compliment to the team behind Kanshu</item>
     </string-array>
-    <string name="action_send">Send</string>
 
+    <string name="action_send">Send</string>
+    <string name="action_search">Search</string>
     <string name="feedback_topic">Topic:</string>
     <string name="feedback_default_email">email@email</string>
     <string name="feedback_from">From:</string>
@@ -86,7 +86,7 @@
         <item>HSK 4</item>
         <item>HSK 5</item>
         <item>HSK 6</item>
-        <item> &gt; HSK</item>
+        <item> > HSK</item>
     </string-array>
 
     <string name="legend_chart_reading_progress">Achievements in reading ability</string>
@@ -95,8 +95,12 @@
     <string name="legend_chart_mastered_chars">Characters mastered</string>
     <string name="legend_chart_read_articles">Articles read</string>
 
- <string-array name="settings_tabs">
+    <string-array name="settings_tabs">
         <item>My Account</item>
         <item>More Settings</item>
     </string-array>
+
+    <string name="title_activity_exercise_page">ExercisePageActivity</string>
+    <string name="exercise_complete">Exercise complete!</string>
+
 </resources>

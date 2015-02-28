@@ -16,4 +16,6 @@
     <color name="text_color2">#c6c6c6</color>
     <color name="settings_line_divider">#757575</color>
     <color name="settings_line_divider_light">#c6c6c6</color>
+    <color name="exercise_answer_correct">#77bb66</color>
+    <color name="exercise_answer_incorrect">#bbbbbb</color>
 </resources>
