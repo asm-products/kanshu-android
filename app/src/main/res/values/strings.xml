@@ -70,6 +70,7 @@
     </string-array>
 
     <string name="action_send">Send</string>
+    <string name="action_search">Search</string>
     <string name="feedback_topic">Topic:</string>
     <string name="feedback_default_email">email@email</string>
     <string name="feedback_from">From:</string>

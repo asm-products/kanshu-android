@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
@@ -17,6 +18,7 @@ import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.text.TextPaint;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -115,10 +117,16 @@ public class PracticeExerciseFragment extends Fragment {
     }
 
     private void showStatsPopup() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.Base_Theme_AppCompat_Light_Dialog));
         String message = "Correct:" + ((100.0*mNOfCorrectAnswers)/mNExercises) +"%\nWrong: "+((100.0*mNOfWrongAnswers)/mNExercises) +"%";
         builder.setMessage(message)
-                .setTitle(R.string.exercise_complete);
+                .setTitle(R.string.exercise_complete)
+                .setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
 
         AlertDialog dialog = builder.create();
         dialog.show();
