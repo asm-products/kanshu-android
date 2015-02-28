@@ -2,6 +2,7 @@ package com.kanshu.kanshu;
 
 import android.animation.LayoutTransition;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -43,6 +44,9 @@ public class PracticeExerciseFragment extends Fragment {
     private OnFragmentClickListener mListener;
     private ArrayList<String> mAnswers = new ArrayList<String>();
     private int mCorrectAnswer = 0;
+    private int mNOfCorrectAnswers = 0;
+    private int mNOfWrongAnswers = 0;
+    private int mNExercises = 1;
 
     public PracticeExerciseFragment() {
         // Required empty public constructor
@@ -97,8 +101,12 @@ public class PracticeExerciseFragment extends Fragment {
             View v = (View)list.getChildAt(position);
             v.setBackgroundColor(getResources().getColor(R.color.exercise_answer_incorrect));
             ((ImageView)v.findViewById(R.id.wrong_answer)).setVisibility(View.VISIBLE);
+            mNOfWrongAnswers++;
         }
-        else ((ImageView)(View)list.getChildAt(position).findViewById(R.id.wrong_answer)).setVisibility(View.VISIBLE);
+        else{
+            ((ImageView)(View)list.getChildAt(position).findViewById(R.id.right_answer)).setVisibility(View.VISIBLE);
+            mNOfCorrectAnswers++;
+        }
         View v = (View)list.getChildAt(mCorrectAnswer);
         v.setBackgroundColor(getResources().getColor(R.color.exercise_answer_correct));
         ((TextView)v.findViewById(R.id.answer_id)).setTextColor(getResources().getColor(R.color.white));
@@ -107,6 +115,13 @@ public class PracticeExerciseFragment extends Fragment {
     }
 
     private void showStatsPopup() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        String message = "Correct:" + ((100.0*mNOfCorrectAnswers)/mNExercises) +"%\nWrong: "+((100.0*mNOfWrongAnswers)/mNExercises) +"%";
+        builder.setMessage(message)
+                .setTitle(R.string.exercise_complete);
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
 
     }
 
