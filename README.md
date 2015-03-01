@@ -29,6 +29,13 @@ Clone the sourcecode.
     cd kanshu-android
     ./gradlew assembleRelease
 
+#### Testing
+Make sure you have an emulator running or preferably a device connected via usb and unlocked
+
+    ./gradlew clean connectedCheck
+
+View test reports at app/build/outputs/reports/androidTests/connected/index.html
+
 ### How Assembly Works
 
 Assembly products are like open-source and made with contributions from the community. Assembly handles the boring stuff like hosting, support, financing, legal, etc. Once the product launches we collect the revenue and split the profits amongst the contributors.

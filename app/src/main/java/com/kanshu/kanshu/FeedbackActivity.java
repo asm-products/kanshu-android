@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.kanshu.kanshu.model.User;
 
@@ -62,6 +63,8 @@ public class FeedbackActivity extends ActionBarActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if (id == R.id.action_send) {
+            Toast.makeText(this, "Implement me!", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);
