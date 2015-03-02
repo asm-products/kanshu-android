@@ -16,6 +16,13 @@ android {
         testHandleProfiling true
         testFunctionalTest true
     }
+    
+    lintOptions {
+        abortOnError false
+        textReport false
+        textOutput 'stdout'
+    }
+    
     buildTypes {
         release {
             minifyEnabled false

@@ -32,18 +32,8 @@ public class AboutActivityTest extends ActivityInstrumentationTestCase2<AboutAct
 
     @Override
     public void tearDown() throws Exception {
-//        solo.finishOpenedActivities();
-//        try {
-//            solo.finishOpenedActivities();
-//            getActivity().finish();
-//            solo.finishOpenedActivities();
-//            System.gc();
-//            solo.finalize();
-//        } catch (Throwable e) {
-//            e.printStackTrace();
-//        }
+        solo.finishOpenedActivities();
         super.tearDown();
-//        solo = null;
     }
 
     public void testAboutScreenAppeared() throws Exception {
