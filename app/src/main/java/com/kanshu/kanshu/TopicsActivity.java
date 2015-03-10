@@ -1,13 +1,7 @@
 package com.kanshu.kanshu;
 
 import android.app.ProgressDialog;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,17 +10,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 
 import com.kanshu.kanshu.controller.TopicsController;
 import com.kanshu.kanshu.model.Topic;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by alouanemed on 22-01-2015.

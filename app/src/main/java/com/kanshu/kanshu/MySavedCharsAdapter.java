@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kanshu.kanshu.model.SavedChars;
-import com.kanshu.kanshu.widget.ChineseTextView;
 
 import java.util.List;
 

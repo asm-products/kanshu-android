@@ -81,5 +81,6 @@
         android:minHeight="30dp"
         android:minWidth="68dp"
         fontPath="fonts/Roboto-Medium.ttf"
-        tools:ignore="MissingPrefix"/>
+        tools:ignore="MissingPrefix"
+        android:onClick="Login"/>
 </RelativeLayout>

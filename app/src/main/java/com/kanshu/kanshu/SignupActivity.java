@@ -7,15 +7,21 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.kanshu.kanshu.model.User;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 
 public class SignupActivity extends BaseActivity {
@@ -108,9 +114,36 @@ public class SignupActivity extends BaseActivity {
     }
 
     public void onSignUp(View clicked) {
-        User userData = new User("Username", "Intermediate Level");
-        Intent signupIntent = new Intent(this, UserMetricsActivity.class);
-        signupIntent.putExtra("user", userData);
-        startActivity(signupIntent);
+        final Intent signupIntent = new Intent(this, UserMetricsActivity.class);
+        ApiHandler.kanshuApi.createUser(new SignupPacket(((EditText) findViewById(R.id.password)).getText().toString(), ((EditText) findViewById(R.id.email)).getText().toString(), "Test user", "somewhere"), new Callback<String>() {
+            @Override
+
+            public void success(String s, Response response) {
+                //Log.i("SignupActivity", s);
+                User userData = new User(((EditText) findViewById(R.id.username)).getText().toString(), "Intermediate Level");
+                signupIntent.putExtra("user", userData);
+                startActivity(signupIntent);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.i("SignupActivity", "Epic Fail!");
+            }
+        });
+
+    }
+    public class SignupPacket{
+        public String password;
+        public String email;
+        public String userBio;
+        public String country;
+
+        public SignupPacket(String password, String email, String userBio, String country){
+            this.password = password;
+            this.email = email;
+            this.userBio = userBio;
+            this.country = country;
+        }
+
     }
 }

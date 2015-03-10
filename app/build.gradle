@@ -45,4 +45,5 @@ dependencies {
     compile 'com.mikepenz.aboutlibraries:library:4.5.2'
     compile files('libs/MPAndroidChart-1.4.2-SNAPSHOT.jar')
     androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.3.1'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
 }
