@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.kanshu.kanshu.R;
 
@@ -16,6 +17,15 @@ import com.kanshu.kanshu.R;
 public class MoreSettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_more_settings, container, false);
+        View v = inflater.inflate(R.layout.fragment_more_settings, container, false);
+        TextView tv = (TextView)v.findViewById(R.id.tvSendFeedback);
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View vi) {
+                FeedbackDialogFragment feedbackDg =new FeedbackDialogFragment();
+                feedbackDg.show(getActivity().getFragmentManager(), "Feedback");
+            }
+        });
+        return v;
     }
 }
