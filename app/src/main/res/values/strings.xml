@@ -103,4 +103,6 @@
     <string name="title_activity_exercise_page">ExercisePageActivity</string>
     <string name="exercise_complete">Exercise complete!</string>
 
+    <string name="dialog_feedback">How does this make you feel?</string>
+
 </resources>
