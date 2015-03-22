@@ -18,17 +18,20 @@
         android:orientation="horizontal"
         android:padding="10dp"
         android:gravity="center_horizontal">
-<ImageView
-    android:layout_width="60dp"
-    android:layout_height="wrap_content"
-    android:src="@drawable/ic_emoticon_sad_grey600_48dp"/>
- <ImageView
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-     android:src="@drawable/ic_emoticon_neutral_grey600_48dp"/>
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_emoticon_happy_grey600_48dp"/>
+        <ImageView
+            android:id="@+id/dialog_feedback_option_1"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_emoticon_sad_grey600_48dp"/>
+         <ImageView
+             android:id="@+id/dialog_feedback_option_2"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+             android:src="@drawable/ic_emoticon_neutral_grey600_48dp"/>
+        <ImageView
+            android:id="@+id/dialog_feedback_option_3"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_emoticon_happy_grey600_48dp"/>
     </LinearLayout>
 </LinearLayout>
