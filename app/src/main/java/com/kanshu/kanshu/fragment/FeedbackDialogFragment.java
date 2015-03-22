@@ -25,6 +25,7 @@ public class FeedbackDialogFragment extends DialogFragment {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dismiss();
                 SendFeedbackDialogFragment feedbackDg =new SendFeedbackDialogFragment();
                 feedbackDg.show(getActivity().getFragmentManager(), "Feedback");
             }
