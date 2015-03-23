@@ -103,4 +103,10 @@
     <string name="title_activity_exercise_page">ExercisePageActivity</string>
     <string name="exercise_complete">Exercise complete!</string>
 
+    <string name="dialog_feedback">How does this make you feel?</string>
+    <string name="dialog_send_feedback_title">Send Feedback</string>
+    <string name="dialog_send_feedback_option_1">Rate Kanshu on the Play Store</string>
+    <string name="dialog_send_feedback_option_2">Spread the Love on Twitter</string>
+    <string name="dialog_send_feedback_option_3">I Have a Suggestion</string>
+
 </resources>

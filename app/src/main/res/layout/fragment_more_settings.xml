@@ -136,7 +136,6 @@
             android:paddingTop="@dimen/settings_more_vertical_padding"
             android:paddingBottom="@dimen/settings_more_vertical_padding"
             android:textAllCaps="true"
-            android:textColor="@color/text_color2"
             />
         <View
             android:layout_width="match_parent"
