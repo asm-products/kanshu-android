@@ -144,6 +144,5 @@ public class SignupActivity extends BaseActivity {
             this.userBio = userBio;
             this.country = country;
         }
-
     }
 }

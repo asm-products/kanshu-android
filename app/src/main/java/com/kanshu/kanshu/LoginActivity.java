@@ -8,21 +8,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-
 import com.google.gson.JsonObject;
 import com.kanshu.kanshu.model.User;
-
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 
+
 public class LoginActivity extends BaseActivity {
-
-    RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("https://kanshu-ds.herokuapp.com").setLogLevel(RestAdapter.LogLevel.FULL).build();
-
-    KanshuApi kanshuApi = restAdapter.create(KanshuApi.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +49,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void Login(View v){
+
         final Intent loginIntent = new Intent(this,UserMetricsActivity.class);
         String credentials = ((EditText)findViewById(R.id.email)).getText().toString() + ":" + ((EditText)findViewById(R.id.password)).getText().toString();
         String string = "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
