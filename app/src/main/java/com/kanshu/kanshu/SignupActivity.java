@@ -7,16 +7,19 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.gson.JsonObject;
 import com.kanshu.kanshu.model.User;
 
 import retrofit.Callback;
@@ -24,15 +27,17 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 
-public class SignupActivity extends BaseActivity {
+public class SignupActivity extends BaseActivity implements AdapterView.OnItemSelectedListener{
 
 
     //skip button
     TextView skipTv;
+    Spinner signUpSpinner;
+    String selectedLevel;
+    int selectedLevelID = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Spinner signUpSpinner;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         signUpSpinner = (Spinner) findViewById(R.id.spinner);
@@ -64,6 +69,7 @@ public class SignupActivity extends BaseActivity {
         };
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         signUpSpinner.setAdapter(adapter);
+        signUpSpinner.setOnItemSelectedListener(this);
         TextView kanshuText = (TextView) findViewById(R.id.mainheadline);
         kanshuText.setText(R.string.kanshucaption, TextView.BufferType.SPANNABLE);
         int startPos = getString(R.string.kanshucaption).indexOf("Kanshu");
@@ -120,18 +126,43 @@ public class SignupActivity extends BaseActivity {
 
             public void success(String s, Response response) {
                 //Log.i("SignupActivity", s);
-                User userData = new User(((EditText) findViewById(R.id.username)).getText().toString(), "Intermediate Level");
-                signupIntent.putExtra("user", userData);
-                startActivity(signupIntent);
-            }
+                String credentials = ((EditText)findViewById(R.id.email)).getText().toString() + ":" + ((EditText)findViewById(R.id.password)).getText().toString();
+                String string = "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+                ApiHandler.kanshuApi.login(string, new Callback<JsonObject>() {
+                    @Override
+                    public void success(JsonObject s, Response response) {
+                        User userData = new User(((EditText) findViewById(R.id.username)).getText().toString(), selectedLevel);
+                        userData.setSessionId(s.get("sessionId").toString());
+                        signupIntent.putExtra("user", userData);
+                        startActivity(signupIntent);
+                    }
 
-            @Override
-            public void failure(RetrofitError error) {
-                Log.i("SignupActivity", "Epic Fail!");
-            }
-        });
+                    @Override
+                    public void failure(RetrofitError error) {
+                        Log.i("SignupActivity -- Login", "Epic Fail!");
+                    }
+                });
+                   }
+
+                   @Override
+                   public void failure(RetrofitError error) {
+                       Log.i("SignupActivity", "Epic Fail!");
+                   }
+               });
 
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        selectedLevelID = position;
+        selectedLevel = signUpSpinner.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
     public class SignupPacket{
         public String password;
         public String email;

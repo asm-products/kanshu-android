@@ -16,4 +16,10 @@ public interface KanshuApi {
 
     @POST("/createUser")
     public void createUser(@Body SignupActivity.SignupPacket packet, Callback<String> callback);
+
+    @POST("/deleteword")
+    public void deleteWord(@Header("sessionId")String token, @Body String wordId, Callback<String> callback);
+
+    @GET("/getwords")
+    public void getWords(@Header("sessionId")String token, Callback<JsonObject> wordList);
 }
