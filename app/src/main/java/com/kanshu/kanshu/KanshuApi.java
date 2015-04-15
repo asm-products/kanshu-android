@@ -1,6 +1,7 @@
 package com.kanshu.kanshu;
 
 import com.google.gson.JsonObject;
+import com.kanshu.kanshu.model.SavedChars;
 
 import retrofit.Callback;
 import retrofit.http.Body;
@@ -18,7 +19,10 @@ public interface KanshuApi {
     public void createUser(@Body SignupActivity.SignupPacket packet, Callback<String> callback);
 
     @POST("/deleteword")
-    public void deleteWord(@Header("sessionId")String token, @Body String wordId, Callback<String> callback);
+    public void deleteWord(@Header("sessionId")String token, @Body SavedChars.WordPacket wordPacket, Callback<String> callback);
+
+    @POST("/saveword")
+    public void saveWord(@Header("sessionId")String token, @Body SavedChars.WordPacket wordPacket, Callback<String> callback);
 
     @GET("/getwords")
     public void getWords(@Header("sessionId")String token, Callback<JsonObject> wordList);

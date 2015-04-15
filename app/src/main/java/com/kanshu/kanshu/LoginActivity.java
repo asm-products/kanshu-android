@@ -57,8 +57,8 @@ public class LoginActivity extends BaseActivity {
                    @Override
                    public void success(JsonObject s, Response response) {
                     User userData = new User(((EditText)findViewById(R.id.email)).getText().toString(), "Intermediate user");
-                    loginIntent.putExtra("sessionId", s.get("sessionId").toString());
-                    loginIntent.putExtra("User", userData);
+                    userData.setSessionId(s.get("sessionId").toString());
+                    loginIntent.putExtra("user", userData);
                     startActivity(loginIntent);
                    }
 

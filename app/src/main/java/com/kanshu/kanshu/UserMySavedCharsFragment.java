@@ -63,8 +63,15 @@ public class UserMySavedCharsFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
 
         //add data to the list
-        List<SavedChars> savedCharsList = new ArrayList<SavedChars>();
+        final List<SavedChars> savedCharsList = new ArrayList<SavedChars>();
 
+        SavedChars s = new SavedChars();
+        s.setWordID(1);
+        s.save(loggedInUser.getSessionId());
+
+        s = new SavedChars();
+        s.setWordID(2);
+        s.save(loggedInUser.getSessionId());
 
         mAdapter = new MySavedCharsAdapter(savedCharsList);
         mRecyclerView.setAdapter(mAdapter);
@@ -85,6 +92,7 @@ public class UserMySavedCharsFragment extends Fragment {
                     }
                     savedCharElem.setChardescription(description);
                     savedCharElem.setTranslation(elem.getAsJsonObject().get("translatedto").getAsString());
+                    savedCharsList.add(savedCharElem);
                 }
             }
 
