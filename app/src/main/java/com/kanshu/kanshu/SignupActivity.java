@@ -132,7 +132,7 @@ public class SignupActivity extends BaseActivity implements AdapterView.OnItemSe
                     @Override
                     public void success(JsonObject s, Response response) {
                         User userData = new User(((EditText) findViewById(R.id.username)).getText().toString(), selectedLevel);
-                        userData.setSessionId(s.get("sessionId").toString());
+                        userData.setSessionId(s.get("user").getAsJsonObject().get("sessionId").getAsString());
                         signupIntent.putExtra("user", userData);
                         startActivity(signupIntent);
                     }

@@ -9,6 +9,7 @@ import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.Header;
+import retrofit.http.Headers;
 import retrofit.http.POST;
 
 public interface KanshuApi {
@@ -19,11 +20,12 @@ public interface KanshuApi {
     public void createUser(@Body SignupActivity.SignupPacket packet, Callback<String> callback);
 
     @POST("/deleteword")
-    public void deleteWord(@Header("sessionId")String token, @Body SavedChars.WordPacket wordPacket, Callback<String> callback);
+    public void deleteWord(@Header("sessionid")String token, @Body SavedChars.WordPacket wordPacket, Callback<String> callback);
 
     @POST("/saveword")
-    public void saveWord(@Header("sessionId")String token, @Body SavedChars.WordPacket wordPacket, Callback<String> callback);
+    public void saveWord(@Header("sessionid")String token, @Body SavedChars.WordPacket wordPacket, Callback<String> callback);
 
+    @Headers("Cache-Control: no-cache")
     @GET("/getwords")
-    public void getWords(@Header("sessionId")String token, Callback<JsonObject> wordList);
+    public void getWords(@Header("sessionid")String token, Callback<JsonObject> wordList);
 }

@@ -56,8 +56,8 @@ public class LoginActivity extends BaseActivity {
                ApiHandler.kanshuApi.login(string, new Callback<JsonObject>() {
                    @Override
                    public void success(JsonObject s, Response response) {
-                    User userData = new User(((EditText)findViewById(R.id.email)).getText().toString(), "Intermediate user");
-                    userData.setSessionId(s.get("sessionId").toString());
+                    User userData = new User(((EditText)findViewById(R.id.email)).getText().toString(),"user");
+                    userData.setSessionId(s.get("user").getAsJsonObject().get("sessionId").getAsString());
                     loginIntent.putExtra("user", userData);
                     startActivity(loginIntent);
                    }

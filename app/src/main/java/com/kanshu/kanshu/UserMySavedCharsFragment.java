@@ -79,7 +79,7 @@ public class UserMySavedCharsFragment extends Fragment {
         ApiHandler.kanshuApi.getWords(loggedInUser.getSessionId(), new Callback<JsonObject>() {
             @Override
             public void success(JsonObject jsonObject, Response response) {
-                Iterator<JsonElement> allWords = jsonObject.getAsJsonArray().iterator();
+                Iterator<JsonElement> allWords = jsonObject.get("words").getAsJsonArray().iterator();
                 while(allWords.hasNext()){
                     SavedChars savedCharElem = new SavedChars();
                     JsonElement elem = allWords.next();

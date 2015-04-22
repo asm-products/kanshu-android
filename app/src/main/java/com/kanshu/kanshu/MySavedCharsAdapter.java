@@ -1,5 +1,6 @@
 package com.kanshu.kanshu;
 
+import android.app.Activity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.kanshu.kanshu.model.SavedChars;
+import com.kanshu.kanshu.model.User;
 
 import java.util.List;
 
@@ -27,13 +29,31 @@ public class MySavedCharsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         public TextView CharDescriptionTV;
         public ImageView DeleteBtn;
 
-        public SavedChars single_char;
+        public SavedChars single_char = null;
+
+        public void DeleteChar (String id){
+            if(single_char != null && single_char.getWordID() >= 0)
+                single_char.delete(id);
+            SavedCharsList.remove(getPosition());
+            notifyItemRemoved(getPosition());
+            notifyItemRangeChanged(getPosition(), SavedCharsList.size());
+        }
 
         public SavedCharViewHolder(View v) {
             super(v);
             single_char = new SavedChars();
             CharTV = (TextView) v.findViewById(R.id.saved_char);
             CharDescriptionTV = (TextView) v.findViewById(R.id.saved_char_description);
+            DeleteBtn = (ImageView) v.findViewById(R.id.delete_char);
+            final SavedCharViewHolder holder = this;
+            DeleteBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Activity a = (Activity)v.getContext();
+                    User loggedInUser = a.getIntent().getExtras().getParcelable("user");
+                    holder.DeleteChar(loggedInUser.getSessionId());
+                }
+            });
         }
     }
 
@@ -66,8 +86,9 @@ public class MySavedCharsAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         SavedChars single_char = SavedCharsList.get(position);
-        //@todo set the real data here.
-        // holder.titleTextView.setText(single_char.Char())
+        ((SavedCharViewHolder)holder).CharTV.setText(single_char.getChar());
+        ((SavedCharViewHolder)holder).CharDescriptionTV.setText(single_char.getChardescription());
+        ((SavedCharViewHolder)holder).single_char = single_char;
 
     }
 

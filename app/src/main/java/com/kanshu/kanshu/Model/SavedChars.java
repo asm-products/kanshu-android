@@ -13,7 +13,7 @@ public class SavedChars {
     //the Chinese character
     private String Char;
     private String Chardescription;
-    private int wordID;
+    private int wordID = -1;
     private String translation;
     private String pronunciation;
 
