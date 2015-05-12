@@ -63,7 +63,7 @@ public class LoginActivity extends BaseActivity {
             public void success(JsonObject s, Response response) {
                 JsonObject user = s.getAsJsonObject("user");
                 User userData = new User(user.get("email").toString(), user.get("userBio").toString());
-                loginIntent.putExtra("User", userData);
+                loginIntent.putExtra("user", userData);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("sessionId", user.get("sessionId").toString());
                 editor.putString("password",password);

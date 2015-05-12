@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/my_account_fragment">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/saveButton"
@@ -23,8 +22,7 @@
         android:minHeight="30dp"
         android:minWidth="68dp"
         fontPath="fonts/Roboto-Medium.ttf"
-        tools:ignore="MissingPrefix"
-        android:onClick="saveAccountInfo"/>
+        tools:ignore="MissingPrefix"/>
 
 
         <ScrollView
@@ -55,7 +53,7 @@
                 android:layout_below="@+id/avatar"
                 android:layout_marginBottom="16dp"
                 android:layout_marginRight="16dp"
-                android:text="email"
+                android:text="Full Name"
                 style="@style/Kanshu.Light.TextView.Thin"
                 />
 
@@ -88,7 +86,8 @@
                 android:padding="8dp"
                 android:singleLine="true"
                 android:imeOptions="actionNext"
-                android:id="@+id/user_name" />
+                android:id="@+id/user_name"
+                />
 
             <TextView
                 android:id="@+id/country"
