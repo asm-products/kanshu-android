@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/my_account_fragment">
 
     <Button
         android:id="@+id/saveButton"
@@ -22,7 +23,8 @@
         android:minHeight="30dp"
         android:minWidth="68dp"
         fontPath="fonts/Roboto-Medium.ttf"
-        tools:ignore="MissingPrefix"/>
+        tools:ignore="MissingPrefix"
+        android:onClick="saveAccountInfo"/>
 
 
         <ScrollView
@@ -47,30 +49,31 @@
                 android:src="@drawable/kanshu"/>
 
             <TextView
-                android:id="@+id/fullname"
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/avatar"
                 android:layout_marginBottom="16dp"
                 android:layout_marginRight="16dp"
-                android:text="Full Name"
+                android:text="email"
                 style="@style/Kanshu.Light.TextView.Thin"
                 />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/fullname"
-                android:layout_alignBaseline="@+id/fullname"
+                android:layout_toRightOf="@+id/email"
+                android:layout_alignBaseline="@+id/email"
                 android:layout_alignParentRight="true"
                 android:singleLine="true"
-                android:imeOptions="actionNext"/>
+                android:imeOptions="actionNext"
+                android:id="@+id/emailField"/>
 
             <TextView
                 android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/fullname"
+                android:layout_below="@+id/email"
                 android:layout_marginBottom="16dp"
                 android:text="Username"
                 style="@style/Kanshu.Light.TextView.Thin"
@@ -80,12 +83,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/username"
-                android:layout_toRightOf="@+id/fullname"
+                android:layout_toRightOf="@+id/email"
                 android:layout_alignParentRight="true"
                 android:padding="8dp"
                 android:singleLine="true"
                 android:imeOptions="actionNext"
-                />
+                android:id="@+id/user_name" />
 
             <TextView
                 android:id="@+id/country"
@@ -101,10 +104,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/country"
-                android:layout_toRightOf="@+id/fullname"
+                android:layout_toRightOf="@+id/email"
                 android:layout_alignParentRight="true"
                 android:singleLine="true"
-                android:imeOptions="actionNext"/>
+                android:imeOptions="actionNext"
+                android:id="@+id/countryField"/>
 
 
             <TextView
@@ -119,11 +123,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/bio"
-                android:layout_toRightOf="@+id/fullname"
+                android:layout_toRightOf="@+id/email"
                 android:layout_alignParentRight="true"
                 android:singleLine="false"
                 android:minLines="4"
-                android:gravity="top"/>
+                android:gravity="top"
+                android:id="@+id/userBio"/>
 
 
         </RelativeLayout>
