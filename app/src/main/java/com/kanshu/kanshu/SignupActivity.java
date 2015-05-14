@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.gson.JsonObject;
 import com.kanshu.kanshu.model.User;
 
 import retrofit.Callback;
@@ -116,25 +117,32 @@ public class SignupActivity extends BaseActivity {
     }
 
     public void onSignUp(View clicked) {
+        final String username = ((EditText) findViewById(R.id.email)).getText().toString();
+        final String password = ((EditText) findViewById(R.id.password)).getText().toString();
         final Intent signupIntent = new Intent(this, UserMetricsActivity.class);
         final int spinnerValue = (int)((Spinner) findViewById(R.id.spinner)).getSelectedItemId();
         final SharedPreferences sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        ApiHandler.kanshuApi.createUser(new SignupPacket(((EditText) findViewById(R.id.password)).getText().toString(), ((EditText) findViewById(R.id.email)).getText().toString(),((EditText) findViewById(R.id.username)).getText().toString(), "Test user", "somewhere", spinnerValue), new Callback<String>() {
+        ApiHandler.kanshuApi.createUser(new SignupPacket(password, username,((EditText) findViewById(R.id.username)).getText().toString(), "Test user", "somewhere", spinnerValue), new Callback<String>() {
             @Override
-
             public void success(String s, Response response) {
-                //Log.i("SignupActivity", s);
-                User userData = new User(((EditText) findViewById(R.id.username)).getText().toString(), "Intermediate Level");
-                signupIntent.putExtra("user", userData);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putInt("hsklevel", spinnerValue);
-                editor.commit();
-                startActivity(signupIntent);
+                JsonObject user = ApiHandler.login(username, password);
+                if (user != null) {//It should not be null but you never know.
+
+                    User userData = new User(user.get("username").toString(), user.get("userBio").toString());
+                    userData.setSessionId(user.get("sessionId").toString().substring(1,user.get("sessionId").toString().length() - 1));//remove the quotes around the session id
+                    signupIntent.putExtra("user", userData);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putInt("hsklevel", spinnerValue);
+                    editor.putString("sessionId",user.get("sessionId").toString().substring(1,user.get("sessionId").toString().length() - 1));
+                    editor.commit();
+                    startActivity(signupIntent);
+                }
+
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Log.i("SignupActivity", "Epic Fail!");
+
             }
         });
 

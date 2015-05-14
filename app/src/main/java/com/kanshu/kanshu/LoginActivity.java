@@ -52,30 +52,22 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void Login(View v) {
+        String username = ((EditText) findViewById(R.id.email)).getText().toString();
         final String password = ((EditText) findViewById(R.id.password)).getText().toString();
         final Intent loginIntent = new Intent(this, UserMetricsActivity.class);
-        String credentials = ((EditText) findViewById(R.id.email)).getText().toString() + ":" + password;
-        String string = "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+        JsonObject user = ApiHandler.login(username, password);
+        if(user != null) {
+            final SharedPreferences sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
-        final SharedPreferences sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        ApiHandler.kanshuApi.login(string, new Callback<JsonObject>() {
-            @Override
-            public void success(JsonObject s, Response response) {
-                JsonObject user = s.getAsJsonObject("user");
-                User userData = new User(user.get("email").toString(), user.get("userBio").toString());
-                loginIntent.putExtra("user", userData);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.putString("sessionId", user.get("sessionId").toString());
-                editor.putString("password",password);
-                editor.commit();
-                startActivity(loginIntent);
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Log.i("LoginActivity", "EPIC FAIL!");
-                Log.i("LoginActivity", error.toString());
-            }
-        });
+            User userData = new User(user.get("email").toString(), user.get("userBio").toString());
+            userData.setSessionId(user.get("sessionId").toString().substring(1, user.get("sessionId").toString().length() -1));//remove the quotes around the sessionId
+            loginIntent.putExtra("user", userData);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("sessionId", user.get("sessionId").toString().substring(1, user.get("sessionId").toString().length() - 1));//This gets stored so other activities can use it.(like the settingsAccount activity)
+            editor.putString("password", password);//This gets stored because there is no password field in the settings activity. It is however needed for the updateUser call.
+            editor.commit();
+            startActivity(loginIntent);
+        }
     }
 }
+

@@ -81,7 +81,6 @@ public class SettingsActivity extends BaseNavigationDrawerActivity {
     public void saveAccountInfo(View v) {
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         String sessionId = sharedPreferences.getString("sessionId", "");
-        sessionId = sessionId.substring(1,sessionId.length()-1); //remove the quotes surrounding the sessionId
         String password = sharedPreferences.getString("password", "password");
         int hskLevel = sharedPreferences.getInt("hsklevel", 0);
         ApiHandler.kanshuApi.updateUser(sessionId,"application/json", new SignupPacket(password, ((EditText) findViewById(R.id.emailField)).getText().toString(),((EditText) findViewById(R.id.user_name)).getText().toString(),((EditText)findViewById(R.id.userBio)).getText().toString(), ((EditText) findViewById((R.id.countryField))).getText().toString(), hskLevel), new Callback< JsonObject>(){
