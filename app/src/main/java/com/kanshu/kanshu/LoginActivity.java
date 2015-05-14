@@ -1,6 +1,8 @@
 package com.kanshu.kanshu;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -8,13 +10,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
 import com.google.gson.JsonObject;
 import com.kanshu.kanshu.model.User;
+
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-
 
 
 public class LoginActivity extends BaseActivity {
@@ -48,25 +51,23 @@ public class LoginActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void Login(View v){
+    public void Login(View v) {
+        String username = ((EditText) findViewById(R.id.email)).getText().toString();
+        final String password = ((EditText) findViewById(R.id.password)).getText().toString();
+        final Intent loginIntent = new Intent(this, UserMetricsActivity.class);
+        JsonObject user = ApiHandler.login(username, password);
+        if(user != null) {
+            final SharedPreferences sharedPreferences = this.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
-        final Intent loginIntent = new Intent(this,UserMetricsActivity.class);
-        String credentials = ((EditText)findViewById(R.id.email)).getText().toString() + ":" + ((EditText)findViewById(R.id.password)).getText().toString();
-        String string = "Basic " + Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
-               ApiHandler.kanshuApi.login(string, new Callback<JsonObject>() {
-                   @Override
-                   public void success(JsonObject s, Response response) {
-                    User userData = new User(((EditText)findViewById(R.id.email)).getText().toString(),"user");
-                    userData.setSessionId(s.get("user").getAsJsonObject().get("sessionId").getAsString());
-                    loginIntent.putExtra("user", userData);
-                    startActivity(loginIntent);
-                   }
-
-                   @Override
-                   public void failure(RetrofitError error) {
-                       Log.i("LoginActivity", "EPIC FAIL!");
-                       Log.i("LoginActivity", error.toString());
-                   }
-               });
+            User userData = new User(user.get("email").toString(), user.get("userBio").toString());
+            userData.setSessionId(user.get("sessionId").toString().substring(1, user.get("sessionId").toString().length() -1));//remove the quotes around the sessionId
+            loginIntent.putExtra("user", userData);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("sessionId", user.get("sessionId").toString().substring(1, user.get("sessionId").toString().length() - 1));//This gets stored so other activities can use it.(like the settingsAccount activity)
+            editor.putString("password", password);//This gets stored because there is no password field in the settings activity. It is however needed for the updateUser call.
+            editor.commit();
+            startActivity(loginIntent);
+        }
     }
 }
+

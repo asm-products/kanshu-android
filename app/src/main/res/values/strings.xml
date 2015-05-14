@@ -109,4 +109,6 @@
     <string name="dialog_send_feedback_option_2">Spread the Love on Twitter</string>
     <string name="dialog_send_feedback_option_3">I Have a Suggestion</string>
 
+    <string name="preference_file_key">com.kanshu.kanshu.PREFERENCE_FILE_KEY</string>
+
 </resources>
